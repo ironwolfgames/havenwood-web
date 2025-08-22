@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { AuthProvider } from '@/contexts/AuthContext'
+import Navigation from './navigation'
 
 export const metadata: Metadata = {
   title: 'Havenwood Kingdoms',
@@ -14,32 +16,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-900">
-        <div className="min-h-screen">
-          <header className="bg-green-800 text-white shadow-sm">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center py-6">
-                <h1 className="text-2xl font-bold">Havenwood Kingdoms</h1>
-                <nav className="flex gap-4">
-                  <a
-                    href="/test-supabase"
-                    className="text-green-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Test Supabase
-                  </a>
-                  <a
-                    href="/faction-dashboards"
-                    className="text-green-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Faction Dashboards
-                  </a>
-                </nav>
-              </div>
-            </div>
-          </header>
-          <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            {children}
-          </main>
-        </div>
+        <AuthProvider>
+          <div className="min-h-screen">
+            <Navigation />
+            <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+              {children}
+            </main>
+          </div>
+        </AuthProvider>
       </body>
     </html>
   )
