@@ -51,7 +51,11 @@ import {
   allValidationsPass,
   getValidationSummary
 } from '@/lib/game/validation'
-import { actionOperations, turnResultOperations, resourceOperations } from '@/lib/database-operations'
+import {
+  serverActionOperations,
+  serverTurnResultOperations,
+  serverResourceOperations
+} from '@/lib/database-operations'
 
 /**
  * Action processing order as defined in the issue
@@ -76,10 +80,10 @@ export async function checkTurnReadiness(
 ): Promise<TurnStatus> {
   try {
     // Get all session players
-    const sessionPlayers = await actionOperations.getSessionPlayers(sessionId)
+    const sessionPlayers = await serverActionOperations.getSessionPlayers(sessionId)
     
     // Get all submitted actions for this turn
-    const submittedActions = await actionOperations.getBySessionAndTurn(sessionId, turnNumber)
+    const submittedActions = await serverActionOperations.getBySessionAndTurn(sessionId, turnNumber)
     
     // Find unique players who have submitted actions
     const playersWithActions = new Set(submittedActions.map(action => action.player_id))
@@ -162,10 +166,10 @@ export async function resolveTurn(
 
     // 2. Get all necessary data
     const [actions, currentResources, factions, sessionPlayers] = await Promise.all([
-      actionOperations.getBySessionAndTurn(sessionId, turnNumber),
-      resourceOperations.getBySessionAndTurn(sessionId, turnNumber),
-      actionOperations.getFactions(), // Assuming this method exists
-      actionOperations.getSessionPlayers(sessionId)
+      serverActionOperations.getBySessionAndTurn(sessionId, turnNumber),
+      serverResourceOperations.getBySessionAndTurn(sessionId, turnNumber),
+      serverActionOperations.getFactions(),
+      serverActionOperations.getSessionPlayers(sessionId)
     ])
 
     resolutionState.totalActions = actions.length
@@ -256,12 +260,12 @@ export async function resolveTurn(
     await applyGlobalEffects(sessionId, turnNumber, result, currentResources)
 
     // 6. Calculate final resource state
-    const finalResources = await resourceOperations.getBySessionAndTurn(sessionId, turnNumber)
+    const finalResources = await serverResourceOperations.getBySessionAndTurn(sessionId, turnNumber)
     result.finalResourceState = buildResourceStateMap(finalResources, factions)
 
     // 7. Mark actions as resolved
     const actionUpdatePromises = gameActions.map(action =>
-      actionOperations.update(action.id, { status: 'resolved' })
+      serverActionOperations.update(action.id, { status: 'resolved' })
     )
     await Promise.all(actionUpdatePromises)
 
@@ -282,7 +286,7 @@ export async function resolveTurn(
       }
     }
 
-    const turnResult = await turnResultOperations.create(turnResultData)
+    const turnResult = await serverTurnResultOperations.create(turnResultData)
     result.turnResultId = turnResult.id
 
     // 9. Complete resolution
