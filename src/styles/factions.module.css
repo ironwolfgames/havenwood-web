@@ -1,0 +1,677 @@
+/**
+ * Faction Dashboard Styling
+ * 
+ * Theme-specific styles for each faction dashboard
+ * with responsive design and visual cohesion.
+ */
+
+/* ===== FACTION THEME COLORS ===== */
+.theme-moles {
+  --primary-color: #22c55e;      /* Green */
+  --secondary-color: #84cc16;    /* Light green */
+  --accent-color: #eab308;       /* Yellow */
+  --background: #f0fdf4;         /* Very light green */
+  --text-primary: #166534;       /* Dark green */
+  --text-secondary: #374151;     /* Dark gray */
+}
+
+.theme-badgers {
+  --primary-color: #3b82f6;      /* Blue */
+  --secondary-color: #64748b;    /* Slate */
+  --accent-color: #f59e0b;       /* Amber */
+  --background: #f8fafc;         /* Very light slate */
+  --text-primary: #1e3a8a;       /* Dark blue */
+  --text-secondary: #374151;     /* Dark gray */
+}
+
+.theme-scholars {
+  --primary-color: #a855f7;      /* Purple */
+  --secondary-color: #ec4899;    /* Pink */
+  --accent-color: #06b6d4;       /* Cyan */
+  --background: #faf5ff;         /* Very light purple */
+  --text-primary: #6b21a8;       /* Dark purple */
+  --text-secondary: #374151;     /* Dark gray */
+}
+
+.theme-otters {
+  --primary-color: #06b6d4;      /* Cyan */
+  --secondary-color: #f97316;    /* Orange */
+  --accent-color: #eab308;       /* Yellow */
+  --background: #f0fdfa;         /* Very light cyan */
+  --text-primary: #155e75;       /* Dark cyan */
+  --text-secondary: #374151;     /* Dark gray */
+}
+
+/* ===== MAIN DASHBOARD LAYOUT ===== */
+.faction-dashboard {
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.dashboard-header {
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.faction-title h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.faction-title p {
+  margin: 0.5rem 0 0 0;
+  opacity: 0.9;
+}
+
+.game-info {
+  text-align: right;
+}
+
+.turn-info {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.dashboard-content {
+  padding: 2rem;
+}
+
+/* ===== DASHBOARD GRID ===== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px 350px;
+  grid-template-rows: auto auto;
+  grid-gap: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.dashboard-section {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--primary-color);
+  border-opacity: 0.2;
+}
+
+.dashboard-section.primary {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.dashboard-section.secondary {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.dashboard-section.tertiary {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.dashboard-section.actions {
+  grid-column: 2 / 4;
+  grid-row: 2;
+}
+
+.dashboard-section.full-width {
+  grid-column: 1 / 4;
+}
+
+/* ===== RESOURCE PANEL ===== */
+.resource-panel h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.resource-item {
+  background: var(--background);
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.resource-item:hover {
+  border-opacity: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.resource-item.resource-warning {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.resource-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.resource-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.resource-name {
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.resource-quantity {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.resource-amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.resource-delta {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+.resource-delta.positive {
+  color: #16a34a;
+  background-color: #dcfce7;
+}
+
+.resource-delta.negative {
+  color: #dc2626;
+  background-color: #fee2e2;
+}
+
+/* ===== ACTION SELECTION ===== */
+.action-selection h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.action-item {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-item:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.action-item.selected {
+  border-color: var(--primary-color);
+  background: var(--background);
+}
+
+.action-item.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.action-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.action-icon {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.action-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.action-description {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.action-costs {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.action-disabled-reason {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #fef2f2;
+  border-radius: 0.25rem;
+}
+
+/* ===== FACTION STATUS CARD ===== */
+.faction-status-card {
+  background: linear-gradient(135deg, var(--background), white);
+  border: 2px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.faction-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--primary-color);
+  border-opacity: 0.2;
+}
+
+.faction-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.faction-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.faction-type {
+  color: var(--text-secondary);
+  margin: 0.25rem 0 0 0;
+  text-transform: capitalize;
+}
+
+.faction-metrics {
+  margin-bottom: 1.5rem;
+}
+
+.metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.metric-item:last-child {
+  border-bottom: none;
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+}
+
+.metric-icon {
+  margin-right: 0.5rem;
+}
+
+.metric-value {
+  font-weight: 600;
+}
+
+.special-abilities {
+  background: var(--background);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.abilities-title {
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.abilities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ability-item {
+  padding: 0.25rem 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* ===== FACTION-SPECIFIC COMPONENTS ===== */
+
+/* Production Rates (Moles) */
+.production-rates {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-top: 2rem;
+}
+
+.production-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.production-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.production-icon {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.production-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.production-resource {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.production-rate {
+  color: #16a34a;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Defense Status (Badgers) */
+.defense-status {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.defense-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.defense-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.defense-icon {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.defense-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.defense-name {
+  font-weight: 600;
+}
+
+.defense-value.level-3 {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Research Tree (Scholars) */
+.research-tree {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.research-branches {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.research-branch {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.research-branch.locked {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.research-icon {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.research-info {
+  flex-grow: 1;
+}
+
+.research-name {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.research-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-bar {
+  flex-grow: 1;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 3rem;
+}
+
+/* Construction Queue (Otters) */
+.construction-queue {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.project-icon {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  margin-top: 0.25rem;
+}
+
+.project-info {
+  flex-grow: 1;
+}
+
+.project-name {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.project-details {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1400px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 350px;
+    grid-template-rows: auto auto auto;
+  }
+  
+  .dashboard-section.primary {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .dashboard-section.secondary {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+  
+  .dashboard-section.tertiary {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .dashboard-section.actions {
+    grid-column: 1 / 3;
+    grid-row: 3;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  
+  .dashboard-section {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .dashboard-content {
+    padding: 1rem;
+  }
+  
+  .resource-grid,
+  .action-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .faction-title h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-center {
+  text-align: center;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
