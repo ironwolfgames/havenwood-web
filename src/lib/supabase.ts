@@ -175,6 +175,116 @@ export interface Database {
           joined_at?: string
         }
       }
+      resources: {
+        Row: {
+          id: string
+          session_id: string
+          faction_id: string
+          resource_type: 'food' | 'timber' | 'fiber' | 'protection_tokens' | 'stability_tokens' | 'magic_crystals' | 'insight_tokens' | 'infrastructure_tokens' | 'project_progress'
+          quantity: number
+          turn_number: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          session_id: string
+          faction_id: string
+          resource_type: 'food' | 'timber' | 'fiber' | 'protection_tokens' | 'stability_tokens' | 'magic_crystals' | 'insight_tokens' | 'infrastructure_tokens' | 'project_progress'
+          quantity?: number
+          turn_number: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          session_id?: string
+          faction_id?: string
+          resource_type?: 'food' | 'timber' | 'fiber' | 'protection_tokens' | 'stability_tokens' | 'magic_crystals' | 'insight_tokens' | 'infrastructure_tokens' | 'project_progress'
+          quantity?: number
+          turn_number?: number
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      actions: {
+        Row: {
+          id: string
+          session_id: string
+          player_id: string
+          turn_number: number
+          action_type: 'gather' | 'build' | 'research' | 'protect' | 'trade' | 'special'
+          action_data: any
+          status: 'submitted' | 'resolved'
+          submitted_at: string
+        }
+        Insert: {
+          id?: string
+          session_id: string
+          player_id: string
+          turn_number: number
+          action_type: 'gather' | 'build' | 'research' | 'protect' | 'trade' | 'special'
+          action_data?: any
+          status?: 'submitted' | 'resolved'
+          submitted_at?: string
+        }
+        Update: {
+          id?: string
+          session_id?: string
+          player_id?: string
+          turn_number?: number
+          action_type?: 'gather' | 'build' | 'research' | 'protect' | 'trade' | 'special'
+          action_data?: any
+          status?: 'submitted' | 'resolved'
+          submitted_at?: string
+        }
+      }
+      turn_results: {
+        Row: {
+          id: string
+          session_id: string
+          turn_number: number
+          results_data: any
+          resolved_at: string
+        }
+        Insert: {
+          id?: string
+          session_id: string
+          turn_number: number
+          results_data?: any
+          resolved_at?: string
+        }
+        Update: {
+          id?: string
+          session_id?: string
+          turn_number?: number
+          results_data?: any
+          resolved_at?: string
+        }
+      }
+      shared_projects: {
+        Row: {
+          id: string
+          name: string
+          description: string
+          stages: any
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          description: string
+          stages: any
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          description?: string
+          stages?: any
+          created_at?: string
+        }
+      }
     }
     Views: {
       [_ in never]: never
@@ -187,6 +297,41 @@ export interface Database {
     }
   }
 }
+
+/**
+ * Type aliases for database tables
+ */
+export type Player = Database['public']['Tables']['players']['Row']
+export type PlayerInsert = Database['public']['Tables']['players']['Insert']
+export type PlayerUpdate = Database['public']['Tables']['players']['Update']
+
+export type Faction = Database['public']['Tables']['factions']['Row']
+export type FactionInsert = Database['public']['Tables']['factions']['Insert']
+export type FactionUpdate = Database['public']['Tables']['factions']['Update']
+
+export type GameSession = Database['public']['Tables']['game_sessions']['Row']
+export type GameSessionInsert = Database['public']['Tables']['game_sessions']['Insert']
+export type GameSessionUpdate = Database['public']['Tables']['game_sessions']['Update']
+
+export type SessionPlayer = Database['public']['Tables']['session_players']['Row']
+export type SessionPlayerInsert = Database['public']['Tables']['session_players']['Insert']
+export type SessionPlayerUpdate = Database['public']['Tables']['session_players']['Update']
+
+export type Resource = Database['public']['Tables']['resources']['Row']
+export type ResourceInsert = Database['public']['Tables']['resources']['Insert']
+export type ResourceUpdate = Database['public']['Tables']['resources']['Update']
+
+export type Action = Database['public']['Tables']['actions']['Row']
+export type ActionInsert = Database['public']['Tables']['actions']['Insert']
+export type ActionUpdate = Database['public']['Tables']['actions']['Update']
+
+export type TurnResult = Database['public']['Tables']['turn_results']['Row']
+export type TurnResultInsert = Database['public']['Tables']['turn_results']['Insert']
+export type TurnResultUpdate = Database['public']['Tables']['turn_results']['Update']
+
+export type SharedProject = Database['public']['Tables']['shared_projects']['Row']
+export type SharedProjectInsert = Database['public']['Tables']['shared_projects']['Insert']
+export type SharedProjectUpdate = Database['public']['Tables']['shared_projects']['Update']
 
 /**
  * Custom error class for Supabase operations
