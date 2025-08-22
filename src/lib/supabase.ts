@@ -74,11 +74,106 @@ export function supabaseAdmin() {
 export interface Database {
   public: {
     Tables: {
-      // Add your table definitions here as you create them
-      [key: string]: {
-        Row: Record<string, any>
-        Insert: Record<string, any>
-        Update: Record<string, any>
+      players: {
+        Row: {
+          id: string
+          user_id: string
+          username: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          username: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          username?: string
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      factions: {
+        Row: {
+          id: string
+          name: string
+          description: string
+          system_type: 'provisioner' | 'guardian' | 'mystic' | 'explorer'
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          description: string
+          system_type: 'provisioner' | 'guardian' | 'mystic' | 'explorer'
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          description?: string
+          system_type?: 'provisioner' | 'guardian' | 'mystic' | 'explorer'
+          created_at?: string
+        }
+      }
+      game_sessions: {
+        Row: {
+          id: string
+          name: string
+          status: 'waiting' | 'active' | 'completed'
+          current_turn: number
+          max_turns: number
+          shared_project_id: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          status?: 'waiting' | 'active' | 'completed'
+          current_turn?: number
+          max_turns?: number
+          shared_project_id?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          status?: 'waiting' | 'active' | 'completed'
+          current_turn?: number
+          max_turns?: number
+          shared_project_id?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      session_players: {
+        Row: {
+          id: string
+          session_id: string
+          player_id: string
+          faction_id: string
+          joined_at: string
+        }
+        Insert: {
+          id?: string
+          session_id: string
+          player_id: string
+          faction_id: string
+          joined_at?: string
+        }
+        Update: {
+          id?: string
+          session_id?: string
+          player_id?: string
+          faction_id?: string
+          joined_at?: string
+        }
       }
     }
     Views: {
