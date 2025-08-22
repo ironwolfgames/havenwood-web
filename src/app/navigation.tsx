@@ -38,6 +38,12 @@ export default function Navigation() {
               >
                 Test Supabase
               </Link>
+              <Link
+                href="/faction-dashboards"
+                className="text-green-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Faction Dashboards
+              </Link>
             </nav>
           </div>
 
