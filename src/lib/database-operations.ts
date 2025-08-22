@@ -378,6 +378,117 @@ export const actionOperations = {
 }
 
 /**
+ * Server-side Action operations (using admin client)
+ */
+export const serverActionOperations = {
+  async getBySessionAndTurn(sessionId: string, turnNumber: number): Promise<Action[]> {
+    if (typeof window !== 'undefined') {
+      throw new Error('Server operations can only be used on the server side')
+    }
+    
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('actions')
+      .select()
+      .eq('session_id', sessionId)
+      .eq('turn_number', turnNumber)
+      .order('submitted_at')
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async update(id: string, updates: ActionUpdate): Promise<Action> {
+    if (typeof window !== 'undefined') {
+      throw new Error('Server operations can only be used on the server side')
+    }
+    
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('actions')
+      .update(updates)
+      .eq('id', id)
+      .select()
+      .single()
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async getFactions(): Promise<Faction[]> {
+    if (typeof window !== 'undefined') {
+      throw new Error('Server operations can only be used on the server side')
+    }
+    
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('factions')
+      .select()
+      .order('name')
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async getSessionPlayers(sessionId: string): Promise<SessionPlayer[]> {
+    if (typeof window !== 'undefined') {
+      throw new Error('Server operations can only be used on the server side')
+    }
+    
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('session_players')
+      .select(`
+        *,
+        players(*),
+        factions(*)
+      `)
+      .eq('session_id', sessionId)
+      .order('joined_at')
+    
+    return handleSupabaseResponse(response)
+  }
+}
+
+/**
+ * Server-side Resource operations (using admin client)  
+ */
+export const serverResourceOperations = {
+  async getBySessionAndTurn(sessionId: string, turnNumber: number): Promise<Resource[]> {
+    if (typeof window !== 'undefined') {
+      throw new Error('Server operations can only be used on the server side')
+    }
+    
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('resources')
+      .select()
+      .eq('session_id', sessionId)
+      .eq('turn_number', turnNumber)
+      .order('faction_id')
+    
+    return handleSupabaseResponse(response)
+  }
+}
+
+/**
+ * Server-side Turn Result operations (using admin client)
+ */
+export const serverTurnResultOperations = {
+  async create(resultData: TurnResultInsert): Promise<TurnResult> {
+    if (typeof window !== 'undefined') {
+      throw new Error('Server operations can only be used on the server side')
+    }
+    
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('turn_results')
+      .insert(resultData)
+      .select()
+      .single()
+    
+    return handleSupabaseResponse(response)
+  }
+}
+
+/**
  * Turn Result operations
  */
 export const turnResultOperations = {
