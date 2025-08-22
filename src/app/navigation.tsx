@@ -33,6 +33,12 @@ export default function Navigation() {
             {/* Main navigation */}
             <nav className="hidden md:flex space-x-6">
               <Link
+                href="/lobby"
+                className="text-green-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Game Lobby
+              </Link>
+              <Link
                 href="/test-supabase"
                 className="text-green-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >

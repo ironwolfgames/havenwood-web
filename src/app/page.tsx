@@ -32,21 +32,25 @@ export default function HomePage() {
               <span>Ready for Supabase configuration</span>
             </div>
           </div>
-          <div className="mt-6 space-y-4">
-            <div>
-              <a
-                href="/test-supabase"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 mr-4"
-              >
-                Test Supabase Connection
-              </a>
-              <a
-                href="/test-realtime"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
-              >
-                Test Real-time Subscriptions
-              </a>
-            </div>
+          <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/lobby"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700"
+            >
+              Enter Game Lobby
+            </a>
+            <a
+              href="/test-supabase"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700"
+            >
+              Test Supabase Connection
+            </a>
+            <a
+              href="/test-realtime"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
+            >
+              Test Real-time Subscriptions
+            </a>
           </div>
         </div>
       </div>
