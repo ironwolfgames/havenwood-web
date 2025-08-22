@@ -19,7 +19,13 @@ export default function RootLayout({
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-6">
                 <h1 className="text-2xl font-bold">Havenwood Kingdoms</h1>
-                <nav>
+                <nav className="flex space-x-4">
+                  <a
+                    href="/lobby"
+                    className="text-green-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Game Lobby
+                  </a>
                   <a
                     href="/test-supabase"
                     className="text-green-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium"

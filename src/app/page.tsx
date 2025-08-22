@@ -28,10 +28,16 @@ export default function HomePage() {
               <span>Ready for Supabase configuration</span>
             </div>
           </div>
-          <div className="mt-6">
+          <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/lobby"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700"
+            >
+              Enter Game Lobby
+            </a>
             <a
               href="/test-supabase"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700"
+              className="inline-flex items-center px-6 py-3 border border-green-300 text-base font-medium rounded-md text-green-700 bg-white hover:bg-green-50"
             >
               Test Supabase Connection
             </a>
