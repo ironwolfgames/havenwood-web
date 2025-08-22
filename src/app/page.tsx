@@ -24,6 +24,10 @@ export default function HomePage() {
               <span>Environment variables template created</span>
             </div>
             <div className="flex items-center">
+              <span className="text-green-500 mr-2">✓</span>
+              <span>Real-time subscriptions implemented</span>
+            </div>
+            <div className="flex items-center">
               <span className="text-blue-500 mr-2">→</span>
               <span>Ready for Supabase configuration</span>
             </div>
@@ -37,9 +41,15 @@ export default function HomePage() {
             </a>
             <a
               href="/test-supabase"
-              className="inline-flex items-center px-6 py-3 border border-green-300 text-base font-medium rounded-md text-green-700 bg-white hover:bg-green-50"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700"
             >
               Test Supabase Connection
+            </a>
+            <a
+              href="/test-realtime"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
+            >
+              Test Real-time Subscriptions
             </a>
           </div>
         </div>
