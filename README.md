@@ -1,4 +1,4 @@
-# havenwood-web
+# Havenwood - Kingdoms
 
 Asymmetric co-op turn-based web game
 
