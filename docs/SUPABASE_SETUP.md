@@ -5,7 +5,7 @@ This document provides instructions for setting up and configuring Supabase with
 ## Prerequisites
 
 - A Supabase account (create one at [supabase.com](https://supabase.com))
-- Node.js and npm installed
+- Node.js and yarn installed
 - This Next.js project cloned and dependencies installed
 
 ## Quick Setup
@@ -29,7 +29,7 @@ This document provides instructions for setting up and configuring Supabase with
    ```
 
 4. **Test the connection**
-   - Start the development server: `npm run dev`
+   - Start the development server: `yarn dev`
    - Visit `http://localhost:3000/test-supabase`
    - Run the connection tests
 

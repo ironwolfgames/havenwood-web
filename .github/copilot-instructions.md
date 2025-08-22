@@ -7,22 +7,22 @@ Havenwood Kingdoms is an asymmetric co-op turn-based web game built with Next.js
 ## Working Effectively
 
 ### Bootstrap and Setup
-- Install dependencies: `npm install` - takes ~16 seconds. NEVER CANCEL.
+- Install dependencies: `yarn install` - takes ~52 seconds. NEVER CANCEL.
 - Copy environment template: `cp .env.example .env.local`
 - Configure Supabase credentials in `.env.local` (see docs/SUPABASE_SETUP.md)
-- Start development server: `npm run dev` - takes ~1.5 seconds startup
+- Start development server: `yarn dev` - takes ~1.5 seconds startup
 - Access application at: http://localhost:3000
 
 ### Build and Test Commands
-- **Build production**: `npm run build` - takes ~6 seconds. NEVER CANCEL. Set timeout to 60+ minutes for safety.
-- **Lint code**: `npm run lint` - takes ~5 seconds. NEVER CANCEL. Set timeout to 30+ minutes.
+- **Build production**: `yarn build` - takes ~6 seconds. NEVER CANCEL. Set timeout to 60+ minutes for safety.
+- **Lint code**: `yarn lint` - takes ~5 seconds. NEVER CANCEL. Set timeout to 30+ minutes.
   - **NOTE**: Shows deprecation warning about `next lint` - this is expected and normal.
-- **Start production**: `npm run start` - requires `npm run build` first
+- **Start production**: `yarn start` - requires `yarn build` first
 - **No test framework** is currently configured - do not attempt to run tests until implemented.
 
 ### Development Workflow
-- **Always build and lint** before committing changes: `npm run build && npm run lint`
-- **Always test locally** with `npm run dev` after making changes
+- **Always build and lint** before committing changes: `yarn build && yarn lint`
+- **Always test locally** with `yarn dev` after making changes
 - **Application works without Supabase** configuration - shows setup instructions gracefully
 - **Test Supabase connectivity** at http://localhost:3000/test-supabase
 
@@ -32,7 +32,7 @@ Havenwood Kingdoms is an asymmetric co-op turn-based web game built with Next.js
 After making any changes, ALWAYS validate by running these complete scenarios:
 
 1. **Basic Application Flow**:
-   - Start dev server: `npm run dev`
+   - Start dev server: `yarn dev`
    - Visit http://localhost:3000 - verify home page loads
    - Click "Test Supabase Connection" - verify test page loads
    - Take screenshot to document working state
@@ -44,8 +44,8 @@ After making any changes, ALWAYS validate by running these complete scenarios:
    - Check API endpoint: http://localhost:3000/api/test-supabase
 
 3. **Build Validation**:
-   - Run full build: `npm run build` - NEVER CANCEL, wait for completion
-   - Start production server: `npm run start`
+   - Run full build: `yarn build` - NEVER CANCEL, wait for completion
+   - Start production server: `yarn start`
    - Verify production build works correctly
 
 ## Codebase Navigation
@@ -80,15 +80,15 @@ After making any changes, ALWAYS validate by running these complete scenarios:
 ## Build Timing and Timeouts
 
 ### CRITICAL Timeout Settings
-- `npm install`: Set timeout to 180+ seconds (currently ~16s)
-- `npm run build`: Set timeout to 60+ minutes (currently ~6s) 
-- `npm run lint`: Set timeout to 30+ minutes (currently ~5s)
-- `npm run dev`: Set timeout to 30+ seconds (currently ~1.5s)
+- `yarn install`: Set timeout to 180+ seconds (currently ~52s)
+- `yarn build`: Set timeout to 60+ minutes (currently ~6s) 
+- `yarn lint`: Set timeout to 30+ minutes (currently ~5s)
+- `yarn dev`: Set timeout to 30+ seconds (currently ~1.5s)
 
 ### NEVER CANCEL Commands
 - **NEVER CANCEL** any build command - builds may vary in time based on system load
 - **NEVER CANCEL** lint operations - wait for completion
-- **NEVER CANCEL** npm install - dependency resolution can be slow
+- **NEVER CANCEL** yarn install - dependency resolution can be slow
 
 ## Environment Configuration
 
@@ -103,7 +103,7 @@ The application works without Supabase configuration but shows setup instruction
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
    SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
    ```
-4. Restart dev server: `npm run dev`
+4. Restart dev server: `yarn dev`
 
 ### Environment Variable Validation
 - Check environment status at http://localhost:3000/test-supabase
@@ -134,7 +134,7 @@ The application works without Supabase configuration but shows setup instruction
 
 ### Common Issues
 - **"Missing env" errors**: Check `.env.local` file exists and has correct variables
-- **Build failures**: Ensure all dependencies installed with `npm install`
+- **Build failures**: Ensure all dependencies installed with `yarn install`
 - **Supabase connection issues**: Verify project is active and not paused
 - **Lint deprecation warnings**: Expected behavior, does not affect functionality
 
