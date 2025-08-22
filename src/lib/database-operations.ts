@@ -374,6 +374,29 @@ export const actionOperations = {
       .single()
     
     return handleSupabaseResponse(response)
+  },
+
+  async getFactions(): Promise<Faction[]> {
+    const response = await supabase
+      .from('factions')
+      .select()
+      .order('name')
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async getSessionPlayers(sessionId: string): Promise<SessionPlayer[]> {
+    const response = await supabase
+      .from('session_players')
+      .select(`
+        *,
+        players(*),
+        factions(*)
+      `)
+      .eq('session_id', sessionId)
+      .order('joined_at')
+    
+    return handleSupabaseResponse(response)
   }
 }
 
