@@ -312,6 +312,44 @@ export interface Database {
           created_at?: string
         }
       }
+      project_progress: {
+        Row: {
+          id: string
+          session_id: string
+          project_id: string
+          current_stage: number
+          stage_contributions: any
+          completed_stages: any
+          is_completed: boolean
+          completed_at: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          session_id: string
+          project_id: string
+          current_stage?: number
+          stage_contributions?: any
+          completed_stages?: any
+          is_completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          session_id?: string
+          project_id?: string
+          current_stage?: number
+          stage_contributions?: any
+          completed_stages?: any
+          is_completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
     }
     Views: {
       [_ in never]: never
@@ -359,6 +397,10 @@ export type TurnResultUpdate = Database['public']['Tables']['turn_results']['Upd
 export type SharedProject = Database['public']['Tables']['shared_projects']['Row']
 export type SharedProjectInsert = Database['public']['Tables']['shared_projects']['Insert']
 export type SharedProjectUpdate = Database['public']['Tables']['shared_projects']['Update']
+
+export type ProjectProgress = Database['public']['Tables']['project_progress']['Row']
+export type ProjectProgressInsert = Database['public']['Tables']['project_progress']['Insert']
+export type ProjectProgressUpdate = Database['public']['Tables']['project_progress']['Update']
 
 /**
  * Custom error class for Supabase operations
