@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { GameSession, SessionPlayer } from '@/lib/supabase'
+import { realtimeManager } from '@/lib/realtime'
 
 interface SessionWithDetails extends GameSession {
   playerCount: number
@@ -21,6 +22,7 @@ export default function SessionBrowser() {
   const [searchTerm, setSearchTerm] = useState('')
   const [filterPlayerCount, setFilterPlayerCount] = useState<number | ''>('')
   const [joining, setJoining] = useState<string | null>(null)
+  const [realtimeConnected, setRealtimeConnected] = useState(false)
 
   // Load available sessions
   useEffect(() => {
@@ -41,10 +43,39 @@ export default function SessionBrowser() {
     }
 
     loadSessions()
+
+    // Track real-time connection status
+    const unsubscribeConnectionStatus = realtimeManager.onConnectionStatusChange((status) => {
+      setRealtimeConnected(status === 'connected')
+    })
+
+    // Set up real-time subscription for session changes
+    const unsubscribeSessions = realtimeManager.subscribe(
+      'lobby-sessions',
+      { table: 'game_sessions', event: '*' },
+      (payload) => {
+        console.log('Session change detected:', payload)
+        // Reload sessions when changes occur
+        loadSessions()
+      }
+    )
+
+    // Also subscribe to session_players changes to update player counts
+    const unsubscribeSessionPlayers = realtimeManager.subscribe(
+      'lobby-session-players',
+      { table: 'session_players', event: '*' },
+      (payload) => {
+        console.log('Session players change detected:', payload)
+        // Reload sessions to get updated player counts
+        loadSessions()
+      }
+    )
     
-    // Poll for updates every 10 seconds
-    const interval = setInterval(loadSessions, 10000)
-    return () => clearInterval(interval)
+    return () => {
+      unsubscribeSessions()
+      unsubscribeSessionPlayers()
+      unsubscribeConnectionStatus()
+    }
   }, [])
 
   const handleJoinSession = async (sessionId: string) => {
@@ -106,6 +137,19 @@ export default function SessionBrowser() {
           <div className="text-red-800 text-sm">{error}</div>
         </div>
       )}
+
+      {/* Real-time Connection Status */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <div className={`w-2 h-2 rounded-full ${realtimeConnected ? 'bg-green-500' : 'bg-gray-400'}`}></div>
+          <span className="text-sm text-gray-600">
+            {realtimeConnected ? 'Live updates active' : 'Offline mode'}
+          </span>
+        </div>
+        <span className="text-xs text-gray-500">
+          {filteredSessions.length} session{filteredSessions.length !== 1 ? 's' : ''} available
+        </span>
+      </div>
 
       {/* Search and Filter Controls */}
       <div className="space-y-4">

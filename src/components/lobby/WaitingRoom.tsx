@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { GameSession, SessionPlayer, Faction, Player } from '@/lib/supabase'
+import { realtimeManager, createSessionFilter } from '@/lib/realtime'
 
 interface WaitingRoomPlayer extends SessionPlayer {
   players?: Player
@@ -41,9 +42,24 @@ export default function WaitingRoom({ sessionId, session, currentPlayerId, isCre
 
     loadPlayers()
 
-    // Poll for updates every 5 seconds
-    const interval = setInterval(loadPlayers, 5000)
-    return () => clearInterval(interval)
+    // Set up real-time subscription for session players changes
+    const unsubscribeSessionPlayers = realtimeManager.subscribe(
+      `waiting-room-${sessionId}`,
+      { 
+        table: 'session_players', 
+        event: '*', 
+        filter: createSessionFilter(sessionId)
+      },
+      (payload) => {
+        console.log('Session players change in waiting room:', payload)
+        // Reload players when changes occur
+        loadPlayers()
+      }
+    )
+
+    return () => {
+      unsubscribeSessionPlayers()
+    }
   }, [sessionId])
 
   const handleLeaveSession = async () => {
