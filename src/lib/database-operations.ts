@@ -547,6 +547,20 @@ export const turnResultOperations = {
     }
     
     return handleSupabaseResponse(response)
+  },
+
+  async getById(id: string): Promise<TurnResult | null> {
+    const response = await supabase
+      .from('turn_results')
+      .select()
+      .eq('id', id)
+      .single()
+    
+    if (response.error && response.error.code === 'PGRST116') {
+      return null
+    }
+    
+    return handleSupabaseResponse(response)
   }
 }
 
