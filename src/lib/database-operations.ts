@@ -2,6 +2,7 @@ import {
   supabase, 
   supabaseAdmin, 
   handleSupabaseResponse, 
+  SupabaseError,
   Database,
   Player,
   PlayerInsert,
@@ -374,6 +375,27 @@ export const actionOperations = {
       .single()
     
     return handleSupabaseResponse(response)
+  },
+
+  async getByPlayer(playerId: string): Promise<Action[]> {
+    const response = await supabase
+      .from('actions')
+      .select()
+      .eq('player_id', playerId)
+      .order('submitted_at', { ascending: false })
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async delete(id: string): Promise<void> {
+    const response = await supabase
+      .from('actions')
+      .delete()
+      .eq('id', id)
+    
+    if (response.error) {
+      throw new SupabaseError(response.error.message, response.error.code)
+    }
   }
 }
 
