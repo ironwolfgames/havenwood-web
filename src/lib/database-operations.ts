@@ -20,7 +20,10 @@ import {
   TurnResult,
   TurnResultInsert,
   SharedProject,
-  SharedProjectInsert
+  SharedProjectInsert,
+  ProjectProgress,
+  ProjectProgressInsert,
+  ProjectProgressUpdate
 } from './supabase'
 
 /**
@@ -603,6 +606,128 @@ export const sharedProjectOperations = {
     }
     
     return handleSupabaseResponse(response)
+  }
+}
+
+/**
+ * Project Progress operations
+ */
+export const projectProgressOperations = {
+  async create(progressData: ProjectProgressInsert): Promise<ProjectProgress> {
+    const response = await supabase
+      .from('project_progress')
+      .insert(progressData)
+      .select()
+      .single()
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async getBySessionId(sessionId: string): Promise<ProjectProgress | null> {
+    const response = await supabase
+      .from('project_progress')
+      .select(`
+        *,
+        project:shared_projects(*),
+        session:game_sessions(*)
+      `)
+      .eq('session_id', sessionId)
+      .single()
+    
+    if (response.error && response.error.code === 'PGRST116') {
+      return null
+    }
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async updateProgress(sessionId: string, updates: ProjectProgressUpdate): Promise<ProjectProgress> {
+    const response = await supabase
+      .from('project_progress')
+      .update(updates)
+      .eq('session_id', sessionId)
+      .select()
+      .single()
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async contribute(sessionId: string, resourceType: string, amount: number): Promise<ProjectProgress> {
+    // First get current progress
+    const currentProgress = await this.getBySessionId(sessionId)
+    if (!currentProgress) {
+      throw new Error('No project progress found for session')
+    }
+
+    // Update stage contributions
+    const contributions = currentProgress.stage_contributions as Record<string, number> || {}
+    contributions[resourceType] = (contributions[resourceType] || 0) + amount
+
+    const response = await supabase
+      .from('project_progress')
+      .update({ 
+        stage_contributions: contributions,
+        updated_at: new Date().toISOString()
+      })
+      .eq('session_id', sessionId)
+      .select()
+      .single()
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async advanceStage(sessionId: string): Promise<ProjectProgress> {
+    const currentProgress = await this.getBySessionId(sessionId)
+    if (!currentProgress) {
+      throw new Error('No project progress found for session')
+    }
+
+    const completedStages = (currentProgress.completed_stages as any[]) || []
+    const newCompletedStage = {
+      stage: currentProgress.current_stage,
+      completedAt: new Date().toISOString(),
+      contributions: currentProgress.stage_contributions
+    }
+    
+    completedStages.push(newCompletedStage)
+
+    const response = await supabase
+      .from('project_progress')
+      .update({
+        current_stage: currentProgress.current_stage + 1,
+        stage_contributions: {},
+        completed_stages: completedStages,
+        updated_at: new Date().toISOString()
+      })
+      .eq('session_id', sessionId)
+      .select()
+      .single()
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async completeProject(sessionId: string): Promise<ProjectProgress> {
+    const response = await supabase
+      .from('project_progress')
+      .update({
+        is_completed: true,
+        completed_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      })
+      .eq('session_id', sessionId)
+      .select()
+      .single()
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async delete(sessionId: string): Promise<void> {
+    const response = await supabase
+      .from('project_progress')
+      .delete()
+      .eq('session_id', sessionId)
+    
+    handleSupabaseResponse(response)
   }
 }
 
