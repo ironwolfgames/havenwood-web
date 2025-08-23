@@ -65,6 +65,13 @@ export default function SessionBrowser() {
         throw new Error(errorData.message || 'Failed to join session')
       }
 
+      const result = await response.json()
+      
+      // Store the player ID in sessionStorage for the session page to use
+      if (result.playerId) {
+        sessionStorage.setItem('currentPlayerId', result.playerId)
+      }
+
       // Redirect to session page
       window.location.href = `/session/${sessionId}`
     } catch (err) {

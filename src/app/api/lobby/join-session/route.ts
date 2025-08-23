@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { gameSessionOperations, sessionPlayerOperations } from '@/lib/database-operations'
+import { gameSessionOperations, sessionPlayerOperations, playerOperations } from '@/lib/database-operations'
 import { getCurrentUser } from '@/lib/supabase'
 
 export async function POST(request: NextRequest) {
   try {
-    const { sessionId } = await request.json()
+    const { sessionId, playerId, factionId } = await request.json()
 
     if (!sessionId) {
       return NextResponse.json(
@@ -29,16 +29,60 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // TODO: Once authentication is implemented:
-    // 1. Get current user and their player profile
-    // 2. Check if they're already in the session
-    // 3. Check if session is full
-    // 4. Add player to session
+    // For demo purposes, create a mock player if playerId not provided
+    // In a real app, this would come from authenticated user session
+    let playerIdToUse = playerId
+    if (!playerIdToUse) {
+      // Create a temporary player for demo purposes
+      const mockPlayer = await playerOperations.create({
+        user_id: 'temp-' + Date.now(), // temporary user ID
+        username: 'Player_' + Math.random().toString(36).substr(2, 6)
+      })
+      playerIdToUse = mockPlayer.id
+    }
 
-    // For now, return success (this will be implemented with full auth)
-    return NextResponse.json({ 
-      message: 'Join session functionality requires authentication system',
-      sessionId 
+    // Check if player is already in this session
+    const existingParticipation = await sessionPlayerOperations.getPlayerSession(playerIdToUse, sessionId)
+    if (existingParticipation) {
+      return NextResponse.json(
+        { message: 'Player is already in this session' },
+        { status: 400 }
+      )
+    }
+
+    // Get current session players to check capacity
+    const sessionPlayers = await sessionPlayerOperations.getSessionPlayers(sessionId)
+    const maxPlayers = session.max_players || 4
+    
+    if (sessionPlayers.length >= maxPlayers) {
+      return NextResponse.json(
+        { message: 'Session is full' },
+        { status: 400 }
+      )
+    }
+
+    // If factionId provided, check if it's already taken
+    if (factionId) {
+      const factionTaken = sessionPlayers.some(player => player.faction_id === factionId)
+      if (factionTaken) {
+        return NextResponse.json(
+          { message: 'Faction is already taken by another player' },
+          { status: 400 }
+        )
+      }
+    }
+
+    // Add player to session
+    const sessionPlayer = await sessionPlayerOperations.joinSession({
+      session_id: sessionId,
+      player_id: playerIdToUse,
+      faction_id: factionId || null
+    })
+
+    return NextResponse.json({
+      message: 'Successfully joined session',
+      sessionPlayer,
+      playerId: playerIdToUse
     })
   } catch (error) {
     console.error('Error joining session:', error)
