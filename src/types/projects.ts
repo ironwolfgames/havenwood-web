@@ -11,7 +11,7 @@ export interface ProjectStage {
   stage: number
   name: string
   description: string
-  requirements: Record<ResourceType | 'project_progress', number>
+  requirements: Partial<Record<ResourceType, number>> & Record<string, number>
 }
 
 /**
