@@ -56,6 +56,9 @@ import {
   serverTurnResultOperations,
   serverResourceOperations
 } from '@/lib/database-operations'
+import {
+  evaluateGameConditions
+} from '@/lib/game/conditions'
 
 /**
  * Action processing order as defined in the issue
@@ -289,7 +292,12 @@ export async function resolveTurn(
     const turnResult = await serverTurnResultOperations.create(turnResultData)
     result.turnResultId = turnResult.id
 
-    // 9. Complete resolution
+    // 9. Check victory/defeat conditions after turn resolution
+    // TODO: Integrate full condition checking here
+    // This would require fetching project progress, faction goals, and session data
+    // For now, conditions should be checked manually via the check-conditions API
+    
+    // 10. Complete resolution
     resolutionState.phase = 'complete'
     resolutionState.completedAt = new Date()
     result.success = resolutionState.failedActions === 0 || options.allowPartialFailure === true
