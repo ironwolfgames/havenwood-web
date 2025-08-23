@@ -643,7 +643,948 @@
   }
 }
 
-/* ===== UTILITY CLASSES ===== */
+/* ===== SPECIALIZED COMPONENT STYLES ===== */
+
+/* Infrastructure Network (Otters) */
+.infrastructure-network {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.network-status {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.network-overview {
+  display: flex;
+  gap: 2rem;
+}
+
+.network-metric {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+  flex: 1;
+}
+
+.metric-icon {
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
+}
+
+.metric-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.metric-value {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.connections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.connection-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.2;
+}
+
+.connection-route {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.connection-status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.connection-status.connected {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.connection-status.in-progress {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.connection-efficiency {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 0.875rem;
+}
+
+/* Quick Build (Otters) */
+.quick-build {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.build-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.build-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.build-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.build-btn.infrastructure {
+  background: var(--primary-color);
+}
+
+.build-btn.transport {
+  background: var(--secondary-color);
+}
+
+.build-btn.project {
+  background: var(--accent-color);
+}
+
+/* Emergency Response (Badgers) */
+.emergency-response {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.response-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.response-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.response-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.response-btn.patrol {
+  background: var(--primary-color);
+}
+
+.response-btn.fortify {
+  background: var(--secondary-color);
+}
+
+.response-btn.emergency {
+  background: #ef4444;
+}
+
+/* Protection Pool (Badgers) */
+.protection-pool {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.pool-status {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pool-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.pool-icon {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.pool-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.pool-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.pool-amount {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.pool-contribution {
+  font-size: 0.75rem;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.pool-effects {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.2;
+}
+
+/* Event Forecasting (Scholars) */
+.event-forecasting {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.predictions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.prediction-item {
+  display: flex;
+  align-items: flex-start;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.prediction-icon {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  margin-top: 0.25rem;
+}
+
+.prediction-info {
+  flex-grow: 1;
+}
+
+.prediction-name {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.prediction-details {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+}
+
+.probability {
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+
+.probability.low {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.probability.medium {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.probability.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.timing {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.severity {
+  color: var(--text-secondary);
+}
+
+/* Magical Buffs (Scholars) */
+.magical-buffs {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.buffs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.buff-item {
+  display: flex;
+  align-items: flex-start;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.buff-icon {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  margin-top: 0.25rem;
+}
+
+.buff-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.buff-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.buff-effect {
+  color: #16a34a;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.buff-duration {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.cast-enchantment {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.cast-enchantment:hover {
+  background: var(--secondary-color);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Magical Energy (Scholars) */
+.magical-energy {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.energy-status {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.energy-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.energy-icon {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.energy-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.energy-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.energy-amount {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.energy-bar {
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.energy-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.energy-fill.crystal {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.energy-fill.insight {
+  background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+}
+
+/* Resource Distribution (Moles) */
+.resource-distribution {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.distribution-flows {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flow-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.flow-resource {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.flow-amount {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Transfer Interface (Moles) */
+.transfer-interface {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.transfer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.transfer-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.transfer-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.transfer-btn.badgers {
+  background: #3b82f6;
+}
+
+.transfer-btn.badgers:hover {
+  background: #2563eb;
+}
+
+.transfer-btn.scholars {
+  background: #a855f7;
+}
+
+.transfer-btn.scholars:hover {
+  background: #9333ea;
+}
+
+.transfer-btn.otters {
+  background: #06b6d4;
+}
+
+.transfer-btn.otters:hover {
+  background: #0891b2;
+}
+
+/* Stability Boost (Badgers) */
+.stability-boost {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.boost-effects {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.boost-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.boost-target {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.boost-value {
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* Project Contribution (Otters) */
+.project-contribution {
+  background: var(--background);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.contribution-overview {
+  margin-bottom: 1.5rem;
+}
+
+.total-contribution {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.contribution-icon {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.contribution-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contribution-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.contribution-value {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.projects-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.shared-project-item {
+  display: flex;
+  align-items: flex-start;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-opacity: 0.3;
+}
+
+.shared-project-icon {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  margin-top: 0.25rem;
+}
+
+.shared-project-info {
+  flex-grow: 1;
+}
+
+.shared-project-name {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.shared-project-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar.shared {
+  flex-grow: 1;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill.shared-project {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transition: width 0.3s ease;
+}
+
+.progress-fill.construction {
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.personal-contribution {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+/* ===== INTERACTIVE STATES ===== */
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Button feedback states */
+.btn-feedback {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-feedback::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-feedback.clicked::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Hover animations for interactive elements */
+.interactive-hover {
+  transition: all 0.3s ease;
+}
+
+.interactive-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Resource counter animations */
+.resource-counter {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resource-counter.updated {
+  transform: scale(1.1);
+  color: var(--accent-color);
+}
+
+/* Progress bar animations */
+.progress-animated {
+  animation: progress-fill 2s ease-out;
+}
+
+@keyframes progress-fill {
+  0% {
+    width: 0%;
+  }
+}
+
+/* Notification styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 400px;
+  min-width: 300px;
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification.success {
+  background: #16a34a;
+}
+
+.notification.error {
+  background: #dc2626;
+}
+
+.notification.warning {
+  background: #d97706;
+}
+
+.notification.info {
+  background: #3b82f6;
+}
+
+.notification-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.notification-message {
+  flex-grow: 1;
+  font-weight: 500;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.notification-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Connection status indicators */
+.connection-indicator {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.connection-indicator.connected {
+  background: #16a34a;
+  animation: pulse-green 2s infinite;
+}
+
+.connection-indicator.connecting {
+  background: #d97706;
+  animation: pulse-orange 2s infinite;
+}
+
+.connection-indicator.disconnected {
+  background: #dc2626;
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-orange {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Turn timer animations */
+.turn-timer {
+  position: relative;
+}
+
+.turn-timer.urgent {
+  animation: pulse-urgent 1s infinite;
+}
+
+@keyframes pulse-urgent {
+  0%, 100% {
+    background-color: #dc2626;
+  }
+  50% {
+    background-color: #ef4444;
+  }
+}
+
+/* Resource flow animations */
+.resource-flow {
+  position: relative;
+  overflow: hidden;
+}
+
+.resource-flow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: flow 3s infinite;
+}
+
+@keyframes flow {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
 .text-center {
   text-align: center;
 }
