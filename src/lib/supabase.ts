@@ -124,30 +124,54 @@ export interface Database {
         Row: {
           id: string
           name: string
+          description: string | null
           status: 'waiting' | 'active' | 'completed'
           current_turn: number
           max_turns: number
+          max_players: number
+          current_players: number
+          creator_id: string | null
           shared_project_id: string | null
+          turn_timer_minutes: number | null
+          configuration: any
+          started_at: string | null
+          completed_at: string | null
           created_at: string
           updated_at: string
         }
         Insert: {
           id?: string
           name: string
+          description?: string | null
           status?: 'waiting' | 'active' | 'completed'
           current_turn?: number
           max_turns?: number
+          max_players?: number
+          current_players?: number
+          creator_id?: string | null
           shared_project_id?: string | null
+          turn_timer_minutes?: number | null
+          configuration?: any
+          started_at?: string | null
+          completed_at?: string | null
           created_at?: string
           updated_at?: string
         }
         Update: {
           id?: string
           name?: string
+          description?: string | null
           status?: 'waiting' | 'active' | 'completed'
           current_turn?: number
           max_turns?: number
+          max_players?: number
+          current_players?: number
+          creator_id?: string | null
           shared_project_id?: string | null
+          turn_timer_minutes?: number | null
+          configuration?: any
+          started_at?: string | null
+          completed_at?: string | null
           created_at?: string
           updated_at?: string
         }
@@ -157,21 +181,24 @@ export interface Database {
           id: string
           session_id: string
           player_id: string
-          faction_id: string
+          faction_id: string | null
+          is_ready: boolean
           joined_at: string
         }
         Insert: {
           id?: string
           session_id: string
           player_id: string
-          faction_id: string
+          faction_id?: string | null
+          is_ready?: boolean
           joined_at?: string
         }
         Update: {
           id?: string
           session_id?: string
           player_id?: string
-          faction_id?: string
+          faction_id?: string | null
+          is_ready?: boolean
           joined_at?: string
         }
       }

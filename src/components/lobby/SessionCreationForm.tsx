@@ -7,10 +7,12 @@ interface SessionCreationFormProps {}
 
 export default function SessionCreationForm({}: SessionCreationFormProps) {
   const [sessionName, setSessionName] = useState('')
+  const [sessionDescription, setSessionDescription] = useState('')
   const [playerLimit, setPlayerLimit] = useState(4)
   const [sharedProjectId, setSharedProjectId] = useState('')
   const [privacy, setPrivacy] = useState<'public' | 'private' | 'friends'>('public')
   const [difficulty, setDifficulty] = useState<'easy' | 'normal' | 'hard'>('normal')
+  const [turnTimer, setTurnTimer] = useState<number | ''>('')
   const [sharedProjects, setSharedProjects] = useState<SharedProject[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -61,10 +63,12 @@ export default function SessionCreationForm({}: SessionCreationFormProps) {
         },
         body: JSON.stringify({
           name: sessionName.trim(),
+          description: sessionDescription.trim() || null,
           playerLimit,
           sharedProjectId,
           privacy,
-          difficulty
+          difficulty,
+          turnTimer: turnTimer || null
         }),
       })
 
@@ -74,6 +78,12 @@ export default function SessionCreationForm({}: SessionCreationFormProps) {
       }
 
       const session = await response.json()
+      
+      // Store the creator player ID for the session page
+      if (session.creatorPlayerId) {
+        sessionStorage.setItem('currentPlayerId', session.creatorPlayerId)
+      }
+      
       // Redirect to session page
       window.location.href = `/session/${session.id}`
     } catch (err) {
@@ -106,6 +116,23 @@ export default function SessionCreationForm({}: SessionCreationFormProps) {
           placeholder="Enter session name..."
           required
         />
+      </div>
+
+      {/* Session Description */}
+      <div>
+        <label htmlFor="sessionDescription" className="block text-sm font-medium text-gray-700 mb-2">
+          Description (Optional)
+        </label>
+        <textarea
+          id="sessionDescription"
+          value={sessionDescription}
+          onChange={(e) => setSessionDescription(e.target.value)}
+          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+          placeholder="Describe your session..."
+          rows={2}
+          maxLength={500}
+        />
+        <p className="mt-1 text-sm text-gray-500">{sessionDescription.length}/500 characters</p>
       </div>
 
       {/* Player Limit */}
@@ -149,6 +176,28 @@ export default function SessionCreationForm({}: SessionCreationFormProps) {
             {sharedProjects.find(p => p.id === sharedProjectId)?.description}
           </p>
         )}
+      </div>
+
+      {/* Turn Timer */}
+      <div>
+        <label htmlFor="turnTimer" className="block text-sm font-medium text-gray-700 mb-2">
+          Turn Timer (Optional)
+        </label>
+        <select
+          id="turnTimer"
+          value={turnTimer}
+          onChange={(e) => setTurnTimer(e.target.value === '' ? '' : Number(e.target.value))}
+          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+        >
+          <option value="">No time limit</option>
+          <option value={2}>2 minutes per turn</option>
+          <option value={3}>3 minutes per turn</option>
+          <option value={5}>5 minutes per turn</option>
+          <option value={10}>10 minutes per turn</option>
+        </select>
+        <p className="mt-1 text-sm text-gray-500">
+          {turnTimer ? `Players will have ${turnTimer} minutes to submit their actions each turn.` : 'Players can take as long as needed for their turns.'}
+        </p>
       </div>
 
       {/* Difficulty */}
