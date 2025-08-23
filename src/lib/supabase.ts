@@ -350,6 +350,88 @@ export interface Database {
           updated_at?: string
         }
       }
+      game_outcomes: {
+        Row: {
+          id: string
+          session_id: string
+          outcome_type: 'victory' | 'defeat'
+          victory_type: 'project_completion' | 'mini_goals' | null
+          defeat_reason: 'famine' | 'instability' | 'destruction' | 'timeout' | null
+          final_turn: number
+          faction_goals: any
+          project_progress: any
+          survival_metrics: any
+          session_duration: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          session_id: string
+          outcome_type: 'victory' | 'defeat'
+          victory_type?: 'project_completion' | 'mini_goals' | null
+          defeat_reason?: 'famine' | 'instability' | 'destruction' | 'timeout' | null
+          final_turn: number
+          faction_goals?: any
+          project_progress?: any
+          survival_metrics?: any
+          session_duration?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          session_id?: string
+          outcome_type?: 'victory' | 'defeat'
+          victory_type?: 'project_completion' | 'mini_goals' | null
+          defeat_reason?: 'famine' | 'instability' | 'destruction' | 'timeout' | null
+          final_turn?: number
+          faction_goals?: any
+          project_progress?: any
+          survival_metrics?: any
+          session_duration?: string | null
+          created_at?: string
+        }
+      }
+      faction_goals: {
+        Row: {
+          id: string
+          session_id: string
+          player_id: string
+          faction_type: 'provisioner' | 'guardian' | 'mystic' | 'explorer'
+          goal_type: string
+          target_value: number
+          current_progress: number
+          is_completed: boolean
+          completed_turn: number | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          session_id: string
+          player_id: string
+          faction_type: 'provisioner' | 'guardian' | 'mystic' | 'explorer'
+          goal_type: string
+          target_value: number
+          current_progress?: number
+          is_completed?: boolean
+          completed_turn?: number | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          session_id?: string
+          player_id?: string
+          faction_type?: 'provisioner' | 'guardian' | 'mystic' | 'explorer'
+          goal_type?: string
+          target_value?: number
+          current_progress?: number
+          is_completed?: boolean
+          completed_turn?: number | null
+          created_at?: string
+          updated_at?: string
+        }
+      }
     }
     Views: {
       [_ in never]: never
@@ -401,6 +483,14 @@ export type SharedProjectUpdate = Database['public']['Tables']['shared_projects'
 export type ProjectProgress = Database['public']['Tables']['project_progress']['Row']
 export type ProjectProgressInsert = Database['public']['Tables']['project_progress']['Insert']
 export type ProjectProgressUpdate = Database['public']['Tables']['project_progress']['Update']
+
+export type GameOutcome = Database['public']['Tables']['game_outcomes']['Row']
+export type GameOutcomeInsert = Database['public']['Tables']['game_outcomes']['Insert']
+export type GameOutcomeUpdate = Database['public']['Tables']['game_outcomes']['Update']
+
+export type FactionGoal = Database['public']['Tables']['faction_goals']['Row']
+export type FactionGoalInsert = Database['public']['Tables']['faction_goals']['Insert']
+export type FactionGoalUpdate = Database['public']['Tables']['faction_goals']['Update']
 
 /**
  * Custom error class for Supabase operations

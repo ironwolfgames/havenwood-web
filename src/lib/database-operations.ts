@@ -23,7 +23,12 @@ import {
   SharedProjectInsert,
   ProjectProgress,
   ProjectProgressInsert,
-  ProjectProgressUpdate
+  ProjectProgressUpdate,
+  GameOutcome,
+  GameOutcomeInsert,
+  FactionGoal,
+  FactionGoalInsert,
+  FactionGoalUpdate
 } from './supabase'
 
 /**
@@ -488,6 +493,21 @@ export const serverResourceOperations = {
       .eq('session_id', sessionId)
       .eq('turn_number', turnNumber)
       .order('faction_id')
+    
+    return handleSupabaseResponse(response)
+  },
+  
+  async getBySessionId(sessionId: string): Promise<Resource[]> {
+    if (typeof window !== 'undefined') {
+      throw new Error('Server operations can only be used on the server side')
+    }
+    
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('resources')
+      .select()
+      .eq('session_id', sessionId)
+      .order('turn_number', { ascending: false })
     
     return handleSupabaseResponse(response)
   }
@@ -969,5 +989,89 @@ export const adminOperations = {
       .select()
     
     return handleSupabaseResponse(response)
+  }
+}
+
+/**
+ * Server-side game outcome operations (using admin client)
+ */
+export const serverGameOutcomeOperations = {
+  async create(outcomeData: GameOutcomeInsert): Promise<GameOutcome> {
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('game_outcomes')
+      .insert(outcomeData)
+      .select()
+      .single()
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async getBySessionId(sessionId: string): Promise<GameOutcome | null> {
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('game_outcomes')
+      .select()
+      .eq('session_id', sessionId)
+      .single()
+    
+    if (response.error && response.error.code === 'PGRST116') {
+      return null
+    }
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async getAll(): Promise<GameOutcome[]> {
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('game_outcomes')
+      .select()
+      .order('created_at', { ascending: false })
+    
+    return handleSupabaseResponse(response)
+  }
+}
+
+/**
+ * Server-side faction goal operations (using admin client)
+ */
+export const serverFactionGoalOperations = {
+  async createMany(goals: FactionGoalInsert[]): Promise<FactionGoal[]> {
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('faction_goals')
+      .insert(goals)
+      .select()
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async getBySessionId(sessionId: string): Promise<FactionGoal[]> {
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('faction_goals')
+      .select()
+      .eq('session_id', sessionId)
+      .order('player_id', { ascending: true })
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async updateProgress(goalId: string, updateData: FactionGoalUpdate): Promise<FactionGoal> {
+    const admin = supabaseAdmin()
+    const response = await admin
+      .from('faction_goals')
+      .update(updateData)
+      .eq('id', goalId)
+      .select()
+      .single()
+    
+    return handleSupabaseResponse(response)
+  },
+
+  async areAllGoalsCompleted(sessionId: string): Promise<boolean> {
+    const allGoals = await this.getBySessionId(sessionId)
+    return allGoals.length > 0 && allGoals.every(goal => goal.is_completed)
   }
 }
