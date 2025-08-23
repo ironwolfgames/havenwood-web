@@ -10,6 +10,7 @@
 import React, { useState } from 'react'
 import { FactionDashboard } from '@/components/FactionDashboard'
 import { useFactionData } from '@/hooks/useFactionData'
+import { useToast } from '@/components/ui/ToastNotification'
 import { FactionSystemType } from '@/lib/game/resources'
 import '@/styles/factions.module.css'
 
@@ -44,6 +45,7 @@ const FACTION_OPTIONS: FactionOption[] = [
 
 export default function FactionDashboardsPage() {
   const [selectedFaction, setSelectedFaction] = useState<FactionSystemType>('provisioner')
+  const { show: showToast, ToastContainer } = useToast()
   
   // Mock game context
   const gameContext = {
@@ -57,25 +59,34 @@ export default function FactionDashboardsPage() {
 
   const handleActionSelect = (action: any) => {
     console.log('Action selected:', action)
+    showToast(`Selected action: ${action.name}`, 'info', 2000)
   }
 
   const handleActionSubmit = async (action: any, parameters: any) => {
     console.log('Submitting action:', action, parameters)
+    showToast(`Submitting ${action.name}...`, 'info', 2000)
+    
     const success = await submitAction(action.id, parameters)
     if (success) {
       console.log('Action submitted successfully')
+      showToast(`${action.name} completed successfully!`, 'success')
     } else {
       console.error('Failed to submit action')
+      showToast(`Failed to complete ${action.name}`, 'error')
     }
   }
 
   const handleResourceTransfer = async (to: string, resourceType: string, amount: number) => {
     console.log('Transferring resource:', { to, resourceType, amount })
+    showToast(`Transferring ${amount} ${resourceType} to ${to}...`, 'info', 2000)
+    
     const success = await transferResource(to, resourceType as any, amount)
     if (success) {
       console.log('Resource transferred successfully')
+      showToast(`Successfully transferred ${amount} ${resourceType} to ${to}!`, 'success')
     } else {
       console.error('Failed to transfer resource')
+      showToast(`Failed to transfer ${resourceType} to ${to}`, 'error')
     }
   }
 
@@ -140,6 +151,9 @@ export default function FactionDashboardsPage() {
         onResourceTransfer={handleResourceTransfer}
       />
 
+      {/* Toast Notifications */}
+      <ToastContainer />
+      
       {/* Debug Info */}
       <div className="bg-gray-100 border-t p-4">
         <div className="max-w-7xl mx-auto">
