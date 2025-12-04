@@ -8,9 +8,7 @@ Only through cooperation can the four houses—**Squirrels (Harvesters), Foxes (
 
 “Houses of Havenwood” is a cooperative, asymmetric euro-style game where each player controls one house and must use their distinct abilities to support the others in a shared struggle against time, threats, and escalating magical chaos.
 
-## 2. Shared Systems Overview
-
-### **Shared Deck Action System**
+## 2. Round Overview
 
 - All houses draw from **one shared action deck**, collaboratively improved via deckbuilding.
 - Each round:
@@ -135,11 +133,13 @@ Each house performs their unique main and auxiliary actions using their own asym
 
 #### Fox Buildings
 
-- Walls - provides protection against certain events for buildings within/behind walls (the amount of protection matches the level of the walls)
-- Scouting Camp - increases exploration distance in a particular direction (can explore non-adjacent tiles in one direction up to a certain distance for the level of the watchtower)
-- Fortifications (can be used on existing buildings) - provides protection for a single building (the amount of protection matches the level of the fortifications)
-- Magic Shield - provides immunity against magic attacks for everything under it - size increases with level
-- Watchtower - provides various bonuses/abilities for interacting with events
+| Building | Level 1 Cost | Level 2 Cost | Level 3 Cost | Description |
+| --- | --- | --- | --- | --- |
+| Walls | 2 Stone | 3 Stone | 4 Stone, 1 Stone Brick | provides protection against certain events for buildings within/behind walls (the amount of protection matches the level of the walls) |
+| Scouting Camp | 2 Wood | 3 Wood | 3 Wood, 1 Lumber | increases exploration distance in a particular direction (can explore non-adjacent tiles in one direction up to a certain distance for the level of the watchtower) |
+| Fortifications | 1 Wood, 1 Stone | 2 Wood, 2 Stone | 2 Lumber, 2 Stone Brick | provides protection for a single building (the amount of protection matches the level of the fortifications) |
+| Magic Shield | 2 Ore | 2 Ore, 1 Steel | 2 Ore, 2 Steel | provides immunity against magic attacks for everything under it - size increases with level |
+| Watchtower | 2 Wood, 1 Stone | 2 Lumber, 1 Stone | 3 Lumber, 2 Stone Brick | provides various bonuses/abilities for interacting with events |
 
 ### Owls - Researchers & Mages
 
@@ -168,10 +168,12 @@ Each house performs their unique main and auxiliary actions using their own asym
 
 #### Owl Buildings
 
-- University - increases the number of research cards that are displayed each round by the building level (the number of research cards on display is equal to the sum of the level of all universities)
-- Library - increases the research limit (which is the number of research cards allowed in the tableau) by the building level (the research limit is the sum of the level of all libraries)
-- Laboratory - provides a discount of any N resources on tech research cards, where N is the building level (this discount sums up across multiple laboratories)
-- Maginarium - provides a discount of any N resources on magic research cards, where N is the building level (this discount sums up across multiple maginariums)
+| Building | Level 1 Cost | Level 2 Cost | Level 3 Cost | Description |
+| --- | --- | --- | --- | --- |
+| University | 2 Wood, 1 Stone | 3 Wood, 2 Stone | 2 Lumber, 2 Stone Brick | increases the number of research cards that are displayed each round by the building level (the number of research cards on display is equal to the sum of the level of all universities) |
+| Library | 3 Wood | 4 Wood | 3 Lumber, 1 Steel | increases the research limit (which is the number of research cards allowed in the tableau) by the building level (the research limit is the sum of the level of all libraries) |
+| Laboratory | 1 Stone, 1 Ore | 2 Stone, 1 Steel | 2 Stone Brick, 2 Steel | provides a discount of any N resources on tech research cards, where N is the building level (this discount sums up across multiple laboratories) |
+| Maginarium | 1 Wood, 1 Ore | 2 Wood, 1 Steel | 2 Lumber, 2 Steel | provides a discount of any N resources on magic research cards, where N is the building level (this discount sums up across multiple maginariums) |
 
 ### Badgers - Leaders & Master Builders
 
@@ -270,11 +272,167 @@ A water-powered infrastructure project.
 
 ## 6. Tech and Magic Trees
 
-### Technology Tree
+The Owl House drives advancement through two distinct development trees. **Knowledge** is spent to advance the **Technology Tree** (focused on infrastructure, efficiency, and physics), while **Insight** is spent to advance the **Magic Tree** (focused on rule manipulation, event mitigation, and arcane defense).
 
-### Magic Track
+### Technology Tree (Uses Knowledge)
+
+The Technology Tree is the backbone of Havenwood's economy. It is primarily responsible for unlocking higher tiers of buildings for all houses.
+
+#### Tier 1: Foundation
+
+- **Basic Engineering**
+  - **Cost:** 3 Knowledge
+  - **Effect:** Unlocks **Level 2** for all **Production Buildings** (Squirrels) and **Research Buildings** (Owls).
+  - **Prerequisite:** None
+
+- **Logistics Network**
+  - **Cost:** 2 Knowledge
+  - **Effect:** Unlocks the Fox Scout ability: **Reorder** (Rearrange the top X event cards).
+  - **Prerequisite:** None
+
+#### Tier 2: Industrialization
+
+- **Advanced Masonry**
+  - **Cost:** 5 Knowledge
+  - **Effect:** Unlocks **Level 2** for all **Fox Buildings** (Walls, Fortifications, etc.).
+  - **Prerequisite:** Basic Engineering
+
+- **Composite Refining**
+  - **Cost:** 6 Knowledge
+  - **Effect:** Unlocks **Level 3** for all **Production Buildings** (Squirrels) and **Research Buildings** (Owls).
+  - **Prerequisite:** Basic Engineering
+
+- **Heavy Infrastructure**
+  - **Cost:** 5 Knowledge
+  - **Effect:** Unlocks the Badgers' ability to construct **Phase 2 & 3** components of Shared Projects.
+  - **Prerequisite:** Advanced Masonry
+
+#### Tier 3: Mastery
+
+- **Master Architecture**
+  - **Cost:** 10 Knowledge
+  - **Effect:** Unlocks **Level 3** for all **Fox Buildings**.
+  - **Prerequisite:** Advanced Masonry AND Composite Refining
+
+- **Automated Hauling**
+  - **Cost:** 8 Knowledge
+  - **Effect:** The "Move" action for all players costs 0 resources.
+  - **Prerequisite:** Logistics Network
+
+### Magic Tree (Uses Insight)
+
+The Magic Tree focuses on interacting with the Umbral Tempest, mitigating the Event Deck, and providing defensive buffs against arcane threats.
+
+#### Tier 1: Awareness
+
+- **Aetheric Sensing**
+  - **Cost:** 3 Insight
+  - **Effect:** Unlocks **Magic Shield Level 1** (Fox Building).
+  - **Prerequisite:** None
+
+- **Fate Weaving**
+  - **Cost:** 4 Insight
+  - **Effect:** Unlocks the Fox Scout ability: **Bottom of Deck** (Move an event card to the bottom of the deck).
+  - **Prerequisite:** None
+
+#### Tier 2: Manipulation
+
+- **Tempest Abjuration**
+  - **Cost:** 6 Insight
+  - **Effect:** Unlocks **Magic Shield Level 2 & 3** (Fox Building).
+  - **Prerequisite:** Aetheric Sensing
+
+- **Banishment**
+  - **Cost:** 7 Insight
+  - **Effect:** Unlocks the Fox Scout ability: **Destroy Event** (Remove an event card from the game completely).
+  - **Prerequisite:** Fate Weaving
+
+#### Tier 3: Transcendance
+
+- **Chronomancy**
+  - **Cost:** 10 Insight
+  - **Effect:** Once per round, the Badgers may re-roll any number of dice during an "Ensure Quality" check on a Shared Project.
+  - **Prerequisite:** Banishment
+
+- **Umbral Resistance**
+  - **Cost:** 12 Insight
+  - **Effect:** The maximum hand limit for all players is increased by +1.
+  - **Prerequisite:** Tempest Abjuration
 
 ## 7. Events
+
+The Event Deck represents the encroaching **Umbral Tempest** and the natural dangers of the wild. As the game progresses, the frequency and severity of these events increase based on the **Threat Track**.
+
+### Event Deck Structure
+
+The Event Deck is constructed at the start of the game using a ratio of **Standard Events** and **Storm Cards**.
+
+- **Standard Events**: Natural disasters or enemy movements that target specific resources or biomes.
+- **Storm Cards**: Direct advancements of the magical corruption that accelerates the end of the game.
+
+### Event Card Anatomy
+
+1. **Title**: The name of the threat.
+2. **Type**:
+    - *Natural*: Weather or environmental hazards (can often be mitigated by specific buildings).
+    - *Hostile*: Enemy incursions (tested against Walls/Fortifications).
+    - *Arcane*: Magical anomalies (often require Insight/Knowledge to dispel).
+3. **Target**: The specific Hex Environment (e.g., Forest), Building Type (e.g., Mines), or House affected.
+4. **Effect**: The penalty incurred if the event is not negated.
+5. **Storm Value**: The amount the Storm Track advances if this event is unresolved (usually 0 for Natural/Hostile events, 1+ for Arcane cards).
+
+### Event Resolution Phases
+
+Events are drawn during step 5 of the Shared Deck Action System.
+
+#### Phase 1: Vulnerability Check
+
+Check the **Hex Tile Map**. The event only triggers if a player occupies a Hex tile matching the **Target** environment.
+
+- *Example:* A "Landslide" event targets **Mountain** hexes. If no player has a building on a Mountain hex, the event is discarded with no effect.
+
+#### Phase 2: Defense & Mitigation
+
+Players may use House abilities or Buildings to mitigate the event:
+
+- **Fox Walls/Fortifications**: If the target is behind Walls (or Fortified), compare the **Event Severity** (1–3) against the **Wall Level**. If Wall Level ≥ Severity, the event is ignored.
+- **Magic Shield (Foxes)**: Negates *Arcane* type events completely for protected tiles.
+- **Effect Triggers**: If undefended, the effect resolves immediately.
+
+#### Phase 3: The Storm Track
+
+If the event was a **Storm Card**, move the marker on the Storm Track forward by 1. If the marker reaches the final space, the players lose immediately.
+
+---
+
+### Sample Event List
+
+#### Natural Events (Environment Specific)
+
+| Event Title | Target | Severity | Effect |
+| :--- | :--- | :--- | :--- |
+| **Flash Flood** | Plains / River | 1 | Discard 2 Food or destroy 1 Farm on a Plains tile. |
+| **Root Rot** | Forest | 1 | Production of Wood is halved (rounded down) for the next round. |
+| **Cave-In** | Mountain | 2 | **Blocked:** Place a "Blocked" token on one Mine. It produces nothing until a player spends an Action to clear it. |
+| **Blighted Crops** | Plains | 2 | Destroy 1 Farm level 1. If a Level 2+ Farm exists, downgrade it by one level instead. |
+| **Deep Freeze** | Global | 3 | All players must discard 1 card from their hand immediately. |
+
+#### Hostile Events (Defense Tests)
+
+| Event Title | Target | Severity | Effect |
+| :--- | :--- | :--- | :--- |
+| **Kobold Scavengers**| Storage | 1 | Lose 3 basic resources of the team's choice. **Fox Walls** prevent this. |
+| **Siege Engine** | Any Building | 3 | Destroy one building on the outermost edge of the map. **Fortifications** (Lvl 2+) prevent this. |
+| **Supply Ambush** | Roads | 2 | Players cannot pass cards to neighbors during the next round. |
+
+#### Arcane Events (The Umbral Tempest)
+
+| Event Title | Target | Storm Value | Effect |
+| :--- | :--- | :--- | :--- |
+| **Mana Surge** | Global | +1 | All Owl Research costs increase by 1 resource this round. |
+| **Reality Fracture**| Magic Track | +1 | Lose 2 Insight or move the Storm Track an additional +1 step. |
+| **The Umbral Eye** | Fox House | +2 | The Fox player must shuffle 2 "Fear" cards (useless junk cards) into their deck. |
+| **Tempest Howl** | Global | +1 | **Silence:** No players may communicate verbally during the next Strategy Phase. |
 
 ## 8. Loss Conditions
 
@@ -287,3 +445,13 @@ Players lose if **any one** of the following occurs:
 ## 9. Win Condition
 
 Complete **one** shared project **before** any loss condition occurs.
+
+## To-Do List
+
+- Ensure the design document is fully consistent with itself and has no missing details or loose ends.
+- Physical prototype:
+  - Generate a full component list
+  - Generate a full list of event cards with all their effects
+  - Generate a full list of hex tiles with discovery bonuses, environment, resources available, etc.
+  - Generate a full list of all shared deck cards, including the starter cards and all purchasable cards
+  - Generate a rulebook that someone who has no knowledge of the game can use to learn to play the game from
