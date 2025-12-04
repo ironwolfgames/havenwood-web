@@ -446,12 +446,198 @@ Players lose if **any one** of the following occurs:
 
 Complete **one** shared project **before** any loss condition occurs.
 
+## 10. Component List
+
+### Cards
+
+- **Shared Action Deck** (~80 cards)
+  - Starter Cards (Basic actions/resources)
+  - Market Cards (Advanced actions, improved efficiencies)
+- **Event Deck** (~40 cards)
+  - Standard Events (Natural, Hostile)
+  - Storm Cards (Arcane/Tempest advancement)
+  - Fear Cards (Negative status cards)
+- **Research Cards** (Owl House)
+  - Level 1 Research Deck (~20 cards)
+  - Level 2 Research Deck (~20 cards)
+  - Level 3 Research Deck (~20 cards)
+- **Project Component Cards**
+  - Cards representing components for the 5 Shared Projects (4-5 cards per project)
+
+### Tiles
+
+- **Hex Map Tiles** (~40 tiles)
+  - Environments: Plains, Forest, Mountain, River
+  - Starting Tile (Central Havenwood)
+
+### Boards & Mats
+
+- **House Player Mats** (4 total)
+  - Squirrel (Harvester) Mat
+  - Fox (Explorer) Mat
+  - Owl (Researcher) Mat
+  - Badger (Architect) Mat
+- **Badger Worker Placement Board**
+- **Tech & Magic Tree Board** (Tracks for Knowledge/Insight and unlock slots)
+- **Threat/Storm Track Board**
+
+### Tokens & Markers
+
+- **Resources** (Wooden bits or tokens)
+  - Food (Yellow)
+  - Wood (Brown)
+  - Ore (Grey)
+  - Stone (Dark Grey)
+  - Lumber (Processed Wood)
+  - Steel (Processed Ore)
+  - Stone Brick (Processed Stone)
+- **House Markers**
+  - Badger Workers (3 Meeples)
+  - Fox Wall/Fortification Tokens (Stackable or numbered 1-3)
+  - Magic Shield Tokens
+  - "Blocked" Tokens (for Mines)
+- **Trackers**
+  - Knowledge Tracker Cube
+  - Insight Tracker Cube
+  - Storm/Threat Level Marker
+  - Round/Turn Marker
+
+### Buildings (Miniatures, Standees, or Tokens)
+
+- **Squirrel Buildings**: Farm, Forester Station, Mine, Quarry, Mill, Furnace (Levels 1-3 indicated by base or token)
+- **Fox Buildings**: Scouting Camp, Watchtower (Levels 1-3)
+- **Owl Buildings**: University, Library, Laboratory, Maginarium (Levels 1-3)
+- **Shared Project Models**: 5 unique models (optional, or represented by cards/tiles)
+
+### Dice
+
+- **Harvest Dice** (Custom d6s for Squirrels)
+  - Faces: 1 Resource, 2 Resources, 3 Resources, Bust (x2?), Blank?
+  - Quantity: ~10 dice
+- **Quality Dice** (Standard d6s for Badgers)
+  - Quantity: 6 dice
+
+## 11. Full Event List
+
+### Natural Events (16 Cards)
+
+| Title | Target | Severity | Effect | Count |
+| :--- | :--- | :--- | :--- | :--- |
+| **Flash Flood** | Plains / River | 1 | Discard 2 Food or destroy 1 Farm on a Plains tile. | 2 |
+| **Root Rot** | Forest | 1 | Production of Wood is halved (rounded down) for the next round. | 2 |
+| **Cave-In** | Mountain | 2 | **Blocked:** Place a "Blocked" token on one Mine. It produces nothing until a player spends an Action to clear it. | 2 |
+| **Blighted Crops** | Plains | 2 | Destroy 1 Farm level 1. If a Level 2+ Farm exists, downgrade it by one level instead. | 2 |
+| **Deep Freeze** | Global | 3 | All players must discard 1 card from their hand immediately. | 1 |
+| **Wildfire** | Forest | 2 | Destroy 1 Forester Station. If adjacent to another Forest, spread to that tile (destroying buildings there too) unless 2 Food (Water) spent to extinguish. | 1 |
+| **Tremors** | Mountain | 1 | All Stone production reduced by 1 per Quarry this round. | 2 |
+| **Drought** | Plains | 1 | Food production cost increases: Must spend 1 Wood to harvest Food this round. | 2 |
+| **Pestilence** | Global | 2 | Each player must trash 1 card from their hand or discard 2 cards. | 1 |
+| **Heavy Fog** | Global | 1 | Exploration action costs +1 Resource this round. | 1 |
+
+### Hostile Events (10 Cards)
+
+| Title | Target | Severity | Effect | Count |
+| :--- | :--- | :--- | :--- | :--- |
+| **Kobold Scavengers** | Storage | 1 | Lose 3 basic resources of the team's choice. **Fox Walls** prevent this. | 3 |
+| **Siege Engine** | Any Building | 3 | Destroy one building on the outermost edge of the map. **Fortifications** (Lvl 2+) prevent this. | 1 |
+| **Supply Ambush** | Roads | 2 | Players cannot pass cards to neighbors during the next round. | 2 |
+| **Goblin Raiders** | Outskirts | 1 | Steal 1 random card from each player's hand. **Fox Walls** prevent this. | 2 |
+| **Bandit Camp** | Hex Tile | 2 | Place a Bandit Token on a random empty hex. No building can be built there until a "Move" action is used to clear it (Cost: 3 Resources). | 2 |
+
+### Arcane / Storm Events (14 Cards)
+
+| Title | Target | Storm Value | Effect | Count |
+| :--- | :--- | :--- | :--- | :--- |
+| **Mana Surge** | Global | +1 | All Owl Research costs increase by 1 resource this round. | 2 |
+| **Reality Fracture** | Magic Track | +1 | Lose 2 Insight or move the Storm Track an additional +1 step. | 2 |
+| **The Umbral Eye** | Fox House | +2 | The Fox player must shuffle 2 "Fear" cards (useless junk cards) into their deck. | 1 |
+| **Tempest Howl** | Global | +1 | **Silence:** No players may communicate verbally during the next Strategy Phase. | 1 |
+| **Arcane Feedback** | Owl House | +1 | Owl player must discard 1 card for every 2 Research cards they have in their tableau. | 2 |
+| **Time Dilation** | Badger House | +1 | Badgers have -1 Worker this round. | 1 |
+| **Resource Decay** | Storage | +1 | All stored Basic Resources are reduced by half (rounded up). | 1 |
+| **Shadow Walkers** | Global | +2 | Hostile Events this round have +1 Severity. | 1 |
+| **Void Whispers** | Global | +1 | Players cannot draw cards from card effects this round. | 1 |
+| **The Darkening** | Global | +2 | Reveal the next 2 events immediately. Resolve them both. | 1 |
+| **Storm Climax** | Global | +3 | **CRITICAL:** If not cancelled by spending 10 Insight, the game ends immediately (Loss). | 1 |
+
+## 12. Hex Tile List
+
+### Starting Tile (1 Tile)
+
+| Environment | Count | Natural Resources | Discovery Bonus | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **Central Havenwood** | 1 | None (Safe Zone) | None | Starting location for all Houses. Cannot be destroyed. |
+
+### Exploration Tiles (39 Tiles)
+
+| Environment | Count | Buildings Allowed | Discovery Bonus |
+| :--- | :--- | :--- | :--- |
+| **Plains** | 5 | Farm, Mine, Quarry | +1 Food |
+| **Plains** | 4 | Farm, Mine, Quarry | +1 Wood |
+| **Plains** | 3 | Farm, Mine, Quarry | Free Move Action |
+| **Forest** | 5 | Forester Station | +1 Wood |
+| **Forest** | 4 | Forester Station | +1 Food |
+| **Forest** | 3 | Forester Station | +1 Insight |
+| **Mountain** | 4 | Mine, Quarry | +1 Stone |
+| **Mountain** | 3 | Mine, Quarry | +1 Ore |
+| **Mountain** | 1 | Mine, Quarry | +1 Knowledge |
+| **River** | 3 | Farm | +1 Food |
+| **River** | 2 | Farm | +1 Insight |
+| **River** | 2 | Farm | Free Fortification (Lvl 1) |
+
+## 13. Shared Action Deck List
+
+### Starter Cards (40 Cards - 10 per Player)
+
+Each player starts with an identical deck of 10 cards.
+
+| Card Name | Count (Per Deck) | Type | Effect |
+| :--- | :--- | :--- | :--- |
+| **Gather** | 4 | Basic | Gain 1 Food. |
+| **Labor** | 3 | Basic | Gain 1 Wood OR 1 Stone. |
+| **Plan** | 2 | Basic | Draw 1 Card. |
+| **Rest** | 1 | Basic | Trash this card to gain 2 Food. |
+
+### Market Cards (40 Cards)
+
+These cards are available for purchase from a shared market row (usually 5 cards face up).
+
+#### Tier 1: Efficiency (Cost: 2-4 Food)
+
+| Card Name | Cost | Count | Effect |
+| :--- | :--- | :--- | :--- |
+| **Bountiful Harvest** | 3 Food | 4 | Gain 2 Food. If played by Squirrels, gain 3 Food. |
+| **Heavy Lifting** | 4 Food | 4 | Gain 2 Wood OR 2 Stone. |
+| **Prospecting** | 3 Food | 3 | Gain 1 Ore. If you have a Mine, gain 2 Ore instead. |
+| **Sprint** | 2 Food | 3 | **Move** action is free this turn. |
+| **Barter** | 3 Food | 3 | Trade 1 Basic Resource for any other 1 Basic Resource. |
+
+#### Tier 2: Specialization (Cost: 5-7 Food)
+
+| Card Name | Cost | Count | Effect |
+| :--- | :--- | :--- | :--- |
+| **Architect's Vision** | 6 Food | 3 | **Build** action costs -1 Wood and -1 Stone (min 1). |
+| **Deep Mining** | 5 Food | 3 | Gain 1 Steel OR 1 Stone Brick. |
+| **Forest Guide** | 5 Food | 3 | **Explore** action draws +1 Tile. |
+| **Scholar's Insight** | 6 Food | 3 | Gain 1 Knowledge OR 1 Insight. |
+| **Coordinated Effort** | 7 Food | 2 | Choose another player. They may immediately draw 2 cards. |
+
+#### Tier 3: Power (Cost: 8+ Food)
+
+| Card Name | Cost | Count | Effect |
+| :--- | :--- | :--- | :--- |
+| **Masterwork Tools** | 9 Food | 2 | Gain 2 Lumber, 2 Steel, or 2 Stone Brick. |
+| **Heroic Inspiration** | 10 Food | 2 | All players may trash 1 card from their hand. |
+| **Arcane Battery** | 8 Food | 2 | Gain 2 Insight. You may immediately buy a Research Card. |
+| **Grand Strategy** | 10 Food | 2 | Perform your **Main Action** twice this turn. |
+| **Emergency Reserves** | 8 Food | 1 | Gain 5 Food. Place this card on top of your deck instead of discarding. |
+
 ## To-Do List
 
-- Ensure the design document is fully consistent with itself and has no missing details or loose ends.
 - Physical prototype:
-  - Generate a full component list
-  - Generate a full list of event cards with all their effects
-  - Generate a full list of hex tiles with discovery bonuses, environment, resources available, etc.
-  - Generate a full list of all shared deck cards, including the starter cards and all purchasable cards
+  - [x] Generate a full component list
+  - [x] Generate a full list of event cards with all their effects
+  - [x] Generate a full list of hex tiles with discovery bonuses, environment, resources available, etc.
+  - [x] Generate a full list of all shared deck cards, including the starter cards and all purchasable cards
   - Generate a rulebook that someone who has no knowledge of the game can use to learn to play the game from
+- Ensure the design document is fully consistent with itself and has no missing details or loose ends.
