@@ -14,12 +14,12 @@ Only through cooperation can the four houses—**Squirrels (Harvesters), Foxes (
 - Each round:
   1. Draw to **hand limit** (start: 5).
   2. Each house **may pass one card** to a neighbor.
-  3. Houses simultaneously choose and play actions using:
-     - Build
-     - Move
-     - Buy Card
-     - **Main Action** (unique per house)
-     - **Auxiliary Action** (unique per house)
+  3. Houses simultaneously **play cards from their hand** to perform actions.
+     - **Build**: Construct or upgrade a building on the map where your House marker is located.
+     - **Move**: Move your House marker to an adjacent hex up to N times, where N is indicated on the Move card.
+     - **Buy Card**: Purchase a new card from the Market.
+     - **Main Action**: Perform your House's unique Main Action.
+     - **Auxiliary Action**: Perform your House's unique Auxiliary Action.
   4. Perform house specific **Cleanup** 
   5. Draw N event cards and resolve them, where N is the number on the threat track. Event cards can increase the threat track, target specific buildings or resources, etc.
 
@@ -56,6 +56,10 @@ Wood, Lumber, Steel, Stone, and Stone Bricks are used by all houses to construct
 Food is used for all deckbuilding actions.
 
 All basic and composite resources are used by the Owls to purchase their research cards.
+
+### Starting Resources
+
+Each House begins the game with **4 Food** and **2 Wood**.
 
 ## 4. Houses
 
@@ -106,8 +110,8 @@ Each house performs their unique main and auxiliary actions using their own asym
 
 #### A. Main action - **Explore**
 
-- Draw N hex tiles
-- Place M hex tiles. 
+- Draw **N** hex tiles (Base: 2). This value is tracked on the Fox Player Mat and can be upgraded via the Tech Tree.
+- Place **M** hex tiles (Base: 1). This value is tracked on the Fox Player Mat and can be upgraded via the Tech Tree.
 - Hex tiles may have a discovery bonus (a free action, some basic or composite resources, knowledge or insight, etc.); if so, the bonus is gained when the tile is placed. Discovery bonuses examples:
   - +1 Food
   - +1 Wood
@@ -164,7 +168,7 @@ Each house performs their unique main and auxiliary actions using their own asym
 #### Cleanup
 
 - Discard all remaining research cards.
-- Refill the research card row back up to N cards.
+- Refill the research card row back up to **N** cards (Base: 3). This value is tracked on the Owl Player Mat and can be upgraded via the Magic Tree.
 
 #### Owl Buildings
 
@@ -287,7 +291,7 @@ The Technology Tree is the backbone of Havenwood's economy. It is primarily resp
 
 - **Logistics Network**
   - **Cost:** 2 Knowledge
-  - **Effect:** Unlocks the Fox Scout ability: **Reorder** (Rearrange the top X event cards).
+  - **Effect:** Unlocks the Fox Scout ability: **Reorder** (Rearrange the top X event cards). **Fox Explore:** Draw +1 Tile (+1 N).
   - **Prerequisite:** None
 
 #### Tier 2: Industrialization
@@ -316,7 +320,7 @@ The Technology Tree is the backbone of Havenwood's economy. It is primarily resp
 
 - **Automated Hauling**
   - **Cost:** 8 Knowledge
-  - **Effect:** The "Move" action for all players costs 0 resources.
+  - **Effect:** The "Move" action for all players costs 0 resources. **Fox Explore:** Place +1 Tile (+1 M).
   - **Prerequisite:** Logistics Network
 
 ### Magic Tree (Uses Insight)
@@ -327,7 +331,7 @@ The Magic Tree focuses on interacting with the Umbral Tempest, mitigating the Ev
 
 - **Aetheric Sensing**
   - **Cost:** 3 Insight
-  - **Effect:** Unlocks **Magic Shield Level 1** (Fox Building).
+  - **Effect:** Unlocks **Magic Shield Level 1** (Fox Building). **Owl Research:** Display +1 Card (+1 N).
   - **Prerequisite:** None
 
 - **Fate Weaving**
@@ -339,7 +343,7 @@ The Magic Tree focuses on interacting with the Umbral Tempest, mitigating the Ev
 
 - **Tempest Abjuration**
   - **Cost:** 6 Insight
-  - **Effect:** Unlocks **Magic Shield Level 2 & 3** (Fox Building).
+  - **Effect:** Unlocks **Magic Shield Level 2 & 3** (Fox Building). **Owl Research:** Display +1 Card (+1 N).
   - **Prerequisite:** Aetheric Sensing
 
 - **Banishment**
@@ -369,6 +373,15 @@ The Event Deck is constructed at the start of the game using a ratio of **Standa
 
 - **Standard Events**: Natural disasters or enemy movements that target specific resources or biomes.
 - **Storm Cards**: Direct advancements of the magical corruption that accelerates the end of the game.
+
+### Threat Track Progression
+
+The Threat Track determines how many event cards are drawn during the Event Phase. It has **15 spaces** total.
+
+- **Spaces 1–6:** Draw 1 Event Card
+- **Spaces 7–12:** Draw 2 Event Cards
+- **Spaces 13–14:** Draw 3 Event Cards
+- **Space 15:** **Storm Climax** (Immediate Loss)
 
 ### Event Card Anatomy
 
@@ -453,6 +466,9 @@ Complete **one** shared project **before** any loss condition occurs.
 - **Shared Action Deck** (~80 cards)
   - Starter Cards (Basic actions/resources)
   - Market Cards (Advanced actions, improved efficiencies)
+- **Squirrel Production Deck** (~20 cards)
+  - Production Cards (1, 2, or 3 output)
+  - Gear Fragment Cards (Half-bust)
 - **Event Deck** (~40 cards)
   - Standard Events (Natural, Hostile)
   - Storm Cards (Arcane/Tempest advancement)
@@ -591,46 +607,134 @@ Complete **one** shared project **before** any loss condition occurs.
 
 Each player starts with an identical deck of 10 cards.
 
-| Card Name | Count (Per Deck) | Type | Effect |
-| :--- | :--- | :--- | :--- |
-| **Gather** | 4 | Basic | Gain 1 Food. |
-| **Labor** | 3 | Basic | Gain 1 Wood OR 1 Stone. |
-| **Plan** | 2 | Basic | Draw 1 Card. |
-| **Rest** | 1 | Basic | Trash this card to gain 2 Food. |
+| Card Name | Count | Action Effect |
+| :--- | :--- | :--- |
+| **Build** | 2 | Perform a **Build** action. | The market always contains **5 face-up cards**. When a card is bought, immediately refill the slot from the deck.
+| **Move (Level 1)** | 1 | **Move**. Move up to 1 space. |
+| **Move (Level 2)** | 1 | **Move**. Move up to 2 spaces. |
+| **Buy Card** | 2 | Perform a **Buy Card** action. |
+| **Main Action** | 2 | Perform your House's **Main Action**. |
+| **Auxiliary Action** | 2 | Perform your House's **Auxiliary Action**. |
 
 ### Market Cards (40 Cards)
 
-These cards are available for purchase from a shared market row (usually 5 cards face up).
+These cards are available for purchase from a shared market row.
 
-#### Tier 1: Efficiency (Cost: 2-4 Food)
+#### Tier 1: Improved Efficiency (Cost: 3-5 Food)
 
-| Card Name | Cost | Count | Effect |
+| Card Name | Cost | Count | Action Effect |
 | :--- | :--- | :--- | :--- |
-| **Bountiful Harvest** | 3 Food | 4 | Gain 2 Food. If played by Squirrels, gain 3 Food. |
-| **Heavy Lifting** | 4 Food | 4 | Gain 2 Wood OR 2 Stone. |
-| **Prospecting** | 3 Food | 3 | Gain 1 Ore. If you have a Mine, gain 2 Ore instead. |
-| **Sprint** | 2 Food | 3 | **Move** action is free this turn. |
-| **Barter** | 3 Food | 3 | Trade 1 Basic Resource for any other 1 Basic Resource. |
+| **Master Builder** | 4 | 4 | **Build**. If you build, the cost is reduced by 1 Basic Resource of your choice. |
+| **Forced March** | 3 | 4 | **Move**. Move up to 3 spaces. |
+| **Wholesale** | 4 | 4 | **Buy Card**. Gain 2 Food before buying. |
+| **Veteran's Command** | 5 | 3 | **Main Action**. Treat your relevant building level as +1 for this action. |
+| **Field Logistics** | 5 | 3 | **Auxiliary Action**. Draw 1 card after performing the action. |
 
-#### Tier 2: Specialization (Cost: 5-7 Food)
+#### Tier 2: Versatility & Power (Cost: 6-8 Food)
 
-| Card Name | Cost | Count | Effect |
+| Card Name | Cost | Count | Action Effect |
 | :--- | :--- | :--- | :--- |
-| **Architect's Vision** | 6 Food | 3 | **Build** action costs -1 Wood and -1 Stone (min 1). |
-| **Deep Mining** | 5 Food | 3 | Gain 1 Steel OR 1 Stone Brick. |
-| **Forest Guide** | 5 Food | 3 | **Explore** action draws +1 Tile. |
-| **Scholar's Insight** | 6 Food | 3 | Gain 1 Knowledge OR 1 Insight. |
-| **Coordinated Effort** | 7 Food | 2 | Choose another player. They may immediately draw 2 cards. |
+| **Double Duty** | 7 | 3 | Perform **two different** actions: Build, Move (up to 2 spaces), or Buy Card. |
+| **Improvise** | 6 | 3 | Copy the action of a card played by a neighbor this round. |
+| **Reinforce** | 6 | 3 | **Build**. You may build/upgrade even if you are not on the tile (must be adjacent). |
+| **Expedition** | 7 | 3 | **Move**. Move up to 5 spaces. |
+| **Grand Maneuver** | 8 | 2 | **Main Action**. You may perform this action twice. |
 
-#### Tier 3: Power (Cost: 8+ Food)
+#### Tier 3: Mastery (Cost: 9+ Food)
 
-| Card Name | Cost | Count | Effect |
+| Card Name | Cost | Count | Action Effect |
 | :--- | :--- | :--- | :--- |
-| **Masterwork Tools** | 9 Food | 2 | Gain 2 Lumber, 2 Steel, or 2 Stone Brick. |
-| **Heroic Inspiration** | 10 Food | 2 | All players may trash 1 card from their hand. |
-| **Arcane Battery** | 8 Food | 2 | Gain 2 Insight. You may immediately buy a Research Card. |
-| **Grand Strategy** | 10 Food | 2 | Perform your **Main Action** twice this turn. |
-| **Emergency Reserves** | 8 Food | 1 | Gain 5 Food. Place this card on top of your deck instead of discarding. |
+| **Omnipotence** | 10 | 2 | Perform **any** one action (Build, Move up to 6 spaces, Buy, Main, or Aux). Then draw 1 card. |
+| **Heroic Inspiration** | 10 | 2 | **Main Action**. All other players may immediately draw 1 card. |
+| **Time Warp** | 11 | 2 | **Auxiliary Action**. Take another turn immediately after this one (play 1 card only). |
+| **Unified Front** | 9 | 2 | **Buy Card**. The card you buy goes directly into your hand. |
+| **Architect's Dream** | 9 | 2 | **Build**. This build costs 0 Resources (Level 1 or 2 only). |
+
+## 14. Squirrel Production Deck List
+
+The Squirrel House uses this deck for their **Produce** Auxiliary Action.
+
+| Card Type | Count | Effect |
+| :--- | :--- | :--- |
+| **1 Output** | 8 | Adds 1 to production limit. |
+| **2 Output** | 6 | Adds 2 to production limit. |
+| **3 Output** | 2 | Adds 3 to production limit. |
+| **Gear Fragment** | 4 | **Half-Bust**. If two are drawn, production busts (limit becomes 1). |
+
+## 15. Owl Research Deck List
+
+The Owl House uses these cards for their **Research** Main Action. Links are represented by connections on the card edges (Top, Bottom, Left, Right).
+
+### Level 1 Research Deck (20 Cards)
+
+| Card Name | Cost | Links | Reward (on completion) | Count |
+| :--- | :--- | :--- | :--- | :--- |
+| **Basic Physics** | 1 Wood | Top, Bottom | 1 Knowledge | 4 |
+| **Simple Geometry** | 1 Stone | Left, Right | 1 Knowledge | 4 |
+| **Minor Cantrip** | 1 Food | Top, Right | 1 Insight | 4 |
+| **Nature Study** | 1 Wood | Bottom, Left | 1 Insight | 4 |
+| **Star Chart** | 1 Ore | Top, Left | 1 Knowledge | 2 |
+| **Herbology** | 1 Food | Bottom, Right | 1 Insight | 2 |
+
+### Level 2 Research Deck (20 Cards)
+
+| Card Name | Cost | Links | Reward (on completion) | Count |
+| :--- | :--- | :--- | :--- | :--- |
+| **Advanced Algebra** | 1 Wood, 1 Stone | Top, Bottom, Left | 2 Knowledge | 4 |
+| **Material Science** | 1 Ore, 1 Stone | Top, Bottom, Right | 2 Knowledge | 4 |
+| **Elemental Theory** | 1 Wood, 1 Food | Left, Right, Top | 2 Insight | 4 |
+| **Arcane Flow** | 1 Ore, 1 Food | Left, Right, Bottom | 2 Insight | 4 |
+| **Structural Analysis** | 2 Stone | All 4 Sides | 2 Knowledge | 2 |
+| **Spirit Whispers** | 2 Wood | All 4 Sides | 2 Insight | 2 |
+
+### Level 3 Research Deck (20 Cards)
+
+| Card Name | Cost | Links | Reward (on completion) | Count |
+| :--- | :--- | :--- | :--- | :--- |
+| **Quantum Mechanics** | 1 Lumber, 1 Steel | Top, Bottom | 3 Knowledge | 4 |
+| **Metaphysics** | 1 Stone Brick, 1 Steel | Left, Right | 3 Knowledge | 4 |
+| **Void Manipulation** | 1 Lumber, 1 Stone Brick | Top, Right, Bottom | 3 Insight | 4 |
+| **Time Weaving** | 2 Steel | Left, Top, Right | 3 Insight | 4 |
+| **Unified Theory** | 1 of each Composite | All 4 Sides | 4 Knowledge | 2 |
+| **Ascension** | 1 of each Composite | All 4 Sides | 4 Insight | 2 |
+
+## 16. Miscellaneous Cards
+
+### Fear Cards (10 Cards)
+
+These cards are added to player decks by specific Events or effects.
+
+| Card Name | Count | Effect |
+| :--- | :--- | :--- |
+| **Fear** | 10 | **Unplayable.** Cannot be played for any action. Takes up hand space. Can be trashed using the Badger's **Lead** action or specific card effects. |
+
+### Project Component Cards (22 Cards)
+
+These cards represent the physical components needed for the Shared Projects.
+
+| Project | Component Name | Cost | Quality Req. |
+| :--- | :--- | :--- | :--- |
+| **Heart of the Wood** | Barkshell Casing | 3 Wood, 2 Stone | 8 |
+| | Sapflow Channels | 2 Wood, 2 Lumber | 10 |
+| | Spirit Conduit | 2 Steel, 1 Stone Brick | 12 |
+| | Core Crystal | 1 Steel, 2 Stone Brick | 14 |
+| **Skybridge Beacon** | Tower Frame | 4 Wood, 2 Lumber | 9 |
+| | Lens Array | 2 Steel, 1 Stone | 12 |
+| | Arcane Focusing Ring | 1 Steel, 2 Stone Brick | 13 |
+| | Beacon Flame | 2 Lumber, 2 Steel | 15 |
+| **Stoneweave Bastion** | Foundation | 4 Stone | 10 |
+| | Ramparts | 3 Stone, 1 Stone Brick | 12 |
+| | Inner Keep | 2 Stone Brick, 1 Steel | 14 |
+| | Guardian Sigils | 2 Insight, 2 Steel | 16 |
+| **Astral Observatory** | Observation Deck | 3 Wood, 2 Stone | 8 |
+| | Star Mirror | 1 Steel, 2 Stone Brick | 12 |
+| | Astral Lens | 2 Steel | 14 |
+| | Reality Anchor | 2 Insight, 2 Lumber | 16 |
+| **Riverheart Engine** | Waterwheel | 3 Wood, 1 Lumber | 9 |
+| | Channelworks | 2 Stone Brick, 1 Stone | 12 |
+| | Power Core | 2 Steel, 1 Lumber | 14 |
+| | Flow Regulator | 1 Steel, 1 Stone Brick | 16 |
+| | Control Station | 1 Steel, 1 Insight | 18 |
 
 ## To-Do List
 
@@ -639,5 +743,5 @@ These cards are available for purchase from a shared market row (usually 5 cards
   - [x] Generate a full list of event cards with all their effects
   - [x] Generate a full list of hex tiles with discovery bonuses, environment, resources available, etc.
   - [x] Generate a full list of all shared deck cards, including the starter cards and all purchasable cards
-  - Generate a rulebook that someone who has no knowledge of the game can use to learn to play the game from
-- Ensure the design document is fully consistent with itself and has no missing details or loose ends.
+  - [ ] Generate a rulebook that someone who has no knowledge of the game can use to learn to play the game from
+- [x] Ensure the design document is fully consistent with itself and has no missing details or loose ends.
