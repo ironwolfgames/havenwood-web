@@ -2,29 +2,31 @@
 
 ## 1. Theme & Background
 
-In the ancient woodland realm of **Havenwood**, four great anthropomorphic animal houses coexist in fragile harmony. For centuries, they have protected the forest from natural threats, magical anomalies, and the encroaching ambitions of unseen enemies. But now, a **magical storm known as the Umbral Tempest** begins sweeping through the land, warping creatures, corrupting the wilds, and threatening the Heart of the Forest itself.
+In the ancient woodland realm of **Havenwood**, four great anthropomorphic animal houses live in peaceful harmony. For centuries, they have protected the forest from natural threats, magical anomalies, and the encroaching ambitions of unseen enemies. But now, a **magical storm known as the Umbral Tempest** begins sweeping through the land, warping creatures, corrupting the wilds, and threatening the heart of Havenwood itself.
 
 Only through cooperation can the four houses—**Squirrels (Harvesters), Foxes (Explorers), Owls (Researchers), and Badgers (Architects)**—combine their unique strengths to survive the storm, repel outside forces, and complete a monumental shared project needed to save Havenwood.
 
-“Houses of Havenwood” is a cooperative, asymmetric euro-style game where each player controls one house and must use their distinct subsystem to support the others in a shared struggle against time, threats, and escalating magical chaos.
-
----
+“Houses of Havenwood” is a cooperative, asymmetric euro-style game where each player controls one house and must use their distinct abilities to support the others in a shared struggle against time, threats, and escalating magical chaos.
 
 ## 2. Shared Systems Overview
 
 ### **Shared Deck Action System**
+
 - All houses draw from **one shared action deck**, collaboratively improved via deckbuilding.
 - Each round:
   1. Draw to **hand limit** (start: 5).
-  2. Each house **passes one card** to a neighbor.
+  2. Each house **may pass one card** to a neighbor.
   3. Houses simultaneously choose and play actions using:
      - Build
      - Move
      - Buy Card
      - **Main Action** (unique per house)
      - **Auxiliary Action** (unique per house)
+  4. Perform house specific **Cleanup** 
+  5. Draw N event cards and resolve them, where N is the number on the threat track. Event cards can increase the threat track, target specific buildings or resources, etc.
 
 ### **Hex Tile Map**
+
 - Modular hex map; foxes explore to add new tiles.
 - Buildings: max **one** per hex.
 - Each hex has:
@@ -32,239 +34,256 @@ Only through cooperation can the four houses—**Squirrels (Harvesters), Foxes (
   - **Natural resources**
   - **Event vulnerability** (varies by environment)
 
----
-
 ## 3. Resources
 
-### **Basic Resources (harvested by Squirrels)**
-| Resource | Source Environment | Usage |
-|---------|--------------------|-------|
-| **Wood** | Forest | Building basic structures, defensive towers, research components. |
-| **Stone** | Mountains | Strong buildings, walls, shared project components. |
-| **Clay** | Riverbanks / Wetlands | Upgrading buildings, spell catalysts. |
-| **Herbs** | Plains / Meadows | Research, magic discovery, healing. |
-| **Ore** | Mountains | Advanced construction, magical artifacts. |
-| **Fruits/Nuts** | Forest | Feed workers (Badgers), fuel Owl spell activations. |
+All basic and composite resources are shared globally; spending of resources is done co-operatively in agreement as a team.
 
-### **Combined / Refined Resources**
-| Composite | Made From | Used For |
-|----------|-----------|-----------|
-| **Timber** | Wood + Stone | Stronger buildings, advanced structures. |
-| **Steel** | Ore + Wood | Shared project construction, heavy defenses. |
-| **Potion Base** | Herbs + Clay | Magic discovery checks, countering event effects. |
-| **Runestones** | Ore + Herbs | Owl technology & ritual completion. |
-| **Food Stores** | Fruits/Nuts + Herbs | Feeding Badger workers to reset worker board. |
+### Basic Resources
 
----
+1. Food - harvested by the Farm building - environment: Plains
+1. Wood - harvested by the Forester Station building - environment: Forest
+1. Ore - harvested by the Mine building - environment: Plains/Mountains
+1. Stone - harvested by the Quarry building - environment: Plains/Mountains
 
-## 4. Hex Environments
+### Composite Resources
 
-| Environment | Resources Provided | Special Notes |
-|-------------|--------------------|---------------|
-| **Forest** | Wood, Fruits/Nuts | Vulnerable to fire events. |
-| **Mountains** | Stone, Ore | Hard to traverse; defensive advantage. |
-| **Plains** | Herbs | Common target of enemy incursions. |
-| **Swamp** | Clay, Herbs | Some events more severe here. |
-| **Snowfield** | Stone | Movement costs +1. |
-| **River** | Clay, Food | Enables certain Owl rituals. |
-| **Coast/Ocean** | None (special) | Unique events; no building allowed. |
+1. Lumber - input: Wood - produced by the Mill
+1. Steel - input: Wood, Ore - produced by the Furnace
+1. Stone Brick - input: Stone - produced by the Quarry
 
----
+### Resource Usage Overview
 
-## 5. House Subsystems
+Wood, Lumber, Steel, Stone, and Stone Bricks are used by all houses to construct their own buildings and by the Badgers for constructing the various stages of each shared project.
 
----
+Food is used for all deckbuilding actions.
 
-## **A. The Squirrels — Harvesters & Producers**
+All basic and composite resources are used by the Owls to purchase their research cards.
 
-### **Subsystem: Push-Your-Luck Harvesting**
-- Roll dice equal to building level.
-- Faces include:
-  - Resource symbols (Wood/Stone/etc.)
-  - Double-resource symbols
-  - **Bust** (Cannot reroll these dice; 3 busts ends harvest with 50% penalty)
+## 4. Houses
 
-### **Main Action (Harvest)**
-- **Base:** Roll 2 dice.
-- **Tier I upgrade:** Roll 3 dice.
-- **Tier II:** Spend 1 Food to reroll 1 bust.
-- **Tier III:** Convert two identical harvest symbols into a composite resource.
+Each house performs their unique main and auxiliary actions using their own asymmetric mechanics.
 
-### **Auxiliary Action (Produce)**
-- Draw production cards; stop when bust appears.
-- Symbols on cards combine into:
-  - Composite resources
-  - Extra build actions
-  - Bonus research tokens (for Owls)
+### Squirrels - Harvesters & Producers
 
-### **Squirrel Buildings**
-| Building | Effect |
-|----------|---------|
-| **Gathering Hut** | Roll +1 die, stores 1 resource. |
-| **Granary** | Produces Food Stores. |
-| **Mill** | Converts Wood + Stone → Timber. |
-| **Foundry** | Converts Ore + Wood → Steel. |
-| **Grove of Plenty** | Improves push‑your‑luck odds (removes 1 bust per round). |
+#### A. Main action – Harvest
 
----
+- Dice faces:
+  - 1–3 resource icons
+  - Bust (acorn cracked)
+- For each basic resource building:
+  - Roll a pool of N building-specific dice where N is the level of the building.
+  - A single bust on a dice means that dice can no longer be rerolled.
+  - Lock any number of dice and reroll the rest, continuing until all dice have been locked by the player or busted.
+  - Calculate the sum of the values on the locked dice and then gain that amount of the basic resource that the given building harvests.
 
-## **B. The Foxes — Explorers & Defenders**
+#### B. Auxiliary action – Produce
 
-### **Subsystem: Tile Drafting & Event Deck Manipulation**
+- Card icons:
+  - 1, 2, or 3 output
+  - Gear fragment (half bust)
+- Two gear fragments = bust → production from that building is limited to 1 resource.
+- Each production building grants 5/7/10 draw cards building levels 1/2/3.
+- For each building:
+  - Draw one card at a time up to the draw limit, choosing when to stop drawing cards.
+  - At any point if you bust with two gear fragments, the production is limited to 1 resource.
+  - If you don't bust by the time you choose to stop drawing cards, your production limit is the sum of the values on the cards.
+  - You may then spend the necessary basic resources to produce the building's composite resource up to the production limit.
 
-### **Main Action (Explore)**
-- **Base:** Draw **N=1** tile, place **M=1**.
-- **Tier I:** N+1 tiles.  
-- **Tier II:** M+1 placement.  
-- **Tier III:** Choose to discard 1 drawn tile for a global bonus.
+#### Cleanup
 
-### **Auxiliary Action (Scout Events)**
-- Draw **A** event cards, manipulate **B**:
-  - Reveal early
-  - Swap order
-  - Place on bottom
-  - Delay or escalate
+- No special cleanup.
 
-**Upgrades**:  
-- **A +1** per tier; **B increases every second tier**.
+#### Squirrel Buildings
 
-### **Fox Buildings**
-| Building | Effect |
-|----------|---------|
-| **Watchtower** | Defends 1 adjacent tile from early threats. |
-| **Wall Segment** | Prevents structure damage on that tile. |
-| **Ranger Den** | Grants movement bonuses. |
-| **Scout Post** | A+1 when built. |
-| **Beacon** | Allows global emergency event reordering once per round. |
+| Building         | Level 1 Cost    | Level 2 Cost    | Level 3 Cost                 |
+| ---------------- | --------------- | --------------- | ---------------------------- |
+| Farm             | 2 Wood          | 2 Wood, 1 Stone | 2 Wood, 2 Stone              |
+| Forester Station | 2 Wood          | 3 Wood          | 3 Wood, 1 Lumber             |
+| Mine             | 2 Wood, 1 Stone | 2 Wood, 2 Stone | 2 Wood, 2 Stone, 1 Steel     |
+| Quarry           | 2 Stone         | 3 Stone         | 4 Stone                      |
+| Mill             | 1 Wood, 1 Stone | 2 Wood, 1 Stone | 2 Wood, 2 Stone              |
+| Furnace          | 2 Ore, 1 Wood   | 2 Ore, 2 Wood   | 2 Ore, 2 Wood, 1 Stone Brick |
 
----
+### Foxes - Explorers & Defenders
 
-## **C. The Owls — Researchers & Mages**
+#### A. Main action - **Explore**
 
-### **Subsystem: Pattern‑Matching Tableau (Card Edges)**
-Owls draw and place cards with edges showing:
-- Arcane Lines
-- Nature Glyphs
-- Rune Clusters
+- Draw N hex tiles
+- Place M hex tiles. 
+- Hex tiles may have a discovery bonus (a free action, some basic or composite resources, knowledge or insight, etc.); if so, the bonus is gained when the tile is placed. Discovery bonuses examples:
+  - +1 Food
+  - +1 Wood
+  - +1 Insight
+  - +1 Knowledge
+  - Free Move
+  - Free Fortification Level 1
 
-Matching edges trigger progress on two tracks:
-- **Technology**
-- **Magic**
+*Note: When the tile deck runs out, shuffle the tile discard to make a new tile deck.*
 
-### **Main Action (Discover)**
-- Draw 2 cards, place 1.
-- **Upgrades** increase:
-  - Cards drawn
-  - Cards placed
-  - Ability to rotate cards
+#### B. Auxiliary action - **Scout**
 
-### **Auxiliary Action (Research)**
-- Spend Herbs, Runestones, or Potion Bases to advance on tech/magic tracks.
+- Draw X (starts at 1) event cards **keeping them in order** 
+- Manipulate Y (starts at 0) event cards. The rest are returned in order to the top of the deck. Manipulation options are initially limited but may be expanded by Owl research to include:
+  - Destroy the event out of the game
+  - Put the event on the bottom of the deck
+  - Reorder drawn events
 
-### **Owl Buildings**
-| Building | Effect |
-|----------|---------|
-| **Study Tower** | +1 discover draw. |
-| **Library** | Store 1 unplaced card for later. |
-| **Crystal Lab** | Produce Potion Base. |
-| **Runeforge** | Produce Runestones. |
-| **Astrarium** | Counts as 2 matching edges for rituals (late‑game). |
+#### Cleanup
 
----
+- Place any unused hex tiles in the hex tile discard pile.
+- Place any unused event cards in their original order back on top of the event deck.
 
-## **D. The Badgers — Architects & Master Builders**
+#### Fox Buildings
 
-### **Subsystem: Worker Placement Board**
-Badgers place limited workers to activate:
-- Architect building for any house
-- Build shared project components
-- Improve shared deck limits
-- Trash cards
-- Build/enhance Squirrel, Fox, or Owl buildings
+- Walls - provides protection against certain events for buildings within/behind walls (the amount of protection matches the level of the walls)
+- Scouting Camp - increases exploration distance in a particular direction (can explore non-adjacent tiles in one direction up to a certain distance for the level of the watchtower)
+- Fortifications (can be used on existing buildings) - provides protection for a single building (the amount of protection matches the level of the fortifications)
+- Magic Shield - provides immunity against magic attacks for everything under it - size increases with level
+- Watchtower - provides various bonuses/abilities for interacting with events
 
-### **Main Action (Architect)**
-- Choose blueprint (unlocked via owl research).
-- Spend resources to create building schema.
+### Owls - Researchers & Mages
 
-Upgrades:
-- **Unlock more worker slots**
-- **Reduce resource costs**
-- **Architect multiple blueprints per turn**
+#### A. Main action - **Research**
 
-### **Auxiliary Action (Construct)**
-- Build a schema on the map.
-- Upgrade:
-  - Extra buildings per round
-  - Build without moving
-  - Repair for free
+##### Concepts
 
----
+- Research cards are split into 3 levels with a deck for each level.
+- Research cards have a cost of 1-3 different resources with the amount of each resource cost increasing with the level of the research card.
+- Research cards have graphical links that go to the edge of the cards that can connect to links on adjacent cards; links that are connected result in the player gaining the indicated amount of Knowledge or Insight.
+- Knowledge is used for tech tree advancements and Insight is used for magic tree advancements. 
 
-## 6. Technologies & Magic Tracks (Owls)
+#### Action
 
-### **Technology Track**
-| Tier | Technology | Effect |
-|-------|------------|---------|
-| I | Reinforced Frames | Buildings gain +1 HP. |
-| II | Efficient Tools | Squirrels roll +1 harvest die. |
-| III | Crystal Focusing | Badgers reduce blueprint costs by 1 resource. |
-| IV | Arcane Barriers | Fox defenses count as +1 against storms. |
-| V | Synergy Core | Prevents one loss condition per game. |
+- From the display of research cards, spend the necessary resources to buy research cards and place them orthogonally in a tableau up to the research limit such that the links on adjacent cards connect.
+- When links are completed, the player gains the associated amount of Knowledge or Insight.
 
-### **Magic Track**
-| Tier | Magic | Effect |
-|-------|--------|--------|
-| I | Light Glyphs | Reveal 1 extra event when scouting. |
-| II | Binding Runes | Prevent enemy movement for 1 round. |
-| III | Stormweaving | Reduce storm power globally by 1. |
-| IV | Leyline Surge | Perform any main action again. |
-| V | Heartspell | Required for main shared project. |
+#### B. Auxiliary action - **Apply**
 
----
+- Spend Knowledge/Insight from the tracks to unlock items on the tech or magic tree.
+
+#### Cleanup
+
+- Discard all remaining research cards.
+- Refill the research card row back up to N cards.
+
+#### Owl Buildings
+
+- University - increases the number of research cards that are displayed each round by the building level (the number of research cards on display is equal to the sum of the level of all universities)
+- Library - increases the research limit (which is the number of research cards allowed in the tableau) by the building level (the research limit is the sum of the level of all libraries)
+- Laboratory - provides a discount of any N resources on tech research cards, where N is the building level (this discount sums up across multiple laboratories)
+- Maginarium - provides a discount of any N resources on magic research cards, where N is the building level (this discount sums up across multiple maginariums)
+
+### Badgers - Leaders & Master Builders
+
+Uses a worker placement board to perform the **Progress** action; starts with 1 worker and can gain up to 3 workers total over the course of a game.
+
+#### A. Main action - **Progress**
+
+Place as many workers as you have available to you on the worker placement board to perform various actions in service of constructing a shared project.
+
+##### Board spaces
+
+| Action              | Cost                              | Effect                                                                 |
+| ------------------- | --------------------------------- | ---------------------------------------------------------------------- |
+| Construct Component | resource costs on component card  | Add to project                                                         |
+| Train               | 2 Knowledge or 2 Insight          | +1 expertise level (max 5)                                             |
+| Ensure Quality      | none                              | Roll X dice where X is your expertise level. Must meet card requirement (e.g., ≥12). |
+| Install Component   | 2 workers                         | Install completed component                                            |
+| Commission          | 2 workers + two main action cards | Win the game                                                           |
+
+#### B. Auxiliary action - **Lead**
+
+- Spend food to perform one of the special deckbuilding tasks:
+  - Trash a card - 5 food
+  - Upgrade an existing card - 8 food - equivalent to buying a new card and trashing a card; remove a card from your hand from the game and gain a new card from the card market
+  - Increase hand limit by 1 - 10 food
+- Spend 10 food to gain another worker for the **Progress** action
+
+#### Cleanup
+
+- Retrieve all workers from the worker placement board.
+
+#### Badger Buildings
+
+The Badgers' buildings are the shared projects. Typically construction is attempted for just one shared project in each play session. 
+
+Each project has 3–5 components, each with:
+
+- Resource cost
+- Quality requirement (dice total from 6–20)
+
+##### 1. Heart of the Wood
+
+A living ancient core that stabilizes Havenwood’s magic.
+
+| Component        | Cost                   | Quality |
+| ---------------- | ---------------------- | ------- |
+| Barkshell Casing | 3 Wood, 2 Stone        | 8       |
+| Sapflow Channels | 2 Wood, 2 Lumber       | 10      |
+| Spirit Conduit   | 2 Steel, 1 Stone Brick | 12      |
+| Core Crystal     | 1 Steel, 2 Stone Brick | 14      |
+
+##### 2. Skybridge Beacon
+
+A massive signal tower that calls aid from distant allies.
+
+| Component            | Cost                   | Quality |
+| -------------------- | ---------------------- | ------- |
+| Tower Frame          | 4 Wood, 2 Lumber       | 9       |
+| Lens Array           | 2 Steel, 1 Stone       | 12      |
+| Arcane Focusing Ring | 1 Steel, 2 Stone Brick | 13      |
+| Beacon Flame         | 2 Lumber, 2 Steel      | 15      |
+
+##### 3. Stoneweave Bastion
+
+A defensive fortress providing peace and security.
+
+| Component       | Cost                   | Quality |
+| --------------- | ---------------------- | ------- |
+| Foundation      | 4 Stone                | 10      |
+| Ramparts        | 3 Stone, 1 Stone Brick | 12      |
+| Inner Keep      | 2 Stone Brick, 1 Steel | 14      |
+| Guardian Sigils | 2 Insight, 2 Steel     | 16      |
+
+##### 4. Astral Observatory
+
+Reveals the mysteries of the stars.
+
+| Component        | Cost                   | Quality |
+| ---------------- | ---------------------- | ------- |
+| Observation Deck | 3 Wood, 2 Stone        | 8       |
+| Star Mirror      | 1 Steel, 2 Stone Brick | 12      |
+| Astral Lens      | 2 Steel                | 14      |
+| Reality Anchor   | 2 Insight, 2 Lumber    | 16      |
+
+##### 5. Riverheart Engine
+
+A water-powered infrastructure project.
+
+| Component       | Cost                   | Quality |
+| --------------- | ---------------------- | ------- |
+| Waterwheel      | 3 Wood, 1 Lumber       | 9       |
+| Channelworks    | 2 Stone Brick, 1 Stone | 12      |
+| Power Core      | 2 Steel, 1 Lumber      | 14      |
+| Flow Regulator  | 1 Steel, 1 Stone Brick | 16      |
+| Control Station | 1 Steel, 1 Insight     | 18      |
+
+## 6. Tech and Magic Trees
+
+### Technology Tree
+
+### Magic Track
 
 ## 7. Events
 
-### **Event Types**
-- **Natural Threats:** Fire, flood, storm surge.
-- **Corrupted Creatures:** Attack explored tiles.
-- **Umbral Storm:** Global penalties; grows stronger over time.
-- **Blights:** Remove resources from stores.
-- **Hex Maladies:** Building HP loss or temporary tile shutdown.
-
-### **Event Effects**
-Examples:
-- “Forest Fire”: Forest tiles lose 1 HP from buildings.
-- “Rockslide”: Mountain tile impassable.
-- “Scouting Echo”: Next two events execute together.
-- “Umbral Pulsation”: Increase storm track by 1; reveal additional event.
-
----
-
-## 8. Lose Conditions
+## 8. Loss Conditions
 
 Players lose if **any one** of the following occurs:
-1. **Storm Track** reaches the end.
-2. **Three buildings** are destroyed.
-3. **All players' workers/pieces** are displaced by an Umbral Wave.
-4. **Shared project cannot be completed** before final storm surge.
-5. The event deck runs out.
 
----
+1. The **Storm Track** reaches the end.
+1. Any house has all its buildings destroyed.
+1. The event deck runs out.
 
-## 9. Shared Projects (Only one required to win)
+## 9. Win Condition
 
-| Project | Requirements | Effect |
-|---------|--------------|--------|
-| **Heart of Havenwood** | Heartspell + Steel + Timber + Runestones | Permanently seals the Umbral Storm. |
-| **Aegis Spire** | Steel ×4 + Technology IV | Generates barrier protecting all tiles from all final events. |
-| **The Beacon of Dawn** | Potion Base ×3 + Magic III | Cancels last 3 events. |
-| **Worldroot Conduit** | Timber ×3 + Crystal Lab + Runestone ×3 | Channels leyline energy to stabilize the forest. |
-
----
-
-## 10. Win Condition
-Complete **one** shared project **before** any lose condition triggers.
-
----
-
-## END OF DOCUMENT
+Complete **one** shared project **before** any loss condition occurs.
