@@ -152,14 +152,14 @@ Each house performs their unique main and auxiliary actions using their own asym
 ##### Concepts
 
 - Research cards are split into 3 levels with a deck for each level.
-- Research cards have a cost of 1-3 different resources with the amount of each resource cost increasing with the level of the research card.
-- Research cards have graphical links that go to the edge of the cards that can connect to links on adjacent cards; links that are connected result in the player gaining the indicated amount of Knowledge or Insight.
-- Knowledge is used for tech tree advancements and Insight is used for magic tree advancements. 
+- Research cards have a cost of 1-3 different resources.
+- Each card features 3–6 "Links" located at specific positions (Top, Bottom, Upper Left, Upper Right, Bottom Left, Bottom Right).
+- When a card is placed such that a Link connects to a Link on an adjacent card, the player gains the specific reward associated with *that specific link* (e.g., 1 Knowledge or 1 Insight).
 
 #### Action
 
 - From the display of research cards, spend the necessary resources to buy research cards and place them orthogonally in a tableau up to the research limit such that the links on adjacent cards connect.
-- When links are completed, the player gains the associated amount of Knowledge or Insight.
+- For every completed connection, gain the associated amount of Knowledge or Insight.
 
 #### B. Auxiliary action - **Apply**
 
@@ -673,40 +673,42 @@ The Squirrel House uses this deck for their **Produce** Auxiliary Action.
 
 ## 15. Owl Research Deck List
 
-The Owl House uses these cards for their **Research** Main Action. Links are represented by connections on the card edges (Top, Bottom, Left, Right).
+The Owl House uses these cards for their **Research** Main Action. Cards do not have titles.
+**Link Positions:** Top (T), Bottom (B), Upper Left (UL), Upper Right (UR), Bottom Left (BL), Bottom Right (BR).
+**Rewards:** K = Knowledge, I = Insight.
 
 ### Level 1 Research Deck (20 Cards)
 
-| Card Name | Cost | Links | Reward (on completion) | Count |
-| :--- | :--- | :--- | :--- | :--- |
-| **Basic Physics** | 1 Wood | Top, Bottom | 1 Knowledge | 4 |
-| **Simple Geometry** | 1 Stone | Left, Right | 1 Knowledge | 4 |
-| **Minor Cantrip** | 1 Food | Top, Right | 1 Insight | 4 |
-| **Nature Study** | 1 Wood | Bottom, Left | 1 Insight | 4 |
-| **Star Chart** | 1 Ore | Top, Left | 1 Knowledge | 2 |
-| **Herbology** | 1 Food | Bottom, Right | 1 Insight | 2 |
+| ID | Cost | Links (Position: Reward) | Count |
+| :--- | :--- | :--- | :--- |
+| **L1-A** | 1 Wood | T: 1K, B: 1K, UL: 1I | 4 |
+| **L1-B** | 1 Stone | T: 1I, B: 1I, UR: 1K | 4 |
+| **L1-C** | 1 Food | UL: 1K, UR: 1K, B: 1I | 4 |
+| **L1-D** | 1 Ore | BL: 1I, BR: 1I, T: 1K | 4 |
+| **L1-E** | 1 Wood | T: 1K, B: 1K, UL: 1K, UR: 1K | 2 |
+| **L1-F** | 1 Stone | T: 1I, B: 1I, BL: 1I, BR: 1I | 2 |
 
 ### Level 2 Research Deck (20 Cards)
 
-| Card Name | Cost | Links | Reward (on completion) | Count |
-| :--- | :--- | :--- | :--- | :--- |
-| **Advanced Algebra** | 1 Wood, 1 Stone | Top, Bottom, Left | 2 Knowledge | 4 |
-| **Material Science** | 1 Ore, 1 Stone | Top, Bottom, Right | 2 Knowledge | 4 |
-| **Elemental Theory** | 1 Wood, 1 Food | Left, Right, Top | 2 Insight | 4 |
-| **Aether Flow** | 1 Ore, 1 Food | Left, Right, Bottom | 2 Insight | 4 |
-| **Structural Analysis** | 2 Stone | All 4 Sides | 2 Knowledge | 2 |
-| **Spirit Whispers** | 2 Wood | All 4 Sides | 2 Insight | 2 |
+| ID | Cost | Links (Position: Reward) | Count |
+| :--- | :--- | :--- | :--- |
+| **L2-A** | 1 Wood, 1 Stone | T: 1K, B: 1K, UL: 1K, UR: 1K | 4 |
+| **L2-B** | 1 Ore, 1 Food | T: 1I, B: 1I, BL: 1I, BR: 1I | 4 |
+| **L2-C** | 2 Wood | T: 1K, B: 1K, UL: 1I, UR: 1I, BL: 1K | 4 |
+| **L2-D** | 2 Stone | T: 1I, B: 1I, UL: 1K, UR: 1K, BR: 1I | 4 |
+| **L2-E** | 1 Lumber | All 6 Positions: 1K | 2 |
+| **L2-F** | 1 Steel | All 6 Positions: 1I | 2 |
 
 ### Level 3 Research Deck (20 Cards)
 
-| Card Name | Cost | Links | Reward (on completion) | Count |
-| :--- | :--- | :--- | :--- | :--- |
-| **Quantum Mechanics** | 1 Lumber, 1 Steel | Top, Bottom | 3 Knowledge | 4 |
-| **Metaphysics** | 1 Stone Brick, 1 Steel | Left, Right | 3 Knowledge | 4 |
-| **Void Manipulation** | 1 Lumber, 1 Stone Brick | Top, Right, Bottom | 3 Insight | 4 |
-| **Time Weaving** | 2 Steel | Left, Top, Right | 3 Insight | 4 |
-| **Unified Theory** | 1 of each Composite | All 4 Sides | 4 Knowledge | 2 |
-| **Ascension** | 1 of each Composite | All 4 Sides | 4 Insight | 2 |
+| ID | Cost | Links (Position: Reward) | Count |
+| :--- | :--- | :--- | :--- |
+| **L3-A** | 1 Lumber, 1 Steel | T: 2K, B: 2K, UL: 2K, UR: 2K | 4 |
+| **L3-B** | 1 Stone Brick, 1 Steel | T: 2I, B: 2I, BL: 2I, BR: 2I | 4 |
+| **L3-C** | 2 Steel | T: 2K, B: 2K, UL: 2I, UR: 2I, BL: 2K | 4 |
+| **L3-D** | 2 Lumber | T: 2I, B: 2I, UL: 2K, UR: 2K, BR: 2I | 4 |
+| **L3-E** | 1 of each Composite | All 6 Positions: 2K | 2 |
+| **L3-F** | 1 of each Composite | All 6 Positions: 2I | 2 |
 
 ## 16. Miscellaneous Cards
 
@@ -753,5 +755,5 @@ These cards represent the physical components needed for the **Great Works**.
   - [x] Generate a full list of event cards with all their effects
   - [x] Generate a full list of hex tiles with discovery bonuses, environment, resources available, etc.
   - [x] Generate a full list of all shared deck cards, including the starter cards and all purchasable cards
-  - [ ] Generate a rulebook that someone who has no knowledge of the game can use to learn to play the game from
+  - [x] Generate a rulebook that someone who has no knowledge of the game can use to learn to play the game from
 - [x] Ensure the design document is fully consistent with itself and has no missing details or loose ends.
