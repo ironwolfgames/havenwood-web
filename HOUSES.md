@@ -2,9 +2,9 @@
 
 ## 1. Theme & Background
 
-In the ancient woodland realm of **Havenwood**, four great anthropomorphic animal houses live in peaceful harmony. For centuries, they have protected the forest from natural threats, magical anomalies, and the encroaching ambitions of unseen enemies. But now, a **magical storm known as the Umbral Tempest** begins sweeping through the land, warping creatures, corrupting the wilds, and threatening the heart of Havenwood itself.
+In the ancient woodland realm of **Havenwood**, four great anthropomorphic animal houses live in peaceful harmony. For centuries, they have protected the forest from natural threats, magical anomalies, and the encroaching ambitions of unseen enemies. But now, a **magical phenomenon known as the Aether Storm** begins sweeping through the land, unleashing raw, chaotic magic that threatens to overwhelm the natural order of Havenwood itself.
 
-Only through cooperation can the four houses—**Squirrels (Harvesters), Foxes (Explorers), Owls (Researchers), and Badgers (Architects)**—combine their unique strengths to survive the storm, repel outside forces, and complete a monumental shared project needed to save Havenwood.
+Only through cooperation can the four houses—**Squirrels (Harvesters), Foxes (Explorers), Owls (Researchers), and Badgers (Architects)**—combine their unique strengths to survive the storm, weather the chaos, and complete a monumental **Great Work** needed to save Havenwood.
 
 “Houses of Havenwood” is a cooperative, asymmetric euro-style game where each player controls one house and must use their distinct abilities to support the others in a shared struggle against time, threats, and escalating magical chaos.
 
@@ -51,7 +51,7 @@ All basic and composite resources are shared globally; spending of resources is 
 
 ### Resource Usage Overview
 
-Wood, Lumber, Steel, Stone, and Stone Bricks are used by all houses to construct their own buildings and by the Badgers for constructing the various stages of each shared project.
+Wood, Lumber, Steel, Stone, and Stone Bricks are used by all houses to construct their own buildings and by the Badgers for constructing the various stages of the active **Great Work**.
 
 Food is used for all deckbuilding actions.
 
@@ -185,13 +185,13 @@ Uses a worker placement board to perform the **Progress** action; starts with 1 
 
 #### A. Main action - **Progress**
 
-Place as many workers as you have available to you on the worker placement board to perform various actions in service of constructing a shared project.
+Place as many workers as you have available to you on the worker placement board to perform various actions in service of constructing the **Great Work**.
 
 ##### Board spaces
 
 | Action              | Cost                              | Effect                                                                 |
 | ------------------- | --------------------------------- | ---------------------------------------------------------------------- |
-| Construct Component | resource costs on component card  | Add to project                                                         |
+| Construct Component | resource costs on component card  | Add to Great Work                                                      |
 | Train               | 2 Knowledge or 2 Insight          | +1 expertise level (max 5)                                             |
 | Ensure Quality      | none                              | Roll X dice where X is your expertise level. Must meet card requirement (e.g., ≥12). |
 | Install Component   | 2 workers                         | Install completed component                                            |
@@ -211,16 +211,18 @@ Place as many workers as you have available to you on the worker placement board
 
 #### Badger Buildings
 
-The Badgers' buildings are the shared projects. Typically construction is attempted for just one shared project in each play session. 
+The Badgers' buildings are the **Great Works**. Typically construction is attempted for just one Great Work in each play session. 
 
-Each project has 3–5 components, each with:
+Each Great Work has 3–5 components, each with:
 
 - Resource cost
 - Quality requirement (dice total from 6–20)
 
 ##### 1. Heart of the Wood
 
-A living ancient core that stabilizes Havenwood’s magic.
+*A living ancient core that stabilizes Havenwood’s magic.*
+
+**How it saves Havenwood:** The Heart amplifies the forest's natural life force to such a degree that the chaotic magic of the Aether Storm cannot take root. It acts as a magical anchor, stabilizing the wild magic with pure vitality and regrowing what was lost.
 
 | Component        | Cost                   | Quality |
 | ---------------- | ---------------------- | ------- |
@@ -229,20 +231,24 @@ A living ancient core that stabilizes Havenwood’s magic.
 | Spirit Conduit   | 2 Steel, 1 Stone Brick | 12      |
 | Core Crystal     | 1 Steel, 2 Stone Brick | 14      |
 
-##### 2. Skybridge Beacon
+##### 2. The Aether Siphon
 
-A massive signal tower that calls aid from distant allies.
+*A massive conductive tower that draws raw energy from the storm.*
 
-| Component            | Cost                   | Quality |
-| -------------------- | ---------------------- | ------- |
-| Tower Frame          | 4 Wood, 2 Lumber       | 9       |
-| Lens Array           | 2 Steel, 1 Stone       | 12      |
-| Arcane Focusing Ring | 1 Steel, 2 Stone Brick | 13      |
-| Beacon Flame         | 2 Lumber, 2 Steel      | 15      |
+**How it saves Havenwood:** Instead of resisting the Storm, the Siphon draws the raw magical energy directly into Havenwood. It captures the chaotic lightning, refining it into limitless, stable power that fuels a new age of magical technology for the forest.
+
+| Component        | Cost                   | Quality |
+| ---------------- | ---------------------- | ------- |
+| Conductive Spire | 4 Wood, 2 Lumber       | 9       |
+| Capacitor Banks  | 2 Steel, 1 Stone       | 12      |
+| Grounding Rods   | 1 Steel, 2 Stone Brick | 13      |
+| Energy Core      | 2 Lumber, 2 Steel      | 15      |
 
 ##### 3. Stoneweave Bastion
 
-A defensive fortress providing peace and security.
+*A defensive fortress providing peace and security.*
+
+**How it saves Havenwood:** The Bastion creates an impenetrable physical and magical barrier around the heart of the forest. The Storm may rage outside, but inside, the sanctuary is preserved in perfect stillness, allowing the forest to live in peace.
 
 | Component       | Cost                   | Quality |
 | --------------- | ---------------------- | ------- |
@@ -251,32 +257,36 @@ A defensive fortress providing peace and security.
 | Inner Keep      | 2 Stone Brick, 1 Steel | 14      |
 | Guardian Sigils | 2 Insight, 2 Steel     | 16      |
 
-##### 4. Astral Observatory
+##### 4. The Harmonic Resonator
 
-Reveals the mysteries of the stars.
+*A series of giant crystal arrays that vibrate at the Storm's frequency.*
+
+**How it saves Havenwood:** By vibrating in sympathy with the Aether Storm, the Resonator calms the chaotic winds into a gentle, rhythmic pulse. It turns the destructive gale into a soothing song that accelerates growth and healing throughout the woodland.
 
 | Component        | Cost                   | Quality |
 | ---------------- | ---------------------- | ------- |
-| Observation Deck | 3 Wood, 2 Stone        | 8       |
-| Star Mirror      | 1 Steel, 2 Stone Brick | 12      |
-| Astral Lens      | 2 Steel                | 14      |
-| Reality Anchor   | 2 Insight, 2 Lumber    | 16      |
+| Base Platform    | 3 Wood, 2 Stone        | 8       |
+| Crystal Matrix   | 1 Steel, 2 Stone Brick | 12      |
+| Resonant Forks   | 2 Steel                | 14      |
+| Tuning Mechanism | 2 Insight, 2 Lumber    | 16      |
 
-##### 5. Riverheart Engine
+##### 5. The Genesis Vault
 
-A water-powered infrastructure project.
+*A fortified botanical sanctuary designed to harness storm-based growth.*
 
-| Component       | Cost                   | Quality |
-| --------------- | ---------------------- | ------- |
-| Waterwheel      | 3 Wood, 1 Lumber       | 9       |
-| Channelworks    | 2 Stone Brick, 1 Stone | 12      |
-| Power Core      | 2 Steel, 1 Lumber      | 14      |
-| Flow Regulator  | 1 Steel, 1 Stone Brick | 16      |
-| Control Station | 1 Steel, 1 Insight     | 18      |
+**How it saves Havenwood:** The Vault exposes selected flora to controlled doses of the Storm's intense magical pressure. It uses the chaotic energy to rapidly grow seeds into "Storm-Touched" lifeforms, creating a new, stronger ecosystem adapted to thrive in the new magical reality.
+
+| Component           | Cost                   | Quality |
+| ------------------- | ---------------------- | ------- |
+| Intake Vents        | 3 Wood, 1 Lumber       | 9       |
+| Stasis Chambers     | 2 Stone Brick, 1 Stone | 12      |
+| Growth Catalyst   | 2 Steel, 1 Lumber      | 14      |
+| Life Support        | 1 Steel, 1 Stone Brick | 16      |
+| Resiliency Interface | 1 Steel, 1 Insight     | 18      |
 
 ## 6. Tech and Magic Trees
 
-The Owl House drives advancement through two distinct development trees. **Knowledge** is spent to advance the **Technology Tree** (focused on infrastructure, efficiency, and physics), while **Insight** is spent to advance the **Magic Tree** (focused on rule manipulation, event mitigation, and arcane defense).
+The Owl House drives advancement through two distinct development trees. **Knowledge** is spent to advance the **Technology Tree** (focused on infrastructure, efficiency, and physics), while **Insight** is spent to advance the **Magic Tree** (focused on rule manipulation, event mitigation, and aether defense).
 
 ### Technology Tree (Uses Knowledge)
 
@@ -298,7 +308,7 @@ The Technology Tree is the backbone of Havenwood's economy. It is primarily resp
 
 - **Advanced Masonry**
   - **Cost:** 5 Knowledge
-  - **Effect:** Unlocks **Level 2** for all **Fox Buildings** (Walls, Fortifications, etc.).
+  - **Effect:** Unlocks **Level 2** for all **Fox Buildings** (Walls, Fortifications, etc.)
   - **Prerequisite:** Basic Engineering
 
 - **Composite Refining**
@@ -308,7 +318,7 @@ The Technology Tree is the backbone of Havenwood's economy. It is primarily resp
 
 - **Heavy Infrastructure**
   - **Cost:** 5 Knowledge
-  - **Effect:** Unlocks the Badgers' ability to construct **Phase 2 & 3** components of Shared Projects.
+  - **Effect:** Unlocks the Badgers' ability to construct **the final 2 components** of **Great Works**.
   - **Prerequisite:** Advanced Masonry
 
 #### Tier 3: Mastery
@@ -325,7 +335,7 @@ The Technology Tree is the backbone of Havenwood's economy. It is primarily resp
 
 ### Magic Tree (Uses Insight)
 
-The Magic Tree focuses on interacting with the Umbral Tempest, mitigating the Event Deck, and providing defensive buffs against arcane threats.
+The Magic Tree focuses on interacting with the **Aether Storm**, mitigating the Event Deck, and providing defensive buffs against aether threats.
 
 #### Tier 1: Awareness
 
@@ -341,7 +351,7 @@ The Magic Tree focuses on interacting with the Umbral Tempest, mitigating the Ev
 
 #### Tier 2: Manipulation
 
-- **Tempest Abjuration**
+- **Storm Stabilization**
   - **Cost:** 6 Insight
   - **Effect:** Unlocks **Magic Shield Level 2 & 3** (Fox Building). **Owl Research:** Display +1 Card (+1 N).
   - **Prerequisite:** Aetheric Sensing
@@ -355,24 +365,24 @@ The Magic Tree focuses on interacting with the Umbral Tempest, mitigating the Ev
 
 - **Chronomancy**
   - **Cost:** 10 Insight
-  - **Effect:** Once per round, the Badgers may re-roll any number of dice during an "Ensure Quality" check on a Shared Project.
+  - **Effect:** Once per round, the Badgers may re-roll any number of dice during an "Ensure Quality" check on a **Great Work**.
   - **Prerequisite:** Banishment
 
-- **Umbral Resistance**
+- **Aether Adaptation**
   - **Cost:** 12 Insight
   - **Effect:** The maximum hand limit for all players is increased by +1.
-  - **Prerequisite:** Tempest Abjuration
+  - **Prerequisite:** Storm Stabilization
 
 ## 7. Events
 
-The Event Deck represents the encroaching **Umbral Tempest** and the natural dangers of the wild. As the game progresses, the frequency and severity of these events increase based on the **Threat Track**.
+The Event Deck represents the encroaching **Aether Storm** and the natural dangers of the wild. As the game progresses, the frequency and severity of these events increase based on the **Threat Track**.
 
 ### Event Deck Structure
 
 The Event Deck is constructed at the start of the game using a ratio of **Standard Events** and **Storm Cards**.
 
 - **Standard Events**: Natural disasters or enemy movements that target specific resources or biomes.
-- **Storm Cards**: Direct advancements of the magical corruption that accelerates the end of the game.
+- **Storm Cards**: Direct surges of the storm's intensity that accelerate the end of the game.
 
 ### Threat Track Progression
 
@@ -389,10 +399,10 @@ The Threat Track determines how many event cards are drawn during the Event Phas
 2. **Type**:
     - *Natural*: Weather or environmental hazards (can often be mitigated by specific buildings).
     - *Hostile*: Enemy incursions (tested against Walls/Fortifications).
-    - *Arcane*: Magical anomalies (often require Insight/Knowledge to dispel).
+    - *Aether*: Magical anomalies (often require Insight/Knowledge to dispel).
 3. **Target**: The specific Hex Environment (e.g., Forest), Building Type (e.g., Mines), or House affected.
 4. **Effect**: The penalty incurred if the event is not negated.
-5. **Storm Value**: The amount the Storm Track advances if this event is unresolved (usually 0 for Natural/Hostile events, 1+ for Arcane cards).
+5. **Storm Value**: The amount the Storm Track advances if this event is unresolved (usually 0 for Natural/Hostile events, 1+ for Aether cards).
 
 ### Event Resolution Phases
 
@@ -409,7 +419,7 @@ Check the **Hex Tile Map**. The event only triggers if a player occupies a Hex t
 Players may use House abilities or Buildings to mitigate the event:
 
 - **Fox Walls/Fortifications**: If the target is behind Walls (or Fortified), compare the **Event Severity** (1–3) against the **Wall Level**. If Wall Level ≥ Severity, the event is ignored.
-- **Magic Shield (Foxes)**: Negates *Arcane* type events completely for protected tiles.
+- **Magic Shield (Foxes)**: Negates *Aether* type events completely for protected tiles.
 - **Effect Triggers**: If undefended, the effect resolves immediately.
 
 #### Phase 3: The Storm Track
@@ -438,14 +448,14 @@ If the event was a **Storm Card**, move the marker on the Storm Track forward by
 | **Siege Engine** | Any Building | 3 | Destroy one building on the outermost edge of the map. **Fortifications** (Lvl 2+) prevent this. |
 | **Supply Ambush** | Roads | 2 | Players cannot pass cards to neighbors during the next round. |
 
-#### Arcane Events (The Umbral Tempest)
+#### Aether Events (The Aether Storm)
 
 | Event Title | Target | Storm Value | Effect |
 | :--- | :--- | :--- | :--- |
 | **Mana Surge** | Global | +1 | All Owl Research costs increase by 1 resource this round. |
 | **Reality Fracture**| Magic Track | +1 | Lose 2 Insight or move the Storm Track an additional +1 step. |
-| **The Umbral Eye** | Fox House | +2 | The Fox player must shuffle 2 "Fear" cards (useless junk cards) into their deck. |
-| **Tempest Howl** | Global | +1 | **Silence:** No players may communicate verbally during the next Strategy Phase. |
+| **The Storm's Eye** | Fox House | +2 | The Fox player must shuffle 2 "Fear" cards (useless junk cards) into their deck. |
+| **Aether Howl** | Global | +1 | **Silence:** No players may communicate verbally during the next Strategy Phase. |
 
 ## 8. Loss Conditions
 
@@ -457,7 +467,7 @@ Players lose if **any one** of the following occurs:
 
 ## 9. Win Condition
 
-Complete **one** shared project **before** any loss condition occurs.
+Complete **one Great Work** **before** any loss condition occurs.
 
 ## 10. Component List
 
@@ -471,14 +481,14 @@ Complete **one** shared project **before** any loss condition occurs.
   - Gear Fragment Cards (Half-bust)
 - **Event Deck** (~40 cards)
   - Standard Events (Natural, Hostile)
-  - Storm Cards (Arcane/Tempest advancement)
+  - Storm Cards (Aether advancement)
   - Fear Cards (Negative status cards)
 - **Research Cards** (Owl House)
   - Level 1 Research Deck (~20 cards)
   - Level 2 Research Deck (~20 cards)
   - Level 3 Research Deck (~20 cards)
 - **Project Component Cards**
-  - Cards representing components for the 5 Shared Projects (4-5 cards per project)
+  - Cards representing components for the 5 **Great Works** (4-5 cards per project)
 
 ### Tiles
 
@@ -523,7 +533,7 @@ Complete **one** shared project **before** any loss condition occurs.
 - **Squirrel Buildings**: Farm, Forester Station, Mine, Quarry, Mill, Furnace (Levels 1-3 indicated by base or token)
 - **Fox Buildings**: Scouting Camp, Watchtower (Levels 1-3)
 - **Owl Buildings**: University, Library, Laboratory, Maginarium (Levels 1-3)
-- **Shared Project Models**: 5 unique models (optional, or represented by cards/tiles)
+- **Great Work Models**: 5 unique models (optional, or represented by cards/tiles)
 
 ### Dice
 
@@ -560,15 +570,15 @@ Complete **one** shared project **before** any loss condition occurs.
 | **Goblin Raiders** | Outskirts | 1 | Steal 1 random card from each player's hand. **Fox Walls** prevent this. | 2 |
 | **Bandit Camp** | Hex Tile | 2 | Place a Bandit Token on a random empty hex. No building can be built there until a "Move" action is used to clear it (Cost: 3 Resources). | 2 |
 
-### Arcane / Storm Events (14 Cards)
+### Aether / Storm Events (14 Cards)
 
 | Title | Target | Storm Value | Effect | Count |
 | :--- | :--- | :--- | :--- | :--- |
 | **Mana Surge** | Global | +1 | All Owl Research costs increase by 1 resource this round. | 2 |
 | **Reality Fracture** | Magic Track | +1 | Lose 2 Insight or move the Storm Track an additional +1 step. | 2 |
-| **The Umbral Eye** | Fox House | +2 | The Fox player must shuffle 2 "Fear" cards (useless junk cards) into their deck. | 1 |
-| **Tempest Howl** | Global | +1 | **Silence:** No players may communicate verbally during the next Strategy Phase. | 1 |
-| **Arcane Feedback** | Owl House | +1 | Owl player must discard 1 card for every 2 Research cards they have in their tableau. | 2 |
+| **The Storm's Eye** | Fox House | +2 | The Fox player must shuffle 2 "Fear" cards (useless junk cards) into their deck. | 1 |
+| **Aether Howl** | Global | +1 | **Silence:** No players may communicate verbally during the next Strategy Phase. | 1 |
+| **Aether Feedback** | Owl House | +1 | Owl player must discard 1 card for every 2 Research cards they have in their tableau. | 2 |
 | **Time Dilation** | Badger House | +1 | Badgers have -1 Worker this round. | 1 |
 | **Resource Decay** | Storage | +1 | All stored Basic Resources are reduced by half (rounded up). | 1 |
 | **Shadow Walkers** | Global | +2 | Hostile Events this round have +1 Severity. | 1 |
@@ -683,7 +693,7 @@ The Owl House uses these cards for their **Research** Main Action. Links are rep
 | **Advanced Algebra** | 1 Wood, 1 Stone | Top, Bottom, Left | 2 Knowledge | 4 |
 | **Material Science** | 1 Ore, 1 Stone | Top, Bottom, Right | 2 Knowledge | 4 |
 | **Elemental Theory** | 1 Wood, 1 Food | Left, Right, Top | 2 Insight | 4 |
-| **Arcane Flow** | 1 Ore, 1 Food | Left, Right, Bottom | 2 Insight | 4 |
+| **Aether Flow** | 1 Ore, 1 Food | Left, Right, Bottom | 2 Insight | 4 |
 | **Structural Analysis** | 2 Stone | All 4 Sides | 2 Knowledge | 2 |
 | **Spirit Whispers** | 2 Wood | All 4 Sides | 2 Insight | 2 |
 
@@ -708,9 +718,9 @@ These cards are added to player decks by specific Events or effects.
 | :--- | :--- | :--- |
 | **Fear** | 10 | **Unplayable.** Cannot be played for any action. Takes up hand space. Can be trashed using the Badger's **Lead** action or specific card effects. |
 
-### Project Component Cards (22 Cards)
+### Great Works Component Cards (22 Cards)
 
-These cards represent the physical components needed for the Shared Projects.
+These cards represent the physical components needed for the **Great Works**.
 
 | Project | Component Name | Cost | Quality Req. |
 | :--- | :--- | :--- | :--- |
@@ -718,23 +728,23 @@ These cards represent the physical components needed for the Shared Projects.
 | | Sapflow Channels | 2 Wood, 2 Lumber | 10 |
 | | Spirit Conduit | 2 Steel, 1 Stone Brick | 12 |
 | | Core Crystal | 1 Steel, 2 Stone Brick | 14 |
-| **Skybridge Beacon** | Tower Frame | 4 Wood, 2 Lumber | 9 |
-| | Lens Array | 2 Steel, 1 Stone | 12 |
-| | Arcane Focusing Ring | 1 Steel, 2 Stone Brick | 13 |
-| | Beacon Flame | 2 Lumber, 2 Steel | 15 |
+| **The Aether Siphon** | Conductive Spire | 4 Wood, 2 Lumber | 9 |
+| | Capacitor Banks | 2 Steel, 1 Stone | 12 |
+| | Grounding Rods | 1 Steel, 2 Stone Brick | 13 |
+| | Energy Core | 2 Lumber, 2 Steel | 15 |
 | **Stoneweave Bastion** | Foundation | 4 Stone | 10 |
 | | Ramparts | 3 Stone, 1 Stone Brick | 12 |
 | | Inner Keep | 2 Stone Brick, 1 Steel | 14 |
 | | Guardian Sigils | 2 Insight, 2 Steel | 16 |
-| **Astral Observatory** | Observation Deck | 3 Wood, 2 Stone | 8 |
-| | Star Mirror | 1 Steel, 2 Stone Brick | 12 |
-| | Astral Lens | 2 Steel | 14 |
-| | Reality Anchor | 2 Insight, 2 Lumber | 16 |
-| **Riverheart Engine** | Waterwheel | 3 Wood, 1 Lumber | 9 |
-| | Channelworks | 2 Stone Brick, 1 Stone | 12 |
-| | Power Core | 2 Steel, 1 Lumber | 14 |
-| | Flow Regulator | 1 Steel, 1 Stone Brick | 16 |
-| | Control Station | 1 Steel, 1 Insight | 18 |
+| **The Harmonic Resonator** | Base Platform | 3 Wood, 2 Stone | 8 |
+| | Crystal Matrix | 1 Steel, 2 Stone Brick | 12 |
+| | Resonant Forks | 2 Steel | 14 |
+| | Tuning Mechanism | 2 Insight, 2 Lumber | 16 |
+| **The Genesis Vault** | Intake Vents | 3 Wood, 1 Lumber | 9 |
+| | Stasis Chambers | 2 Stone Brick, 1 Stone | 12 |
+| | Mutation Catalyst | 2 Steel, 1 Lumber | 14 |
+| | Life Support | 1 Steel, 1 Stone Brick | 16 |
+| | Evolution Interface | 1 Steel, 1 Insight | 18 |
 
 ## To-Do List
 

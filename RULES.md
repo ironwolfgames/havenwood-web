@@ -2,14 +2,14 @@
 
 ## 1. Introduction
 
-Welcome to **Havenwood**, an ancient woodland realm protected for centuries by four great animal houses. Now, a magical storm known as the **Umbral Tempest** threatens to corrupt the land.
+Welcome to **Havenwood**, an ancient woodland realm protected for centuries by four great animal houses. Now, a magical phenomenon known as the **Aether Storm** threatens to overwhelm the land with chaotic energy.
 
-**Houses of Havenwood** is a cooperative, asymmetric game for 1-4 players. You take on the roles of the **Squirrels**, **Foxes**, **Owls**, and **Badgers**. You must work together to survive the storm, repel threats, and complete a monumental **Shared Project** to save your home.
+**Houses of Havenwood** is a cooperative, asymmetric game for 1-4 players. You take on the roles of the **Squirrels**, **Foxes**, **Owls**, and **Badgers**. You must work together to survive the storm, repel threats, and complete a monumental **Great Work** to save your home.
 
 ## 2. Objective
 
 **To Win:**
-The players must complete **one Shared Project** (consisting of all its components) before a loss condition is met.
+The players must complete **one Great Work** (consisting of all its components) before a loss condition is met.
 
 **To Lose:**
 The players lose immediately if **any** of the following occur:
@@ -28,7 +28,7 @@ The players lose immediately if **any** of the following occur:
 1. **Tracks**:
   a. Place the **Threat/Storm Track Board**. Set the Storm Marker to the start (0).
   a. Place the **Tech & Magic Tree Board**. Set Knowledge and Insight markers to 0.
-1. **Shared Project**: Choose one Project (e.g., *Heart of the Wood*) and place its **Component Cards** face up near the board.
+5. **Great Work**: Choose one **Great Work** (e.g., *Heart of the Wood*) and place its **Component Cards** face up near the board.
 
 ### B. Player Setup
 
@@ -102,7 +102,7 @@ Players take their turns simultaneously or in any order they choose. Cooperation
 
 ## 8. Phase 4: Event
 
-The Umbral Tempest grows stronger.
+The Aether Storm intensifies.
 
 1. **Check Threat Level**: Look at the **Threat Track** to determine how many cards to draw.
   a. Spaces 1–6: Draw **1** Card
@@ -113,7 +113,7 @@ The Umbral Tempest grows stronger.
   a. **Vulnerability Check**: Does the event target a specific environment (e.g., Forest)? It only triggers if a player/building is on that tile type.
   a. **Defense**: Can the **Foxes** negate it?
     - *Walls/Fortifications*: Compare Wall Level vs. Event Severity.
-    - *Magic Shield*: Negates Arcane events.
+    - *Magic Shield*: Negates Aether events.
   a. **Effect**: If not defended, apply the penalty (lose resources, destroy building, etc.).
   a. **Storm Cards**: If the card is a Storm Card, advance the **Storm Marker** on the track.
 
@@ -147,10 +147,11 @@ The Umbral Tempest grows stronger.
 
 ### Badgers (Architects & Leaders)
 
-- **Main Action (Progress)**: Build the Shared Project.
+- **Main Action (Progress)**: Build the **Great Work**.
   - Place **Workers** on the Project Board.
   - **Construct**: Pay resources to add a component.
   - **Ensure Quality**: Roll dice to meet quality requirements.
+  - **Install**: Install a completed component into the Great Work.
 - **Aux Action (Lead)**: Manage your deck.
   - Spend Food to **Trash** weak cards or **Upgrade** cards (swap a card in hand for a better one from the market).
 
@@ -171,7 +172,7 @@ Upgrades purchased by the Owls benefit the whole team.
 
 ## 11. Winning the Game
 
-To win, the Badgers must successfully **Commission** the final component of the Shared Project. This requires:
+To win, the Badgers must successfully **Commission** the final component of the **Great Work**. This requires:
 
 1. All components constructed and installed.
 1. 2 Workers + 2 Main Action cards spent on the "Commission" space.
