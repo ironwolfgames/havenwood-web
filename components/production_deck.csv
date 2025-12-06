@@ -1,0 +1,5 @@
+quantity,title,output_value,special_icon,effect_text,art_image
+8,1 Output,1,none,"Adds 1 to production limit.",art_acorn_one.png
+6,2 Output,2,none,"Adds 2 to production limit.",art_acorn_two.png
+2,3 Output,3,none,"Adds 3 to production limit.",art_acorn_three.png
+4,Gear Fragment,0,gear_half,"**Half-Bust**. If two are drawn, production busts (limit becomes 1).",art_broken_gear.png

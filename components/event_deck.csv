@@ -1,0 +1,28 @@
+quantity,type,title,target,value,effect_text,art_image
+2,Natural,Flash Flood,Plains / River,1,"Discard 2 Food or destroy 1 Farm on a Plains tile.",art_flood_water.png
+2,Natural,Root Rot,Forest,1,"Production of Wood is halved (rounded down) for the next round.",art_rotting_tree.png
+2,Natural,Cave-In,Mountain,2,"**Blocked:** Place a ""Blocked"" token on one Mine. It produces nothing until cleared.",art_cave_rubble.png
+2,Natural,Blighted Crops,Plains,2,"Destroy 1 Farm level 1. If a Level 2+ Farm exists, downgrade it by one level instead.",art_withered_wheat.png
+1,Natural,Deep Freeze,Global,3,"All players must discard 1 card from their hand immediately.",art_ice_storm.png
+1,Natural,Wildfire,Forest,2,"Destroy 1 Forester Station. If adjacent to another Forest, spread to that tile unless 2 Food (Water) spent.",art_forest_fire.png
+2,Natural,Tremors,Mountain,1,"All Stone production reduced by 1 per Quarry this round.",art_falling_rocks.png
+2,Natural,Drought,Plains,1,"Food production cost increases: Must spend 1 Wood to harvest Food this round.",art_dry_ground.png
+1,Natural,Pestilence,Global,2,"Each player must trash 1 card from their hand or discard 2 cards.",art_cloud_flies.png
+1,Natural,Heavy Fog,Global,1,"Exploration action costs +1 Resource this round.",art_fog_bank.png
+3,Hostile,Kobold Scavengers,Storage,1,"Lose 3 basic resources of the team's choice. **Fox Walls** prevent this.",art_kobold_thief.png
+1,Hostile,Siege Engine,Any Building,3,"Destroy one building on the outermost edge of the map. **Fortifications** (Lvl 2+) prevent this.",art_catapult.png
+2,Hostile,Supply Ambush,Roads,2,"Players cannot pass cards to neighbors during the next round.",art_broken_wagon.png
+2,Hostile,Goblin Raiders,Outskirts,1,"Steal 1 random card from each player's hand. **Fox Walls** prevent this.",art_goblin_sword.png
+2,Hostile,Bandit Camp,Hex Tile,2,"Place a Bandit Token on a random empty hex. Blocks building until cleared (Cost: 3 Resources).",art_bandit_tent.png
+2,Aether,Mana Surge,Global,+1,"All Owl Research costs increase by 1 resource this round.",art_mana_spark.png
+2,Aether,Reality Fracture,Magic Tree,+1,"Lose 2 Insight or move the Storm Track an additional +1 step.",art_cracked_sky.png
+1,Aether,The Storm's Eye,Fox House,+2,"The Fox player must shuffle 2 ""Fear"" cards into their deck.",art_storm_eye.png
+1,Aether,Aether Howl,Global,+1,"**Silence:** No players may communicate verbally during the next Strategy Phase.",art_screaming_wind.png
+2,Aether,Aether Feedback,Owl House,+1,"Owl player must discard 1 card for every 2 Research cards they have in their tableau.",art_magic_backfire.png
+1,Aether,Time Dilation,Badger House,+1,"Badgers have -1 Worker this round.",art_slow_clock.png
+1,Aether,Resource Decay,Storage,+1,"All stored Basic Resources are reduced by half (rounded up).",art_rust_dust.png
+1,Aether,Shadow Walkers,Global,+2,"Hostile Events this round have +1 Severity.",art_shadow_figures.png
+1,Aether,Void Whispers,Global,+1,"Players cannot draw cards from card effects this round.",art_purple_whisper.png
+1,Aether,The Darkening,Global,+2,"Reveal the next 2 events immediately. Resolve them both.",art_black_sun.png
+1,Aether,Storm Climax,Global,+3,"**CRITICAL:** If not cancelled by spending 10 Insight, the game ends immediately (Loss).",art_storm_lightning.png
+10,Fear,Fear,None,0,"**Unplayable.** Cannot be played for any action. Takes up hand space.",art_scared_eyes.png

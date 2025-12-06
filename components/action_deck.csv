@@ -1,0 +1,22 @@
+quantity,tier,title,cost_amount,cost_type,tags,effect_text,art_image
+8,Starter,Build,0,none,Build,"Perform a **Build** action.",art_hammer_blueprint.png
+4,Starter,Move (Level 1),0,none,Move,"**Move**. Move up to 1 space.",art_boots_worn.png
+4,Starter,Move (Level 2),0,none,Move,"**Move**. Move up to 2 spaces.",art_boots_leather.png
+8,Starter,Buy Card,0,none,Buy,"Perform a **Buy Card** action.",art_coin_pouch.png
+8,Starter,Main Action,0,none,Main,"Perform your House's **Main Action**.",art_house_sigil.png
+8,Starter,Auxiliary Action,0,none,Aux,"Perform your House's **Auxiliary Action**.",art_gear_small.png
+4,Tier 1,Master Builder,4,food,Build,"**Build**. If you build, the cost is reduced by 1 Basic Resource of your choice.",art_builder_scaffold.png
+4,Tier 1,Forced March,3,food,Move,"**Move**. Move up to 3 spaces.",art_march_formation.png
+4,Tier 1,Wholesale,4,food,Buy,"**Buy Card**. Gain 2 Food before buying.",art_market_crates.png
+3,Tier 1,Veteran's Command,5,food,Main,"**Main Action**. Treat your relevant building level as +1 for this action.",art_veteran_medal.png
+3,Tier 1,Field Logistics,5,food,Aux,"**Auxiliary Action**. Draw 1 card after performing the action.",art_logistics_map.png
+3,Tier 2,Double Duty,7,food,Versatile,"Perform **two different** actions: Build, Move (up to 2 spaces), or Buy Card.",art_double_tools.png
+3,Tier 2,Improvise,6,food,Special,"Copy the action of a card played by a neighbor this round.",art_improvisation.png
+3,Tier 2,Reinforce,6,food,Build,"**Build**. You may build/upgrade even if you are not on the tile (must be adjacent).",art_reinforce_wall.png
+3,Tier 2,Expedition,7,food,Move,"**Move**. Move up to 5 spaces.",art_expedition_pack.png
+2,Tier 2,Grand Maneuver,8,food,Main,"**Main Action**. You may perform this action twice.",art_grand_flag.png
+2,Tier 3,Omnipotence,10,food,Versatile,"Perform **any** one action (Build, Move up to 6 spaces, Buy, Main, or Aux). Then draw 1 card.",art_glowing_hand.png
+2,Tier 3,Heroic Inspiration,10,food,Main,"**Main Action**. All other players may immediately draw 1 card.",art_heroic_shout.png
+2,Tier 3,Time Warp,11,food,Aux,"**Auxiliary Action**. Take another turn immediately after this one (play 1 card only).",art_hourglass_sand.png
+2,Tier 3,Unified Front,9,food,Buy,"**Buy Card**. The card you buy goes directly into your hand.",art_joined_hands.png
+2,Tier 3,Architect's Dream,9,food,Build,"**Build**. This build costs 0 Resources (Level 1 or 2 only).",art_dream_city.png

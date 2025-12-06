@@ -1,0 +1,22 @@
+quantity,project_name,component_name,cost_text,quality_req,art_image
+1,Heart of the Wood,Barkshell Casing,3 Wood 2 Stone,8,art_bark_shell.png
+1,Heart of the Wood,Sapflow Channels,2 Wood 2 Lumber,10,art_sap_tubes.png
+1,Heart of the Wood,Spirit Conduit,2 Steel 1 Brick,12,art_spirit_pipe.png
+1,Heart of the Wood,Core Crystal,1 Steel 2 Brick,14,art_crystal_green.png
+1,The Aether Siphon,Conductive Spire,4 Wood 2 Lumber,9,art_tesla_tower.png
+1,The Aether Siphon,Capacitor Banks,2 Steel 1 Stone,12,art_battery_bank.png
+1,The Aether Siphon,Grounding Rods,1 Steel 2 Brick,13,art_copper_rods.png
+1,The Aether Siphon,Energy Core,2 Lumber 2 Steel,15,art_electric_orb.png
+1,Stoneweave Bastion,Foundation,4 Stone,10,art_stone_base.png
+1,Stoneweave Bastion,Ramparts,3 Stone 1 Brick,12,art_stone_wall.png
+1,Stoneweave Bastion,Inner Keep,2 Brick 1 Steel,14,art_stone_tower.png
+1,Stoneweave Bastion,Guardian Sigils,2 Insight 2 Steel,16,art_magic_runes.png
+1,The Harmonic Resonator,Base Platform,3 Wood 2 Stone,8,art_wood_platform.png
+1,The Harmonic Resonator,Crystal Matrix,1 Steel 2 Brick,12,art_crystal_grid.png
+1,The Harmonic Resonator,Resonant Forks,2 Steel,14,art_tuning_fork.png
+1,The Harmonic Resonator,Tuning Mechanism,2 Insight 2 Lumber,16,art_gear_mechanism.png
+1,The Genesis Vault,Intake Vents,3 Wood 1 Lumber,9,art_air_vent.png
+1,The Genesis Vault,Stasis Chambers,2 Brick 1 Stone,12,art_glass_pod.png
+1,The Genesis Vault,Mutation Catalyst,2 Steel 1 Lumber,14,art_green_goo.png
+1,The Genesis Vault,Life Support,1 Steel 1 Brick,16,art_oxygen_tank.png
+1,The Genesis Vault,Evolution Interface,1 Steel 1 Insight,18,art_computer_screen.png
