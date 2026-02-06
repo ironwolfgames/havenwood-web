@@ -1,0 +1,6 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 70 L35 30 L65 25 L85 50 L75 80 L30 85 Z" fill="#708090" />
+  <rect x="40" y="40" width="8" height="8" transform="rotate(45 44 44)" fill="#FFD700" />
+  <rect x="60" y="55" width="6" height="6" transform="rotate(20 63 58)" fill="#FFD700" />
+  <rect x="45" y="65" width="5" height="5" fill="#FFD700" />
+</svg>

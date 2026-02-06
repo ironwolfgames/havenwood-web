@@ -1,0 +1,89 @@
+{
+  "csvFilePath": "../../components/event_deck.csv",
+  "units": "mm",
+  "cardWidth": 63.5,
+  "cardHeight": 88.9,
+  "cardPadding": 2,
+  "cardBackgroundColor": "#eddab9",
+  "fontFamily": "Raleway",
+  "pageWidth": 215.9,
+  "pageHeight": 279.4,
+  "pageMarginLeft": 12.7,
+  "pageMarginRight": 12.7,
+  "pageMarginTop": 6.35,
+  "pageMarginBottom": 6.35,
+  "cardsPerPage": 9,
+  "embeddedFonts": [
+    {
+      "name": "Raleway",
+      "path": "https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+    }
+  ],
+  "imageExport": {
+    "format": "sheet",
+    "sheetColumns": 10,
+    "sheetRows": 7,
+    "imageFormat": "png",
+    "quality": 100,
+    "namingScheme": "index",
+    "filenamePrefix": "event_card"
+  },
+  "attributes": [
+    {
+      "name": "type",
+      "posX": 4,
+      "posY": 3,
+      "width": 30,
+      "height": "auto",
+      "fontSize": 3.5,
+      "fontWeight": "bold"
+    },
+    {
+      "name": "value",
+      "posX": 48,
+      "posY": 3,
+      "width": 9,
+      "height": 8,
+      "fontSize": 6.5,
+      "fontWeight": "bold",
+      "horizontalAlign": "center",
+      "iconPosition": "right",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "valueToIcon": {
+        "+1": "icons/storm.svg",
+        "+2": "icons/storm.svg",
+        "+3": "icons/storm.svg"
+      }
+    },
+    {
+      "name": "title",
+      "posX": 4,
+      "posY": 10,
+      "width": 55.5,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "bold",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "target",
+      "posX": 4,
+      "posY": 18,
+      "width": 55.5,
+      "height": "auto",
+      "fontSize": 3.5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "effect_text",
+      "posX": 4,
+      "posY": 60,
+      "width": 55.5,
+      "height": "auto",
+      "fontSize": 3.5,
+      "fontWeight": "normal"
+    }
+  ]
+}

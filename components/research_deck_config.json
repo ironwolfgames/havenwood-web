@@ -1,0 +1,150 @@
+{
+  "csvFilePath": "../../components/research_deck.csv",
+  "units": "mm",
+  "cardWidth": 63.5,
+  "cardHeight": 88.9,
+  "cardPadding": 2,
+  "cardBackgroundColor": "#eddab9",
+  "fontFamily": "Raleway",
+  "pageWidth": 215.9,
+  "pageHeight": 279.4,
+  "pageMarginLeft": 12.7,
+  "pageMarginRight": 12.7,
+  "pageMarginTop": 6.35,
+  "pageMarginBottom": 6.35,
+  "cardsPerPage": 9,
+  "embeddedFonts": [
+    {
+      "name": "Raleway",
+      "path": "https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+    }
+  ],
+  "imageExport": {
+    "format": "sheet",
+    "sheetColumns": 10,
+    "sheetRows": 7,
+    "imageFormat": "png",
+    "quality": 100,
+    "namingScheme": "index",
+    "filenamePrefix": "research_card"
+  },
+  "attributes": [
+    {
+      "name": "level",
+      "posX": 4,
+      "posY": 3,
+      "width": 15,
+      "height": "auto",
+      "fontSize": 3.5,
+      "fontWeight": "bold",
+      "prefix": "Level "
+    },
+    {
+      "name": "id",
+      "posX": 45,
+      "posY": 3,
+      "width": 15,
+      "height": "auto",
+      "fontSize": 3,
+      "fontWeight": "normal"
+    },
+    {
+      "name": "cost",
+      "posX": 4,
+      "posY": 10,
+      "width": 55.5,
+      "height": "auto",
+      "fontSize": 6.5,
+      "fontWeight": "bold",
+      "horizontalAlign": "center",
+      "resourceParsing": true,
+      "resourceIconPath": "icons/{resource}.svg",
+      "iconWidth": 10,
+      "iconHeight": 10
+    },
+    {
+      "name": "link_top",
+      "posX": 23.75,
+      "posY": 0,
+      "width": 16,
+      "height": 20,
+      "fontSize": 3,
+      "fontWeight": "bold",
+      "horizontalAlign": "center",
+      "linkIndicator": true,
+      "linkIconPath": "icons/link-{value}-top.svg",
+      "iconWidth": 16,
+      "iconHeight": 8
+    },
+    {
+      "name": "link_bottom",
+      "posX": 23.75,
+      "posY": 80.9,
+      "width": 16,
+      "height": 20,
+      "fontSize": 3,
+      "fontWeight": "bold",
+      "horizontalAlign": "center",
+      "linkIndicator": true,
+      "linkIconPath": "icons/link-{value}-bottom.svg",
+      "iconWidth": 16,
+      "iconHeight": 8
+    },
+    {
+      "name": "link_upper_left",
+      "posX": 0,
+      "posY": 20.45,
+      "width": 8,
+      "height": 20,
+      "fontSize": 3,
+      "fontWeight": "bold",
+      "horizontalAlign": "center",
+      "linkIndicator": true,
+      "linkIconPath": "icons/link-{value}-left.svg",
+      "iconWidth": 8,
+      "iconHeight": 16
+    },
+    {
+      "name": "link_upper_right",
+      "posX": 55.5,
+      "posY": 20.45,
+      "width": 8,
+      "height": 20,
+      "fontSize": 3,
+      "fontWeight": "bold",
+      "horizontalAlign": "center",
+      "linkIndicator": true,
+      "linkIconPath": "icons/link-{value}-right.svg",
+      "iconWidth": 8,
+      "iconHeight": 16
+    },
+    {
+      "name": "link_bottom_left",
+      "posX": 0,
+      "posY": 52.45,
+      "width": 8,
+      "height": 20,
+      "fontSize": 3,
+      "fontWeight": "bold",
+      "horizontalAlign": "center",
+      "linkIndicator": true,
+      "linkIconPath": "icons/link-{value}-left.svg",
+      "iconWidth": 8,
+      "iconHeight": 16
+    },
+    {
+      "name": "link_bottom_right",
+      "posX": 55.5,
+      "posY": 52.45,
+      "width": 8,
+      "height": 20,
+      "fontSize": 3,
+      "fontWeight": "bold",
+      "horizontalAlign": "center",
+      "linkIndicator": true,
+      "linkIconPath": "icons/link-{value}-right.svg",
+      "iconWidth": 8,
+      "iconHeight": 16
+    }
+  ]
+}

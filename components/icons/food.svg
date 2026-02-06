@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#DC143C">
+  <!-- Apple body -->
+  <path d="M12 3c-3.5 0-6.5 2.5-7.5 6-.5 1.5-.5 3 0 4.5 1 3.5 4 6.5 7.5 6.5s6.5-3 7.5-6.5c.5-1.5.5-3 0-4.5-1-3.5-4-6-7.5-6z" fill="#DC143C"/>
+  <!-- Highlight -->
+  <ellipse cx="9" cy="8" rx="2.5" ry="3" fill="#FF6B7A" opacity="0.4"/>
+  <!-- Stem -->
+  <path d="M12 2v4" stroke="#8B4513" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <!-- Leaf -->
+  <path d="M12 2c1 0 2 1 3 2 0.5 0.5 0.5 1-0.5 1-1-0.5-1.5-1.5-2.5-2z" fill="#228B22"/>
+</svg>

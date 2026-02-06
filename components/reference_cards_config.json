@@ -1,0 +1,313 @@
+{
+  "csvFilePath": "../../components/reference_cards.csv",
+  "units": "mm",
+  "cardWidth": 127,
+  "cardHeight": 177.8,
+  "cardPadding": 2,
+  "cardBackgroundColor": "#eddab9",
+  "fontFamily": "Raleway",
+  "pageWidth": 215.9,
+  "pageHeight": 279.4,
+  "pageMarginLeft": 12.7,
+  "pageMarginRight": 12.7,
+  "pageMarginTop": 6.35,
+  "pageMarginBottom": 6.35,
+  "cardsPerPage": 9,
+  "embeddedFonts": [
+    {
+      "name": "Raleway",
+      "path": "https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+    }
+  ],
+  "imageExport": {
+    "format": "individual",
+    "sheetColumns": 10,
+    "sheetRows": 7,
+    "imageFormat": "png",
+    "quality": 100,
+    "namingScheme": "index",
+    "filenamePrefix": "reference_card"
+  },
+  "attributes": [
+    {
+      "name": "title",
+      "posX": 8,
+      "posY": 6,
+      "width": 111,
+      "height": "auto",
+      "fontSize": 12,
+      "fontWeight": "bold",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "section1_title",
+      "posX": 8,
+      "posY": 24,
+      "width": 111,
+      "height": "auto",
+      "fontSize": 8,
+      "fontWeight": "bold",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "wood_icon",
+      "posX": 12,
+      "posY": 36,
+      "width": 12,
+      "height": 12,
+      "icon": "icons/wood.svg",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "iconOnly": true
+    },
+    {
+      "name": "wood_label",
+      "posX": 10,
+      "posY": 49,
+      "width": 16,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "stone_icon",
+      "posX": 31,
+      "posY": 36,
+      "width": 12,
+      "height": 12,
+      "icon": "icons/stone.svg",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "iconOnly": true
+    },
+    {
+      "name": "stone_label",
+      "posX": 29,
+      "posY": 49,
+      "width": 16,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "food_icon",
+      "posX": 50,
+      "posY": 36,
+      "width": 12,
+      "height": 12,
+      "icon": "icons/food.svg",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "iconOnly": true
+    },
+    {
+      "name": "food_label",
+      "posX": 48,
+      "posY": 49,
+      "width": 16,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "ore_icon",
+      "posX": 69,
+      "posY": 36,
+      "width": 12,
+      "height": 12,
+      "icon": "icons/ore.svg",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "iconOnly": true
+    },
+    {
+      "name": "ore_label",
+      "posX": 67,
+      "posY": 49,
+      "width": 16,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "section2_title",
+      "posX": 8,
+      "posY": 60,
+      "width": 111,
+      "height": "auto",
+      "fontSize": 8,
+      "fontWeight": "bold",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "lumber_icon",
+      "posX": 12,
+      "posY": 72,
+      "width": 12,
+      "height": 12,
+      "icon": "icons/lumber.svg",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "iconOnly": true
+    },
+    {
+      "name": "lumber_label",
+      "posX": 9,
+      "posY": 85,
+      "width": 18,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "steel_icon",
+      "posX": 31,
+      "posY": 72,
+      "width": 12,
+      "height": 12,
+      "icon": "icons/steel.svg",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "iconOnly": true
+    },
+    {
+      "name": "steel_label",
+      "posX": 29,
+      "posY": 85,
+      "width": 16,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "brick_icon",
+      "posX": 50,
+      "posY": 72,
+      "width": 12,
+      "height": 12,
+      "icon": "icons/brick.svg",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "iconOnly": true
+    },
+    {
+      "name": "brick_label",
+      "posX": 48,
+      "posY": 85,
+      "width": 16,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "insight_icon",
+      "posX": 69,
+      "posY": 72,
+      "width": 12,
+      "height": 12,
+      "icon": "icons/insight.svg",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "iconOnly": true
+    },
+    {
+      "name": "insight_label",
+      "posX": 66,
+      "posY": 85,
+      "width": 18,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "knowledge_icon",
+      "posX": 92,
+      "posY": 72,
+      "width": 12,
+      "height": 12,
+      "icon": "icons/knowledge.svg",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "iconOnly": true
+    },
+    {
+      "name": "knowledge_label",
+      "posX": 88,
+      "posY": 85,
+      "width": 23,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "section3_title",
+      "posX": 8,
+      "posY": 100,
+      "width": 111,
+      "height": "auto",
+      "fontSize": 8,
+      "fontWeight": "bold",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "storm_icon",
+      "posX": 38,
+      "posY": 112,
+      "width": 12,
+      "height": 12,
+      "icon": "icons/storm.svg",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "iconOnly": true
+    },
+    {
+      "name": "storm_label",
+      "posX": 36,
+      "posY": 125,
+      "width": 16,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "dice_icon",
+      "posX": 69,
+      "posY": 112,
+      "width": 12,
+      "height": 12,
+      "icon": "icons/dice.svg",
+      "iconWidth": 10,
+      "iconHeight": 10,
+      "iconOnly": true
+    },
+    {
+      "name": "dice_label",
+      "posX": 66,
+      "posY": 125,
+      "width": 18,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "section3_text",
+      "posX": 8,
+      "posY": 133,
+      "width": 111,
+      "height": 40,
+      "fontSize": 4.5,
+      "fontWeight": "normal"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+[submodule "lib/cardigan"]
+	path = lib/cardigan
+	url = git@github.com:chrisculy/cardigan.git
