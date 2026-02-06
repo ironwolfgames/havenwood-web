@@ -8,6 +8,7 @@ Push-Location lib/cardigan
 
 $decks = @(
     "action_deck",
+    "deck_backs",
     "event_deck",
     "great_works",
     "production_deck",
