@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owl Player Mat - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+        }
+        
+        .player-mat {
+            width: 3000px;
+            height: 2100px;
+            background: linear-gradient(135deg, #6B4423 0%, #8B7355 100%);
+            border: 8px solid #3E2723;
+            position: relative;
+            padding: 30px;
+        }
+        
+        .header {
+            height: 380px;
+            background: rgba(107, 68, 35, 0.3);
+            border: 4px solid #3E2723;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .house-name {
+            font-size: 88px;
+            font-weight: bold;
+            color: #FFF8DC;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.6);
+        }
+        
+        .house-subtitle {
+            font-size: 52px;
+            color: #E6E6FA;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .house-flavor {
+            font-size: 38px;
+            color: #FFE4B5;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .main-content {
+            display: flex;
+            gap: 30px;
+            height: 1000px;
+            margin-bottom: 20px;
+        }
+        
+        .left-section {
+            flex: 0 0 52%;
+            background: rgba(255, 248, 220, 0.95);
+            border: 4px solid #3E2723;
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .section-title {
+            font-size: 56px;
+            font-weight: bold;
+            color: #3E2723;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #8B7355;
+            padding-bottom: 10px;
+        }
+        
+        .buildings-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .buildings-table th {
+            background: #8B7355;
+            color: #FFF8DC;
+            padding: 18px;
+            text-align: left;
+            font-size: 42px;
+            border: 2px solid #3E2723;
+        }
+        
+        .buildings-table td {
+            padding: 15px 18px;
+            font-size: 36px;
+            border: 2px solid #8B7355;
+            background: #FFFAF0;
+        }
+        
+        .buildings-table tr:nth-child(even) td {
+            background: #FFF8DC;
+        }
+        
+        .building-name {
+            font-weight: bold;
+            color: #3E2723;
+        }
+        
+        .cost {
+            font-family: 'Arial', sans-serif;
+            color: #2F4F4F;
+        }
+        
+        .middle-section {
+            flex: 0 0 20%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .tracker-box {
+            background: rgba(255, 248, 220, 0.95);
+            border: 4px solid #3E2723;
+            border-radius: 15px;
+            padding: 25px;
+            flex: 1;
+        }
+        
+        .tracker-title {
+            font-size: 38px;
+            font-weight: bold;
+            color: #8B7355;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .tracker-slots {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tracker-slot {
+            width: 80px;
+            height: 80px;
+            border: 4px solid #8B7355;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 44px;
+            font-weight: bold;
+            color: #3E2723;
+            background: white;
+        }
+        
+        .tracker-slot.start {
+            background: #E6E6FA;
+            border-color: #3E2723;
+            border-width: 5px;
+        }
+        
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .action-box {
+            background: rgba(255, 248, 220, 0.95);
+            border: 4px solid #3E2723;
+            border-radius: 15px;
+            padding: 25px;
+            flex: 1;
+        }
+        
+        .action-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #8B7355;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .action-icon {
+            font-size: 56px;
+        }
+        
+        .action-description {
+            font-size: 32px;
+            color: #2F4F4F;
+            line-height: 1.5;
+        }
+        
+        .action-detail {
+            font-size: 28px;
+            color: #3E2723;
+            background: rgba(139, 115, 85, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .bottom-section {
+            height: 540px;
+            background: rgba(255, 248, 220, 0.95);
+            border: 4px solid #3E2723;
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .bottom-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #3E2723;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .link-diagram {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 350px;
+        }
+        
+        .link-example {
+            text-align: center;
+            font-size: 32px;
+            color: #3E2723;
+        }
+        
+        .link-positions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        
+        .link-pos {
+            padding: 15px;
+            background: #E6E6FA;
+            border: 3px solid #8B7355;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-mat">
+        <div class="header">
+            <div>
+                <div class="house-name">🦉 STARLING SCHOLARS</div>
+                <div class="house-subtitle">Researchers & Mages</div>
+                <div class="house-flavor">"Seekers of truth, weavers of wonder"</div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="left-section">
+                <div class="section-title">Building Costs</div>
+                <table class="buildings-table">
+                    <thead>
+                        <tr>
+                            <th>Building</th>
+                            <th>Level 1</th>
+                            <th>Level 2</th>
+                            <th>Level 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="building-name">University</td>
+                            <td class="cost">2 Wd, 1 St</td>
+                            <td class="cost">3 Wd, 2 St</td>
+                            <td class="cost">2 Lbr, 2 SB</td>
+                        </tr>
+                        <tr>
+                            <td class="building-name">Library</td>
+                            <td class="cost">3 Wd</td>
+                            <td class="cost">4 Wd</td>
+                            <td class="cost">3 Lbr, 1 Stl</td>
+                        </tr>
+                        <tr>
+                            <td class="building-name">Laboratory</td>
+                            <td class="cost">1 St, 1 Ore</td>
+                            <td class="cost">2 St, 1 Stl</td>
+                            <td class="cost">2 SB, 2 Stl</td>
+                        </tr>
+                        <tr>
+                            <td class="building-name">Maginarium</td>
+                            <td class="cost">1 Wd, 1 Ore</td>
+                            <td class="cost">2 Wd, 1 Stl</td>
+                            <td class="cost">2 Lbr, 2 Stl</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="middle-section">
+                <div class="tracker-box">
+                    <div class="tracker-title">N: Display Size</div>
+                    <div class="tracker-slots">
+                        <div class="tracker-slot start">3</div>
+                        <div class="tracker-slot">4</div>
+                        <div class="tracker-slot">5</div>
+                    </div>
+                    <div class="tracker-slots">
+                        <div class="tracker-slot">6</div>
+                        <div class="tracker-slot">7</div>
+                        <div class="tracker-slot">8</div>
+                    </div>
+                    <div style="font-size: 26px; margin-top: 15px; text-align: center; color: #3E2723;">
+                        Cards on display
+                    </div>
+                </div>
+                
+                <div class="tracker-box">
+                    <div class="tracker-title">Research Limit</div>
+                    <div style="font-size: 32px; margin-top: 20px; text-align: center; color: #3E2723; line-height: 1.6;">
+                        Sum of all<br/>Library levels<br/><br/>
+                        <strong style="font-size: 36px; color: #8B7355;">Max tableau size</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-section">
+                <div class="action-box">
+                    <div class="action-title">
+                        <span class="action-icon">🔬</span>
+                        Main: RESEARCH
+                    </div>
+                    <div class="action-description">
+                        Buy research cards from display. Place orthogonally in tableau. Connecting links grant Knowledge or Insight.
+                    </div>
+                    <div class="action-detail">
+                        <strong>Links:</strong> T, B, UL, UR, BL, BR
+                    </div>
+                    <div class="action-detail">
+                        <strong>Rewards:</strong> Knowledge (K) or Insight (I) per connection
+                    </div>
+                </div>
+                
+                <div class="action-box">
+                    <div class="action-title">
+                        <span class="action-icon">✨</span>
+                        Auxiliary: APPLY
+                    </div>
+                    <div class="action-description">
+                        Spend Knowledge or Insight to unlock upgrades on Tech Tree or Magic Tree.
+                    </div>
+                    <div class="action-detail">
+                        <strong>Tech Tree:</strong> Knowledge → Infrastructure, efficiency
+                    </div>
+                    <div class="action-detail">
+                        <strong>Magic Tree:</strong> Insight → Event control, aether defense
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-section">
+            <div class="bottom-title">Research Tableau Guide</div>
+            <div class="link-diagram">
+                <div class="link-example">
+                    <strong>Link Positions:</strong>
+                    <div class="link-positions" style="margin-top: 20px;">
+                        <div class="link-pos">UL</div>
+                        <div class="link-pos">T</div>
+                        <div class="link-pos">UR</div>
+                        <div class="link-pos">BL</div>
+                        <div class="link-pos">B</div>
+                        <div class="link-pos">BR</div>
+                    </div>
+                </div>
+                <div class="link-example">
+                    <div style="font-size: 38px; line-height: 1.8;">
+                        <strong>Connections Grant Rewards</strong><br/><br/>
+                        Each aligned link = +K or +I<br/><br/>
+                        Place cards to maximize<br/>connections in your tableau
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

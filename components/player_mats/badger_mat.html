@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badger Player Mat - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+        }
+        
+        .player-mat {
+            width: 3000px;
+            height: 2100px;
+            background: linear-gradient(135deg, #2F4F4F 0%, #556B2F 100%);
+            border: 8px solid #1C1C1C;
+            position: relative;
+            padding: 30px;
+        }
+        
+        .header {
+            height: 360px;
+            background: rgba(47, 79, 79, 0.3);
+            border: 4px solid #1C1C1C;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .house-name {
+            font-size: 88px;
+            font-weight: bold;
+            color: #FFF8DC;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.6);
+        }
+        
+        .house-subtitle {
+            font-size: 52px;
+            color: #F0E68C;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .house-flavor {
+            font-size: 38px;
+            color: #FFE4B5;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .main-content {
+            display: flex;
+            gap: 30px;
+            height: 1050px;
+            margin-bottom: 20px;
+        }
+        
+        .left-section {
+            flex: 0 0 48%;
+            background: rgba(255, 248, 220, 0.95);
+            border: 4px solid #1C1C1C;
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .section-title {
+            font-size: 56px;
+            font-weight: bold;
+            color: #1C1C1C;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #556B2F;
+            padding-bottom: 10px;
+        }
+        
+        .great-works-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .great-work-item {
+            padding: 25px;
+            margin-bottom: 15px;
+            background: #FFFAF0;
+            border: 3px solid #556B2F;
+            border-radius: 10px;
+            font-size: 40px;
+            font-weight: bold;
+            color: #2F4F4F;
+        }
+        
+        .great-work-item:nth-child(even) {
+            background: #FFF8DC;
+        }
+        
+        .great-work-desc {
+            font-size: 28px;
+            font-weight: normal;
+            font-style: italic;
+            color: #556B2F;
+            margin-top: 8px;
+        }
+        
+        .note {
+            font-size: 32px;
+            color: #1C1C1C;
+            background: rgba(85, 107, 47, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .middle-section {
+            flex: 0 0 24%;
+            background: rgba(255, 248, 220, 0.95);
+            border: 4px solid #1C1C1C;
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .worker-info {
+            text-align: center;
+        }
+        
+        .worker-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #2F4F4F;
+            margin-bottom: 30px;
+        }
+        
+        .worker-stats {
+            font-size: 36px;
+            color: #1C1C1C;
+            line-height: 2;
+            margin-bottom: 30px;
+        }
+        
+        .worker-visual {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .worker-meeple {
+            width: 100px;
+            height: 140px;
+            background: #2F4F4F;
+            border-radius: 50px 50px 10px 10px;
+            border: 4px solid #1C1C1C;
+            position: relative;
+        }
+        
+        .worker-meeple.active {
+            background: #F0E68C;
+        }
+        
+        .worker-meeple.inactive {
+            opacity: 0.3;
+        }
+        
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .action-box {
+            background: rgba(255, 248, 220, 0.95);
+            border: 4px solid #1C1C1C;
+            border-radius: 15px;
+            padding: 25px;
+            flex: 1;
+        }
+        
+        .action-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #556B2F;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .action-icon {
+            font-size: 56px;
+        }
+        
+        .action-description {
+            font-size: 32px;
+            color: #2F4F4F;
+            line-height: 1.5;
+        }
+        
+        .action-detail {
+            font-size: 28px;
+            color: #1C1C1C;
+            background: rgba(85, 107, 47, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .bottom-section {
+            height: 590px;
+            background: rgba(255, 248, 220, 0.95);
+            border: 4px solid #1C1C1C;
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .bottom-title {
+            font-size: 52px;
+            font-weight: bold;
+            color: #1C1C1C;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 3px solid #556B2F;
+            padding-bottom: 10px;
+        }
+        
+        .costs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .cost-item {
+            background: #FFFAF0;
+            border: 3px solid #556B2F;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .cost-action {
+            font-size: 40px;
+            font-weight: bold;
+            color: #2F4F4F;
+            margin-bottom: 15px;
+        }
+        
+        .cost-value {
+            font-size: 52px;
+            font-weight: bold;
+            color: #556B2F;
+            background: rgba(85, 107, 47, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-mat">
+        <div class="header">
+            <div>
+                <div class="house-name">🦡 OAKSHIELD BADGERS</div>
+                <div class="house-subtitle">Leaders & Master Builders</div>
+                <div class="house-flavor">"Builders of legacy, architects of hope"</div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="left-section">
+                <div class="section-title">Great Works</div>
+                <ul class="great-works-list">
+                    <li class="great-work-item">
+                        1. Heart of the Wood
+                        <div class="great-work-desc">Stabilizes magic with life force</div>
+                    </li>
+                    <li class="great-work-item">
+                        2. The Aether Siphon
+                        <div class="great-work-desc">Harnesses storm energy</div>
+                    </li>
+                    <li class="great-work-item">
+                        3. Stoneweave Bastion
+                        <div class="great-work-desc">Impenetrable sanctuary</div>
+                    </li>
+                    <li class="great-work-item">
+                        4. The Harmonic Resonator
+                        <div class="great-work-desc">Calms chaotic winds</div>
+                    </li>
+                    <li class="great-work-item">
+                        5. The Genesis Vault
+                        <div class="great-work-desc">Evolves storm-adapted life</div>
+                    </li>
+                </ul>
+                <div class="note">
+                    Choose one Great Work per game. Component details are on Great Work cards.
+                </div>
+            </div>
+            
+            <div class="middle-section">
+                <div class="worker-info">
+                    <div class="worker-title">Workers</div>
+                    <div class="worker-stats">
+                        <strong>Starting:</strong> 1<br/>
+                        <strong>Maximum:</strong> 3<br/><br/>
+                        <strong style="color: #556B2F;">Cost to Gain:</strong><br/>
+                        <strong style="font-size: 44px;">10 Food</strong>
+                    </div>
+                    <div class="worker-visual">
+                        <div class="worker-meeple active"></div>
+                        <div class="worker-meeple inactive"></div>
+                        <div class="worker-meeple inactive"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-section">
+                <div class="action-box">
+                    <div class="action-title">
+                        <span class="action-icon">🔨</span>
+                        Main: PROGRESS
+                    </div>
+                    <div class="action-description">
+                        Place workers on the Worker Board to construct components, train expertise, ensure quality, install, or commission.
+                    </div>
+                    <div class="action-detail">
+                        <strong>Actions:</strong> Construct, Train, Ensure Quality, Install (2 workers), Commission (2 workers + 2 Main cards)
+                    </div>
+                </div>
+                
+                <div class="action-box">
+                    <div class="action-title">
+                        <span class="action-icon">👑</span>
+                        Auxiliary: LEAD
+                    </div>
+                    <div class="action-description">
+                        Spend Food for special deckbuilding actions or to gain additional workers.
+                    </div>
+                    <div class="action-detail">
+                        <strong>Options:</strong> Trash card, Buy starter from trash, Increase hand limit, Gain worker
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-section">
+            <div class="bottom-title">Lead Action Costs</div>
+            <div class="costs-grid">
+                <div class="cost-item">
+                    <div class="cost-action">Trash a Card</div>
+                    <div class="cost-value">5 Food</div>
+                </div>
+                <div class="cost-item">
+                    <div class="cost-action">Buy Starter from Trash</div>
+                    <div class="cost-value">3 Food</div>
+                </div>
+                <div class="cost-item">
+                    <div class="cost-action">+1 Hand Limit</div>
+                    <div class="cost-value">10 Food</div>
+                </div>
+                <div class="cost-item">
+                    <div class="cost-action">+1 Worker</div>
+                    <div class="cost-value">10 Food</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -14,10 +14,6 @@ The following card decks have been fully created with CSV data and JSON configur
 - **Reference Cards** (faction-specific player aids)
 - **Deck Backs** (card back designs)
 
----
-
-## 🎯 Outstanding Components
-
 ### 1. Player Mats (4 Required)
 
 Player mats serve as reference boards and organizers for each house. Each mat needs:
@@ -205,6 +201,8 @@ Player mats serve as reference boards and organizers for each house. Each mat ne
 **File Format:** Same as previous mats
 
 ---
+
+## 🎯 Outstanding Components
 
 ### 2. Badger Worker Placement Board
 
