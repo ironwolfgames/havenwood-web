@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech & Magic Tree Board - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+        }
+        
+        .tree-board {
+            width: 5100px;
+            height: 3300px;
+            display: flex;
+            border: 8px solid #2F4F4F;
+        }
+        
+        /* Left Half - Technology Tree */
+        .tech-half {
+            width: 50%;
+            background: linear-gradient(135deg, #4682B4 0%, #5F9EA0 100%);
+            border-right: 4px solid #2F4F4F;
+            padding: 60px;
+            position: relative;
+        }
+        
+        /* Right Half - Magic Tree */
+        .magic-half {
+            width: 50%;
+            background: linear-gradient(135deg, #9370DB 0%, #8A7FB8 100%);
+            padding: 60px;
+            position: relative;
+        }
+        
+        .tree-title {
+            font-size: 88px;
+            font-weight: bold;
+            color: #FFF8DC;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.6);
+        }
+        
+        .tree-subtitle {
+            font-size: 56px;
+            color: #FFF8DC;
+            text-align: center;
+            margin-bottom: 60px;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+        
+        .tier {
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .tier-label {
+            font-size: 64px;
+            font-weight: bold;
+            color: #FFF8DC;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+        
+        .tier-nodes {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 40px;
+            position: relative;
+        }
+        
+        /* Technology Node - Rectangle */
+        .tech-node {
+            background: rgba(255, 248, 220, 0.95);
+            border: 6px solid #2F4F4F;
+            border-radius: 20px;
+            padding: 30px;
+            width: 600px;
+            min-height: 400px;
+            position: relative;
+            box-shadow: 6px 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        /* Magic Node - Hexagon (using clip-path) */
+        .magic-node {
+            background: rgba(255, 248, 220, 0.95);
+            border: 6px solid #4B0082;
+            padding: 30px;
+            width: 600px;
+            min-height: 400px;
+            position: relative;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            box-shadow: 6px 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .node-cost {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4169E1;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            padding: 15px 25px;
+            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+        
+        .magic-node .node-cost {
+            background: #9370DB;
+        }
+        
+        .node-checkbox {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            border: 4px solid #2F4F4F;
+            border-radius: 50%;
+            background: white;
+        }
+        
+        .node-icon {
+            font-size: 80px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .node-title {
+            font-size: 52px;
+            font-weight: bold;
+            color: #2F4F4F;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .node-effect {
+            font-size: 32px;
+            color: #2F4F4F;
+            text-align: center;
+            line-height: 1.5;
+            font-style: italic;
+        }
+        
+        .node-prereq {
+            font-size: 26px;
+            color: #696969;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        
+        /* Arrow styling */
+        .arrows {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        /* Tier 1 nodes centered at bottom */
+        .tier-1 .tier-nodes {
+            justify-content: center;
+        }
+        
+        /* Adjust spacing for different tier arrangements */
+        .tier-2 .tier-nodes {
+            justify-content: space-evenly;
+        }
+        
+        .tier-3 .tier-nodes {
+            justify-content: space-around;
+        }
+        
+        /* SVG container for arrows */
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .tree-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Arrow lines */
+        .arrow-line {
+            stroke: #FFF8DC;
+            stroke-width: 12;
+            fill: none;
+            marker-end: url(#arrowhead);
+            opacity: 0.8;
+        }
+        
+        .magic-half .arrow-line {
+            stroke: #E6E6FA;
+        }
+    </style>
+</head>
+<body>
+    <div class="tree-board">
+        <!-- LEFT HALF: TECHNOLOGY TREE -->
+        <div class="tech-half">
+            <div class="tree-title">⚙️ TECHNOLOGY TREE</div>
+            <div class="tree-subtitle">Currency: Knowledge (Blue)</div>
+            
+            <div class="tree-content">
+                <!-- Tier 3: Mastery (Top) -->
+                <div class="tier tier-3">
+                    <div class="tier-label">TIER 3: MASTERY</div>
+                    <div class="tier-nodes">
+                        <div class="tech-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">10</div>
+                            <div class="node-icon">📐</div>
+                            <div class="node-title">Master Architecture</div>
+                            <div class="node-effect">"All Level 2→3 upgrades cost 2 fewer resources (min 0)"</div>
+                            <div class="node-prereq">Prereq: Advanced Masonry + Composite Refining</div>
+                        </div>
+                        
+                        <div class="tech-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">8</div>
+                            <div class="node-icon">🛒</div>
+                            <div class="node-title">Automated Hauling</div>
+                            <div class="node-effect">"Players may pass ANY number of cards during Strategy Phase"</div>
+                            <div class="node-prereq">Prereq: Logistics Network</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tier 2: Industrialization (Middle) -->
+                <div class="tier tier-2">
+                    <div class="tier-label">TIER 2: INDUSTRIALIZATION</div>
+                    <div class="tier-nodes">
+                        <div class="tech-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">5</div>
+                            <div class="node-icon">🧱</div>
+                            <div class="node-title">Advanced Masonry</div>
+                            <div class="node-effect">"Unlock Stone Brick production. Unlock Level 3 defensive buildings (Fox)"</div>
+                            <div class="node-prereq">Prereq: Basic Engineering</div>
+                        </div>
+                        
+                        <div class="tech-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">6</div>
+                            <div class="node-icon">🏭</div>
+                            <div class="node-title">Composite Refining</div>
+                            <div class="node-effect">"Unlock Steel & Lumber production. Unlock Level 3 production buildings (Squirrel)"</div>
+                            <div class="node-prereq">Prereq: Basic Engineering</div>
+                        </div>
+                        
+                        <div class="tech-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">5</div>
+                            <div class="node-icon">🏰</div>
+                            <div class="node-title">Heavy Infrastructure</div>
+                            <div class="node-effect">"Unlock Level 3 buildings for Fox and Owl"</div>
+                            <div class="node-prereq">Prereq: Advanced Masonry</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tier 1: Foundation (Bottom) -->
+                <div class="tier tier-1">
+                    <div class="tier-label">TIER 1: FOUNDATION</div>
+                    <div class="tier-nodes">
+                        <div class="tech-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">3</div>
+                            <div class="node-icon">⚙️</div>
+                            <div class="node-title">Basic Engineering</div>
+                            <div class="node-effect">"Unlock Level 2 buildings for all houses"</div>
+                            <div class="node-prereq">Prereq: None</div>
+                        </div>
+                        
+                        <div class="tech-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">2</div>
+                            <div class="node-icon">🛤️</div>
+                            <div class="node-title">Logistics Network</div>
+                            <div class="node-effect">"Players may pass 2 cards (instead of 1) during Strategy Phase"</div>
+                            <div class="node-prereq">Prereq: None</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SVG for connection arrows -->
+            <svg>
+                <defs>
+                    <marker id="arrowhead-tech" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#FFF8DC" />
+                    </marker>
+                </defs>
+                
+                <!-- Arrows from Basic Engineering (Tier 1) to Advanced Masonry and Composite Refining (Tier 2) -->
+                <line x1="750" y1="2600" x2="550" y2="2000" class="arrow-line" marker-end="url(#arrowhead-tech)" />
+                <line x1="750" y1="2600" x2="1250" y2="2000" class="arrow-line" marker-end="url(#arrowhead-tech)" />
+                
+                <!-- Arrow from Logistics Network (Tier 1) to Automated Hauling (Tier 3) -->
+                <line x1="1650" y1="2600" x2="1650" y2="800" class="arrow-line" marker-end="url(#arrowhead-tech)" />
+                
+                <!-- Arrow from Advanced Masonry (Tier 2) to Heavy Infrastructure (Tier 2) -->
+                <line x1="700" y1="1600" x2="1850" y2="1600" class="arrow-line" marker-end="url(#arrowhead-tech)" />
+                
+                <!-- Arrows from Advanced Masonry and Composite Refining (Tier 2) to Master Architecture (Tier 3) -->
+                <line x1="550" y1="1450" x2="650" y2="800" class="arrow-line" marker-end="url(#arrowhead-tech)" />
+                <line x1="1250" y1="1450" x2="750" y2="800" class="arrow-line" marker-end="url(#arrowhead-tech)" />
+            </svg>
+        </div>
+        
+        <!-- RIGHT HALF: MAGIC TREE -->
+        <div class="magic-half">
+            <div class="tree-title">✨ MAGIC TREE</div>
+            <div class="tree-subtitle">Currency: Insight (Purple)</div>
+            
+            <div class="tree-content">
+                <!-- Tier 3: Transcendence (Top) -->
+                <div class="tier tier-3">
+                    <div class="tier-label">TIER 3: TRANSCENDENCE</div>
+                    <div class="tier-nodes">
+                        <div class="magic-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">10</div>
+                            <div class="node-icon">⏳</div>
+                            <div class="node-title">Chronomancy</div>
+                            <div class="node-effect">"If threat reaches 15, may spend 15 Insight to reset it to 13 instead of losing (once per game)"</div>
+                            <div class="node-prereq">Prereq: Banishment</div>
+                        </div>
+                        
+                        <div class="magic-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">12</div>
+                            <div class="node-icon">🌳</div>
+                            <div class="node-title">Aether Adaptation</div>
+                            <div class="node-effect">"Aether events no longer advance Storm Track"</div>
+                            <div class="node-prereq">Prereq: Storm Stabilization</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tier 2: Manipulation (Middle) -->
+                <div class="tier tier-2">
+                    <div class="tier-label">TIER 2: MANIPULATION</div>
+                    <div class="tier-nodes">
+                        <div class="magic-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">6</div>
+                            <div class="node-icon">🛡️</div>
+                            <div class="node-title">Storm Stabilization</div>
+                            <div class="node-effect">"Event Phase: May spend 3 Insight to reduce Storm Track advancement by 1 (once per round)"</div>
+                            <div class="node-prereq">Prereq: Aetheric Sensing</div>
+                        </div>
+                        
+                        <div class="magic-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">7</div>
+                            <div class="node-icon">🚫</div>
+                            <div class="node-title">Banishment</div>
+                            <div class="node-effect">"Fox Scout manipulation: Unlock 'Destroy event' option"</div>
+                            <div class="node-prereq">Prereq: Fate Weaving</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tier 1: Awareness (Bottom) -->
+                <div class="tier tier-1">
+                    <div class="tier-label">TIER 1: AWARENESS</div>
+                    <div class="tier-nodes">
+                        <div class="magic-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">3</div>
+                            <div class="node-icon">👁️</div>
+                            <div class="node-title">Aetheric Sensing</div>
+                            <div class="node-effect">"Fox Scout: X increased to 2 (draw 2 events)"</div>
+                            <div class="node-prereq">Prereq: None</div>
+                        </div>
+                        
+                        <div class="magic-node">
+                            <div class="node-checkbox"></div>
+                            <div class="node-cost">4</div>
+                            <div class="node-icon">🧵</div>
+                            <div class="node-title">Fate Weaving</div>
+                            <div class="node-effect">"Fox Scout: Y increased to 1 (manipulate 1 event)"</div>
+                            <div class="node-prereq">Prereq: None</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SVG for connection arrows -->
+            <svg>
+                <defs>
+                    <marker id="arrowhead-magic" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#E6E6FA" />
+                    </marker>
+                </defs>
+                
+                <!-- Arrow from Aetheric Sensing (Tier 1) to Storm Stabilization (Tier 2) -->
+                <line x1="700" y1="2600" x2="700" y2="2000" class="arrow-line" marker-end="url(#arrowhead-magic)" />
+                
+                <!-- Arrow from Fate Weaving (Tier 1) to Banishment (Tier 2) -->
+                <line x1="1600" y1="2600" x2="1600" y2="2000" class="arrow-line" marker-end="url(#arrowhead-magic)" />
+                
+                <!-- Arrow from Storm Stabilization (Tier 2) to Aether Adaptation (Tier 3) -->
+                <line x1="700" y1="1450" x2="1500" y2="800" class="arrow-line" marker-end="url(#arrowhead-magic)" />
+                
+                <!-- Arrow from Banishment (Tier 2) to Chronomancy (Tier 3) -->
+                <line x1="1600" y1="1450" x2="800" y2="800" class="arrow-line" marker-end="url(#arrowhead-magic)" />
+            </svg>
+        </div>
+    </div>
+</body>
+</html>
