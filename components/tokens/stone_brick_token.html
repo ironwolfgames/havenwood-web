@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Brick Token - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%);
+            border: 6px double #654321;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 -4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .token::before {
+            content: '';
+            position: absolute;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            border: 3px solid #8B6914;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+        }
+        
+        .bricks {
+            width: 100px;
+            height: 80px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .brick {
+            position: absolute;
+            width: 30px;
+            height: 18px;
+            background: linear-gradient(135deg, #B8860B 0%, #A0522D 100%);
+            border: 1px solid #654321;
+            border-radius: 1px;
+        }
+        
+        .brick:nth-child(1) { top: 0; left: 0; }
+        .brick:nth-child(2) { top: 0; left: 35px; }
+        .brick:nth-child(3) { top: 0; left: 70px; }
+        .brick:nth-child(4) { top: 22px; left: 17px; }
+        .brick:nth-child(5) { top: 22px; left: 52px; }
+        .brick:nth-child(6) { top: 44px; left: 0; }
+        .brick:nth-child(7) { top: 44px; left: 35px; }
+        .brick:nth-child(8) { top: 44px; left: 70px; }
+        .brick:nth-child(9) { top: 66px; left: 17px; }
+        .brick:nth-child(10) { top: 66px; left: 52px; }
+        
+        .text {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FFF8DC;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 1in;
+                height: 1in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="bricks">
+            <div class="brick"></div>
+            <div class="brick"></div>
+            <div class="brick"></div>
+            <div class="brick"></div>
+            <div class="brick"></div>
+            <div class="brick"></div>
+            <div class="brick"></div>
+            <div class="brick"></div>
+            <div class="brick"></div>
+            <div class="brick"></div>
+        </div>
+        <div class="text">Stone Brick</div>
+    </div>
+</body>
+</html>
