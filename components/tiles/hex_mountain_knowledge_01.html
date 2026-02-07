@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain - +1 Knowledge - Hex Tile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .hex-container {
+            width: 400px;
+            height: 462px;
+            position: relative;
+        }
+        
+        .hexagon {
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: linear-gradient(135deg, #A9A9A9 0%, #696969 50%, #505050 100%);
+            position: relative;
+            border: 3px solid #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hex-content {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .resource-icon {
+            font-size: 140px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .discovery-badge {
+            position: absolute;
+            top: 10%;
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #4169E1;
+            border: 3px solid #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: #FFF;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            padding: 4px;
+        }
+        
+        .discovery-text {
+            font-size: 11px;
+            line-height: 1.1;
+        }
+        
+        .allowed-buildings {
+            position: absolute;
+            bottom: 8%;
+            display: flex;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 2px solid #000;
+        }
+        
+        .building-icon {
+            font-size: 32px;
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .hex-container {
+                width: 4in;
+                height: 4.62in;
+                page-break-after: always;
+            }
+            
+            @page {
+                size: 5in 6in;
+                margin: 0.5in;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hex-container">
+        <div class="hexagon">
+            <div class="hex-content">
+                <div class="discovery-badge">
+                    <div class="discovery-text">+1 Knowledge</div>
+                </div>
+                <div class="resource-icon">🪨</div>
+                <div class="allowed-buildings">
+                    <div class="building-icon">⛏️</div>
+                    <div class="building-icon">🗿</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
