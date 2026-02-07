@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocked Token - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #DC143C 0%, #B22222 100%);
+            border: 6px solid #8B0000;
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 -4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .x-mark {
+            width: 140px;
+            height: 140px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .x-mark::before,
+        .x-mark::after {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 20px;
+            background: #FFFFFF;
+            border: 3px solid #000000;
+            border-radius: 10px;
+            left: -10px;
+            top: 60px;
+        }
+        
+        .x-mark::before {
+            transform: rotate(45deg);
+        }
+        
+        .x-mark::after {
+            transform: rotate(-45deg);
+        }
+        
+        .text {
+            font-size: 44px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 1in;
+                height: 1in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="x-mark"></div>
+        <div class="text">Blocked</div>
+    </div>
+</body>
+</html>

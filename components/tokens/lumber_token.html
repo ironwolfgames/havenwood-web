@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumber Token - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #DEB887 0%, #D2B48C 100%);
+            border: 6px dashed #8B7355;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 -4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .token::before {
+            content: '';
+            position: absolute;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            border: 3px solid #A0826D;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+        }
+        
+        .planks {
+            width: 90px;
+            height: 90px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .plank {
+            position: absolute;
+            width: 80px;
+            height: 15px;
+            background: linear-gradient(90deg, #CD853F 0%, #DEB887 50%, #CD853F 100%);
+            border: 2px solid #8B4513;
+            border-radius: 2px;
+        }
+        
+        .plank:nth-child(1) {
+            top: 0;
+        }
+        
+        .plank:nth-child(2) {
+            top: 20px;
+            left: 5px;
+        }
+        
+        .plank:nth-child(3) {
+            top: 40px;
+        }
+        
+        .plank:nth-child(4) {
+            top: 60px;
+            left: 5px;
+        }
+        
+        .text {
+            font-size: 42px;
+            font-weight: bold;
+            color: #4A2511;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 1in;
+                height: 1in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="planks">
+            <div class="plank"></div>
+            <div class="plank"></div>
+            <div class="plank"></div>
+            <div class="plank"></div>
+        </div>
+        <div class="text">Lumber</div>
+    </div>
+</body>
+</html>

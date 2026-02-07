@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steel Token - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #B0C4DE 0%, #4682B4 100%);
+            border: 6px double #708090;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 -4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .token::before {
+            content: '';
+            position: absolute;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            border: 3px solid #5F9EA0;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+        }
+        
+        .ingot {
+            width: 90px;
+            height: 70px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .ingot::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-bottom: 20px solid #778899;
+            top: 0;
+        }
+        
+        .ingot::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 45px;
+            background: linear-gradient(135deg, #C0C0C0 0%, #708090 50%, #A9A9A9 100%);
+            border: 2px solid #2F4F4F;
+            border-radius: 3px;
+            bottom: 0;
+            left: 5px;
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.5), inset 0 -2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .text {
+            font-size: 48px;
+            font-weight: bold;
+            color: #F0F8FF;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 1in;
+                height: 1in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="ingot"></div>
+        <div class="text">Steel</div>
+    </div>
+</body>
+</html>
