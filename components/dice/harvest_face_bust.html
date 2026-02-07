@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harvest Dice Face - Bust</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial Black', 'Arial Bold', sans-serif;
+    }
+
+    .dice-face {
+      width: 256px;
+      height: 256px;
+      background: linear-gradient(135deg, #8B4513 0%, #FFD700 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #5d2f0a;
+      border-radius: 8px;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .acorn {
+      position: relative;
+      width: 120px;
+      height: 140px;
+      margin-bottom: 10px;
+    }
+
+    /* Acorn cap */
+    .acorn-cap {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 40px;
+      background: #6B4423;
+      border-radius: 45px 45px 0 0;
+      border: 3px solid #4a2f18;
+    }
+
+    .acorn-cap::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 5px;
+      right: 5px;
+      height: 3px;
+      background: repeating-linear-gradient(
+        90deg,
+        #4a2f18 0px,
+        #4a2f18 6px,
+        transparent 6px,
+        transparent 12px
+      );
+    }
+
+    /* Acorn body */
+    .acorn-body {
+      position: absolute;
+      top: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 100px;
+      background: #D2691E;
+      border-radius: 40px 40px 50px 50px;
+      border: 3px solid #A0522D;
+    }
+
+    /* Crack through acorn */
+    .crack {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 95px;
+      background: #2F1810;
+      z-index: 10;
+    }
+
+    .crack::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: -6px;
+      width: 16px;
+      height: 4px;
+      background: #2F1810;
+      transform: rotate(-15deg);
+    }
+
+    .crack::after {
+      content: '';
+      position: absolute;
+      top: 55px;
+      left: -8px;
+      width: 20px;
+      height: 4px;
+      background: #2F1810;
+      transform: rotate(20deg);
+    }
+
+    .bust-text {
+      font-size: 42px;
+      font-weight: 900;
+      color: white;
+      text-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.7),
+        -1px -1px 3px rgba(255, 255, 255, 0.2);
+      letter-spacing: 2px;
+    }
+
+    @media print {
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .dice-face {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dice-face">
+    <div class="acorn">
+      <div class="acorn-cap"></div>
+      <div class="acorn-body"></div>
+      <div class="crack"></div>
+    </div>
+    <div class="bust-text">BUST</div>
+  </div>
+</body>
+</html>
