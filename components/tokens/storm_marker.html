@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storm Marker - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .marker {
+            width: 450px;
+            height: 450px;
+            background: linear-gradient(135deg, #2F4F4F 0%, #000000 100%);
+            border: 8px solid #1C1C1C;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.5), inset 0 -6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .storm-cloud {
+            width: 200px;
+            height: 120px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        /* Cloud puffs */
+        .cloud-puff {
+            position: absolute;
+            background: linear-gradient(135deg, #696969 0%, #4F4F4F 100%);
+            border-radius: 50%;
+        }
+        
+        .cloud-puff:nth-child(1) {
+            width: 80px;
+            height: 60px;
+            left: 0;
+            top: 20px;
+        }
+        
+        .cloud-puff:nth-child(2) {
+            width: 100px;
+            height: 70px;
+            left: 50px;
+            top: 0;
+        }
+        
+        .cloud-puff:nth-child(3) {
+            width: 90px;
+            height: 65px;
+            right: 0;
+            top: 15px;
+        }
+        
+        .lightning {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 40px solid #FFD700;
+            left: 90px;
+            bottom: -40px;
+            filter: drop-shadow(0 0 10px #FFFF00);
+        }
+        
+        .lightning::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 35px solid #FFD700;
+            left: -5px;
+            top: 40px;
+        }
+        
+        .text {
+            font-size: 56px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFFF00, 3px 3px 6px rgba(0,0,0,0.9);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .marker {
+                width: 1.5in;
+                height: 1.5in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="marker">
+        <div class="storm-cloud">
+            <div class="cloud-puff"></div>
+            <div class="cloud-puff"></div>
+            <div class="cloud-puff"></div>
+            <div class="lightning"></div>
+        </div>
+        <div class="text">Storm</div>
+    </div>
+</body>
+</html>

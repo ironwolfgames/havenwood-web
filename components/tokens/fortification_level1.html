@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortification Level 1 - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 225px;
+            height: 225px;
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            border: 5px solid #654321;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .shield {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+        
+        .shield::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%);
+            clip-path: polygon(50% 0%, 100% 20%, 100% 70%, 50% 100%, 0% 70%, 0% 20%);
+            border: 3px solid #654321;
+            left: 10px;
+            top: 10px;
+        }
+        
+        .wood-grain {
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: #654321;
+            left: 20px;
+            opacity: 0.5;
+        }
+        
+        .wood-grain:nth-child(1) { top: 30px; }
+        .wood-grain:nth-child(2) { top: 40px; }
+        .wood-grain:nth-child(3) { top: 50px; }
+        .wood-grain:nth-child(4) { top: 60px; }
+        
+        .level {
+            font-size: 56px;
+            font-weight: bold;
+            color: #FFF8DC;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 0.75in;
+                height: 0.75in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="shield">
+            <div class="wood-grain"></div>
+            <div class="wood-grain"></div>
+            <div class="wood-grain"></div>
+            <div class="wood-grain"></div>
+        </div>
+        <div class="level">1</div>
+    </div>
+</body>
+</html>

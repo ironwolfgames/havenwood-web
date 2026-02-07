@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Tracker - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #4169E1 0%, #1E90FF 100%);
+            border: 6px solid #0000CD;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 -4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .book {
+            width: 100px;
+            height: 80px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        /* Book cover */
+        .book::before {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 70px;
+            background: linear-gradient(135deg, #4682B4 0%, #5F9EA0 100%);
+            border: 4px solid #2F4F4F;
+            border-radius: 5px;
+            left: 5px;
+            top: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        /* Book spine */
+        .book::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 70px;
+            background: linear-gradient(90deg, #2F4F4F 0%, #4682B4 100%);
+            border: 2px solid #1C2E2E;
+            border-radius: 3px 0 0 3px;
+            left: 0;
+            top: 9px;
+        }
+        
+        .pages {
+            position: absolute;
+            width: 70px;
+            height: 50px;
+            background: #FFFFFF;
+            border: 2px solid #D3D3D3;
+            right: 10px;
+            top: 15px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .page-line {
+            width: 50px;
+            height: 2px;
+            background: #A9A9A9;
+            margin: 6px auto;
+        }
+        
+        .text {
+            font-size: 42px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 1in;
+                height: 1in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="book">
+            <div class="pages">
+                <div class="page-line"></div>
+                <div class="page-line"></div>
+                <div class="page-line"></div>
+                <div class="page-line"></div>
+            </div>
+        </div>
+        <div class="text">Knowledge</div>
+    </div>
+</body>
+</html>

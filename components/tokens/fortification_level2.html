@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortification Level 2 - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 225px;
+            height: 225px;
+            background: linear-gradient(135deg, #A9A9A9 0%, #C0C0C0 100%);
+            border: 5px solid #696969;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .shield {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+        
+        .shield::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #C0C0C0 0%, #A9A9A9 100%);
+            clip-path: polygon(50% 0%, 100% 20%, 100% 70%, 50% 100%, 0% 70%, 0% 20%);
+            border: 3px solid #696969;
+            left: 10px;
+            top: 10px;
+        }
+        
+        .stone-block {
+            position: absolute;
+            width: 18px;
+            height: 12px;
+            background: #989898;
+            border: 1px solid #606060;
+            border-radius: 1px;
+        }
+        
+        .stone-block:nth-child(1) { top: 25px; left: 22px; }
+        .stone-block:nth-child(2) { top: 25px; left: 43px; }
+        .stone-block:nth-child(3) { top: 25px; left: 64px; }
+        .stone-block:nth-child(4) { top: 40px; left: 32px; }
+        .stone-block:nth-child(5) { top: 40px; left: 53px; }
+        .stone-block:nth-child(6) { top: 55px; left: 22px; }
+        .stone-block:nth-child(7) { top: 55px; left: 43px; }
+        .stone-block:nth-child(8) { top: 55px; left: 64px; }
+        
+        .level {
+            font-size: 56px;
+            font-weight: bold;
+            color: #2F4F4F;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 0.75in;
+                height: 0.75in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="shield">
+            <div class="stone-block"></div>
+            <div class="stone-block"></div>
+            <div class="stone-block"></div>
+            <div class="stone-block"></div>
+            <div class="stone-block"></div>
+            <div class="stone-block"></div>
+            <div class="stone-block"></div>
+            <div class="stone-block"></div>
+        </div>
+        <div class="level">2</div>
+    </div>
+</body>
+</html>

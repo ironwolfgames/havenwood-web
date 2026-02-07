@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wood Token - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            border: 6px solid #654321;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 -4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .log {
+            width: 100px;
+            height: 60px;
+            background: linear-gradient(90deg, #654321 0%, #8B4513 50%, #654321 100%);
+            border-radius: 30px / 15px;
+            position: relative;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .log::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #D2691E 20%, #8B4513 40%, #654321 100%);
+            border-radius: 50%;
+            right: -10px;
+            top: 5px;
+            border: 3px solid #4A2511;
+        }
+        
+        .log::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #D2691E;
+            border-radius: 50%;
+            right: 7px;
+            top: 22px;
+            box-shadow: 0 0 0 5px #8B4513;
+        }
+        
+        .text {
+            font-size: 48px;
+            font-weight: bold;
+            color: #FFF8DC;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 1in;
+                height: 1in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="log"></div>
+        <div class="text">Wood</div>
+    </div>
+</body>
+</html>

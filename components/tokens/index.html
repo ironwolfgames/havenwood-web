@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokens & Markers Index - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: #F5F5DC;
+            padding: 40px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 64px;
+            color: #2F4F4F;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 28px;
+            color: #696969;
+            font-style: italic;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            color: #4A2511;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #8B4513;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .grid-medium {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+        
+        .grid-large {
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        }
+        
+        .grid-small {
+            grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+        }
+        
+        .token-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .token-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2F4F4F;
+            margin-bottom: 15px;
+        }
+        
+        iframe {
+            border: 1px solid #D3D3D3;
+            border-radius: 5px;
+        }
+        
+        .description {
+            font-size: 18px;
+            color: #696969;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+        
+        .print-info {
+            background: #FFF8DC;
+            padding: 30px;
+            border: 3px solid #8B4513;
+            border-radius: 10px;
+            margin: 40px auto;
+            max-width: 1000px;
+        }
+        
+        .print-info h2 {
+            font-size: 36px;
+            color: #4A2511;
+            margin-bottom: 20px;
+        }
+        
+        .print-info p {
+            font-size: 20px;
+            color: #4A2511;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        @media print {
+            body {
+                padding: 20px;
+            }
+            
+            .header, .description, .print-info {
+                page-break-after: avoid;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .token-container {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Tokens & Markers</h1>
+        <p class="subtitle">Houses of Havenwood Game Components</p>
+    </div>
+    
+    <div class="description">
+        <p>This index displays all game tokens and markers for Houses of Havenwood. Each token is designed for printing at 300 DPI. Click on individual HTML files to view full size or export as PNG.</p>
+    </div>
+    
+    <!-- Resource Tokens Section -->
+    <div class="section">
+        <h2 class="section-title">Resource Tokens (Medium - 300×300px / 1" diameter)</h2>
+        <div class="grid grid-medium">
+            <div class="token-container">
+                <div class="token-name">Food Token</div>
+                <iframe src="food_token.html" width="300" height="300"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Wood Token</div>
+                <iframe src="wood_token.html" width="300" height="300"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Ore Token</div>
+                <iframe src="ore_token.html" width="300" height="300"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Stone Token</div>
+                <iframe src="stone_token.html" width="300" height="300"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Lumber Token (Composite)</div>
+                <iframe src="lumber_token.html" width="300" height="300"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Steel Token (Composite)</div>
+                <iframe src="steel_token.html" width="300" height="300"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Stone Brick Token (Composite)</div>
+                <iframe src="stone_brick_token.html" width="300" height="300"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <!-- House Markers Section -->
+    <div class="section">
+        <h2 class="section-title">House Markers (Large - 450×450px / 1.5" diameter)</h2>
+        <div class="grid grid-large">
+            <div class="token-container">
+                <div class="token-name">Squirrel Marker</div>
+                <iframe src="squirrel_marker.html" width="450" height="450"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Fox Marker</div>
+                <iframe src="fox_marker.html" width="450" height="450"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Owl Marker</div>
+                <iframe src="owl_marker.html" width="450" height="450"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Badger Marker</div>
+                <iframe src="badger_marker.html" width="450" height="450"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Special Tokens Section -->
+    <div class="section">
+        <h2 class="section-title">Special Tokens</h2>
+        
+        <h3 style="font-size: 32px; color: #696969; margin: 30px 0 20px;">Fox Walls (Small - 225×225px / 0.75")</h3>
+        <div class="grid grid-small">
+            <div class="token-container">
+                <div class="token-name">Fox Wall Level 1</div>
+                <iframe src="fox_wall_level1.html" width="225" height="225"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Fox Wall Level 2</div>
+                <iframe src="fox_wall_level2.html" width="225" height="225"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Fox Wall Level 3</div>
+                <iframe src="fox_wall_level3.html" width="225" height="225"></iframe>
+            </div>
+        </div>
+        
+        <h3 style="font-size: 32px; color: #696969; margin: 30px 0 20px;">Fortifications (Small - 225×225px / 0.75")</h3>
+        <div class="grid grid-small">
+            <div class="token-container">
+                <div class="token-name">Fortification Level 1</div>
+                <iframe src="fortification_level1.html" width="225" height="225"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Fortification Level 2</div>
+                <iframe src="fortification_level2.html" width="225" height="225"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Fortification Level 3</div>
+                <iframe src="fortification_level3.html" width="225" height="225"></iframe>
+            </div>
+        </div>
+        
+        <h3 style="font-size: 32px; color: #696969; margin: 30px 0 20px;">Game Tokens (Medium - 300×300px / 1")</h3>
+        <div class="grid grid-medium">
+            <div class="token-container">
+                <div class="token-name">Magic Shield</div>
+                <iframe src="magic_shield.html" width="300" height="300"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Blocked Token</div>
+                <iframe src="blocked_token.html" width="300" height="300"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Bandit Token</div>
+                <iframe src="bandit_token.html" width="300" height="300"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Knowledge Tracker</div>
+                <iframe src="knowledge_tracker.html" width="300" height="300"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Insight Tracker</div>
+                <iframe src="insight_tracker.html" width="300" height="300"></iframe>
+            </div>
+            <div class="token-container">
+                <div class="token-name">Round Marker</div>
+                <iframe src="round_marker.html" width="300" height="300"></iframe>
+            </div>
+        </div>
+        
+        <h3 style="font-size: 32px; color: #696969; margin: 30px 0 20px;">Large Markers (450×450px / 1.5")</h3>
+        <div class="grid grid-large">
+            <div class="token-container">
+                <div class="token-name">Storm Marker</div>
+                <iframe src="storm_marker.html" width="450" height="450"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <div class="print-info">
+        <h2>Printing Information</h2>
+        <p><strong>Suggested Print Quantities:</strong></p>
+        <p>• Resource Tokens (Food, Wood, Ore, Stone, Lumber, Steel, Stone Brick): 30 of each</p>
+        <p>• House Markers: 1 of each (4 total)</p>
+        <p>• Fox Walls: 4 of each level (12 total)</p>
+        <p>• Fortifications: 4 of each level (12 total)</p>
+        <p>• Magic Shield: 6 tokens</p>
+        <p>• Blocked Token: 6 tokens</p>
+        <p>• Bandit Token: 6 tokens</p>
+        <p>• Knowledge & Insight Trackers: 1 of each</p>
+        <p>• Storm Marker: 1 token</p>
+        <p>• Round Marker: 1 token</p>
+        <p style="margin-top: 25px;"><strong>Print Settings:</strong> All components are designed at 300 DPI. For best results, print on cardstock and optionally laminate for durability. Small tokens (0.75") work well with standard 1" circle punches after printing slightly larger.</p>
+    </div>
+</body>
+</html>

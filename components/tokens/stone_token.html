@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Token - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #C0C0C0 0%, #D3D3D3 100%);
+            border: 6px solid #A9A9A9;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 -4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .block {
+            width: 90px;
+            height: 80px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .block::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 60px;
+            background: linear-gradient(135deg, #B0B0B0 0%, #989898 100%);
+            border: 3px solid #696969;
+            border-radius: 4px;
+            top: 10px;
+            left: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .block::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 50px;
+            background: linear-gradient(135deg, #D3D3D3 0%, #A9A9A9 100%);
+            border: 3px solid #696969;
+            border-radius: 4px;
+            top: 0;
+            left: 0;
+        }
+        
+        .text {
+            font-size: 48px;
+            font-weight: bold;
+            color: #2F4F4F;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 1in;
+                height: 1in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="block"></div>
+        <div class="text">Stone</div>
+    </div>
+</body>
+</html>

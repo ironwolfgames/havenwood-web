@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ore Token - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #696969 0%, #808080 100%);
+            border: 6px solid #2F4F4F;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 -4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .crystal {
+            width: 80px;
+            height: 100px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .crystal::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 60px solid #A9A9A9;
+            top: 0;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+        }
+        
+        .crystal::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            background: linear-gradient(135deg, #C0C0C0 0%, #696969 100%);
+            bottom: 0;
+            left: 10px;
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        }
+        
+        .text {
+            font-size: 48px;
+            font-weight: bold;
+            color: #E0E0E0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 1in;
+                height: 1in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="crystal"></div>
+        <div class="text">Ore</div>
+    </div>
+</body>
+</html>

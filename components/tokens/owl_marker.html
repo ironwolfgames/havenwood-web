@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owl Marker - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .marker {
+            width: 450px;
+            height: 450px;
+            background: linear-gradient(135deg, #8B7355 0%, #A0826D 100%);
+            border: 8px solid #6B5A44;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.4), inset 0 -6px 12px rgba(0,0,0,0.2);
+        }
+        
+        .owl {
+            width: 150px;
+            height: 180px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        /* Owl body */
+        .owl::before {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 110px;
+            background: #6B5A44;
+            border-radius: 45% 45% 20% 20%;
+            left: 30px;
+            top: 40px;
+        }
+        
+        /* Owl head */
+        .owl::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 80px;
+            background: #6B5A44;
+            border-radius: 50%;
+            left: 25px;
+            top: 0;
+        }
+        
+        .ear-tuft {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 30px solid #4A3C2E;
+            top: -5px;
+        }
+        
+        .ear-tuft.left {
+            left: 30px;
+        }
+        
+        .ear-tuft.right {
+            right: 30px;
+        }
+        
+        .eye {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #FFD700;
+            border-radius: 50%;
+            border: 3px solid #2F2F2F;
+            top: 25px;
+        }
+        
+        .eye.left {
+            left: 45px;
+        }
+        
+        .eye.right {
+            right: 45px;
+        }
+        
+        .text {
+            font-size: 56px;
+            font-weight: bold;
+            color: #FFF8DC;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .marker {
+                width: 1.5in;
+                height: 1.5in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="marker">
+        <div class="owl">
+            <div class="ear-tuft left"></div>
+            <div class="ear-tuft right"></div>
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+        </div>
+        <div class="text">Owls</div>
+    </div>
+</body>
+</html>

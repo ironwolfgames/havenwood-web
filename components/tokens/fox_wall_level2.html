@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fox Wall Level 2 - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 225px;
+            height: 225px;
+            background: linear-gradient(135deg, #A9A9A9 0%, #C0C0C0 100%);
+            border: 5px solid #696969;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 0 -3px 6px rgba(0,0,0,0.2);
+        }
+        
+        .wall {
+            width: 140px;
+            height: 90px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        
+        .battlements {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+        
+        .battlement {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #C0C0C0 0%, #A0A0A0 100%);
+            border: 2px solid #606060;
+            border-radius: 2px 2px 0 0;
+        }
+        
+        .stone-row {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 3px;
+        }
+        
+        .stone {
+            width: 30px;
+            height: 18px;
+            background: linear-gradient(135deg, #B0B0B0 0%, #909090 100%);
+            border: 1px solid #606060;
+            border-radius: 2px;
+        }
+        
+        .level {
+            font-size: 64px;
+            font-weight: bold;
+            color: #2F4F4F;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 0.75in;
+                height: 0.75in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="wall">
+            <div class="battlements">
+                <div class="battlement"></div>
+                <div class="battlement"></div>
+                <div class="battlement"></div>
+                <div class="battlement"></div>
+            </div>
+            <div class="stone-row">
+                <div class="stone"></div>
+                <div class="stone"></div>
+                <div class="stone"></div>
+                <div class="stone"></div>
+            </div>
+            <div class="stone-row">
+                <div class="stone"></div>
+                <div class="stone"></div>
+                <div class="stone"></div>
+                <div class="stone"></div>
+            </div>
+        </div>
+        <div class="level">2</div>
+    </div>
+</body>
+</html>
