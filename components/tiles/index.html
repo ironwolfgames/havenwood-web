@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hex Map Tiles - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: #f0f0f0;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 48px;
+            color: #2F4F4F;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .summary {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 4px solid #4169E1;
+        }
+        
+        .summary h2 {
+            font-size: 24px;
+            color: #2F4F4F;
+            margin-bottom: 15px;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .summary-label {
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .summary-count {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4169E1;
+        }
+        
+        .tile-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #4169E1 0%, #9370DB 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+        
+        .section-header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .tiles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .tile-card {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            border-color: #4169E1;
+        }
+        
+        .tile-preview {
+            width: 100%;
+            height: 200px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tile-preview::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: 1;
+        }
+        
+        .tile-preview.plains::before {
+            background: linear-gradient(135deg, #FFE4B5 0%, #F0E68C 50%, #DAA520 100%);
+        }
+        
+        .tile-preview.forest::before {
+            background: linear-gradient(135deg, #228B22 0%, #006400 50%, #004d00 100%);
+        }
+        
+        .tile-preview.mountain::before {
+            background: linear-gradient(135deg, #A9A9A9 0%, #696969 50%, #505050 100%);
+        }
+        
+        .tile-preview.river::before {
+            background: linear-gradient(135deg, #87CEEB 0%, #4682B4 50%, #1E90FF 100%);
+        }
+        
+        .tile-preview.central::before {
+            background: linear-gradient(135deg, #90EE90 0%, #228B22 50%, #006400 100%);
+        }
+        
+        .tile-icon {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tile-name {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .tile-info {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .tile-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #4169E1;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+        
+        .tile-link:hover {
+            background: #2F4F9F;
+        }
+        
+        .print-all {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 30px;
+            background: #32CD32;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .print-all:hover {
+            background: #228B22;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hex Map Tiles</h1>
+        <p class="subtitle">Houses of Havenwood - 40 Printable Hex Tiles</p>
+        
+        <div class="summary">
+            <h2>📊 Tile Breakdown</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <span class="summary-label">Total Tiles:</span>
+                    <span class="summary-count">40</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Central Havenwood:</span>
+                    <span class="summary-count">1</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Plains:</span>
+                    <span class="summary-count">12</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Forest:</span>
+                    <span class="summary-count">12</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Mountain:</span>
+                    <span class="summary-count">8</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">River:</span>
+                    <span class="summary-count">7</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Central Havenwood -->
+        <div class="tile-section">
+            <div class="section-header">
+                <h2>🏛️ Central Havenwood (1 tile)</h2>
+                <p>The safe starting zone - Ancient tree sanctuary</p>
+            </div>
+            <div class="tiles-grid">
+                <div class="tile-card">
+                    <div class="tile-preview central">
+                        <span class="tile-icon">🌳👑</span>
+                    </div>
+                    <div class="tile-name">Central Havenwood</div>
+                    <div class="tile-info">Safe Zone - No Discovery</div>
+                    <a href="hex_central.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Plains Tiles -->
+        <div class="tile-section">
+            <div class="section-header">
+                <h2>🌾 Plains Tiles (12 tiles)</h2>
+                <p>Rolling golden grasslands - Farm, Mine, Quarry allowed</p>
+            </div>
+            <div class="tiles-grid">
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains +1 Food #1</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_plains_food_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains +1 Food #2</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_plains_food_02.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains +1 Food #3</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_plains_food_03.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains +1 Food #4</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_plains_food_04.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains +1 Food #5</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_plains_food_05.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains +1 Wood #1</div>
+                    <div class="tile-info">Discovery: +1 Wood</div>
+                    <a href="hex_plains_wood_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains +1 Wood #2</div>
+                    <div class="tile-info">Discovery: +1 Wood</div>
+                    <a href="hex_plains_wood_02.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains +1 Wood #3</div>
+                    <div class="tile-info">Discovery: +1 Wood</div>
+                    <a href="hex_plains_wood_03.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains +1 Wood #4</div>
+                    <div class="tile-info">Discovery: +1 Wood</div>
+                    <a href="hex_plains_wood_04.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains Free Move #1</div>
+                    <div class="tile-info">Discovery: Free Move</div>
+                    <a href="hex_plains_move_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains Free Move #2</div>
+                    <div class="tile-info">Discovery: Free Move</div>
+                    <a href="hex_plains_move_02.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview plains">
+                        <span class="tile-icon">🌾</span>
+                    </div>
+                    <div class="tile-name">Plains Free Move #3</div>
+                    <div class="tile-info">Discovery: Free Move</div>
+                    <a href="hex_plains_move_03.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Forest Tiles -->
+        <div class="tile-section">
+            <div class="section-header">
+                <h2>🌲 Forest Tiles (12 tiles)</h2>
+                <p>Dense woodland - Forester Station allowed</p>
+            </div>
+            <div class="tiles-grid">
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Wood #1</div>
+                    <div class="tile-info">Discovery: +1 Wood</div>
+                    <a href="hex_forest_wood_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Wood #2</div>
+                    <div class="tile-info">Discovery: +1 Wood</div>
+                    <a href="hex_forest_wood_02.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Wood #3</div>
+                    <div class="tile-info">Discovery: +1 Wood</div>
+                    <a href="hex_forest_wood_03.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Wood #4</div>
+                    <div class="tile-info">Discovery: +1 Wood</div>
+                    <a href="hex_forest_wood_04.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Wood #5</div>
+                    <div class="tile-info">Discovery: +1 Wood</div>
+                    <a href="hex_forest_wood_05.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Food #1</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_forest_food_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Food #2</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_forest_food_02.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Food #3</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_forest_food_03.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Food #4</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_forest_food_04.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Insight #1</div>
+                    <div class="tile-info">Discovery: +1 Insight</div>
+                    <a href="hex_forest_insight_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Insight #2</div>
+                    <div class="tile-info">Discovery: +1 Insight</div>
+                    <a href="hex_forest_insight_02.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview forest">
+                        <span class="tile-icon">🪵</span>
+                    </div>
+                    <div class="tile-name">Forest +1 Insight #3</div>
+                    <div class="tile-info">Discovery: +1 Insight</div>
+                    <a href="hex_forest_insight_03.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mountain Tiles -->
+        <div class="tile-section">
+            <div class="section-header">
+                <h2>⛰️ Mountain Tiles (8 tiles)</h2>
+                <p>Rocky peaks - Mine, Quarry allowed</p>
+            </div>
+            <div class="tiles-grid">
+                <div class="tile-card">
+                    <div class="tile-preview mountain">
+                        <span class="tile-icon">🪨</span>
+                    </div>
+                    <div class="tile-name">Mountain +1 Stone #1</div>
+                    <div class="tile-info">Discovery: +1 Stone</div>
+                    <a href="hex_mountain_stone_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview mountain">
+                        <span class="tile-icon">🪨</span>
+                    </div>
+                    <div class="tile-name">Mountain +1 Stone #2</div>
+                    <div class="tile-info">Discovery: +1 Stone</div>
+                    <a href="hex_mountain_stone_02.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview mountain">
+                        <span class="tile-icon">🪨</span>
+                    </div>
+                    <div class="tile-name">Mountain +1 Stone #3</div>
+                    <div class="tile-info">Discovery: +1 Stone</div>
+                    <a href="hex_mountain_stone_03.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview mountain">
+                        <span class="tile-icon">🪨</span>
+                    </div>
+                    <div class="tile-name">Mountain +1 Stone #4</div>
+                    <div class="tile-info">Discovery: +1 Stone</div>
+                    <a href="hex_mountain_stone_04.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview mountain">
+                        <span class="tile-icon">🪨</span>
+                    </div>
+                    <div class="tile-name">Mountain +1 Ore #1</div>
+                    <div class="tile-info">Discovery: +1 Ore</div>
+                    <a href="hex_mountain_ore_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview mountain">
+                        <span class="tile-icon">🪨</span>
+                    </div>
+                    <div class="tile-name">Mountain +1 Ore #2</div>
+                    <div class="tile-info">Discovery: +1 Ore</div>
+                    <a href="hex_mountain_ore_02.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview mountain">
+                        <span class="tile-icon">🪨</span>
+                    </div>
+                    <div class="tile-name">Mountain +1 Ore #3</div>
+                    <div class="tile-info">Discovery: +1 Ore</div>
+                    <a href="hex_mountain_ore_03.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview mountain">
+                        <span class="tile-icon">🪨</span>
+                    </div>
+                    <div class="tile-name">Mountain +1 Knowledge #1</div>
+                    <div class="tile-info">Discovery: +1 Knowledge (RARE)</div>
+                    <a href="hex_mountain_knowledge_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- River Tiles -->
+        <div class="tile-section">
+            <div class="section-header">
+                <h2>💧 River Tiles (7 tiles)</h2>
+                <p>Flowing waters - Farm allowed</p>
+            </div>
+            <div class="tiles-grid">
+                <div class="tile-card">
+                    <div class="tile-preview river">
+                        <span class="tile-icon">💧</span>
+                    </div>
+                    <div class="tile-name">River +1 Food #1</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_river_food_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview river">
+                        <span class="tile-icon">💧</span>
+                    </div>
+                    <div class="tile-name">River +1 Food #2</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_river_food_02.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview river">
+                        <span class="tile-icon">💧</span>
+                    </div>
+                    <div class="tile-name">River +1 Food #3</div>
+                    <div class="tile-info">Discovery: +1 Food</div>
+                    <a href="hex_river_food_03.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview river">
+                        <span class="tile-icon">💧</span>
+                    </div>
+                    <div class="tile-name">River +1 Insight #1</div>
+                    <div class="tile-info">Discovery: +1 Insight</div>
+                    <a href="hex_river_insight_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview river">
+                        <span class="tile-icon">💧</span>
+                    </div>
+                    <div class="tile-name">River +1 Insight #2</div>
+                    <div class="tile-info">Discovery: +1 Insight</div>
+                    <a href="hex_river_insight_02.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview river">
+                        <span class="tile-icon">💧🛡️</span>
+                    </div>
+                    <div class="tile-name">River Free Fort #1</div>
+                    <div class="tile-info">Discovery: Free Fort Lvl 1</div>
+                    <a href="hex_river_fort_01.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+                <div class="tile-card">
+                    <div class="tile-preview river">
+                        <span class="tile-icon">💧🛡️</span>
+                    </div>
+                    <div class="tile-name">River Free Fort #2</div>
+                    <div class="tile-info">Discovery: Free Fort Lvl 1</div>
+                    <a href="hex_river_fort_02.html" class="tile-link" target="_blank">View Tile</a>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px; padding: 30px; background: #f9f9f9; border-radius: 8px;">
+            <h3 style="font-size: 24px; color: #2F4F4F; margin-bottom: 15px;">🖨️ Printing Instructions</h3>
+            <p style="font-size: 16px; color: #666; margin-bottom: 10px;">
+                Each tile is designed to print at 2" per hex side (flat-to-flat: 3.46", point-to-point: 4")
+            </p>
+            <p style="font-size: 16px; color: #666; margin-bottom: 10px;">
+                Click on individual tiles to view and print them, or use the "Print All Tiles" button below.
+            </p>
+            <p style="font-size: 14px; color: #999; font-style: italic;">
+                Make sure to check your printer settings and select "Actual Size" or "100%" scaling for accurate dimensions.
+            </p>
+        </div>
+    </div>
+    
+    <button class="print-all" onclick="printAllTiles()">🖨️ Print All Tiles</button>
+    
+    <script>
+        function printAllTiles() {
+            if (confirm('This will open all 40 tiles in new tabs for printing. Continue?')) {
+                const tiles = [
+                    'hex_central.html',
+                    'hex_plains_food_01.html', 'hex_plains_food_02.html', 'hex_plains_food_03.html', 'hex_plains_food_04.html', 'hex_plains_food_05.html',
+                    'hex_plains_wood_01.html', 'hex_plains_wood_02.html', 'hex_plains_wood_03.html', 'hex_plains_wood_04.html',
+                    'hex_plains_move_01.html', 'hex_plains_move_02.html', 'hex_plains_move_03.html',
+                    'hex_forest_wood_01.html', 'hex_forest_wood_02.html', 'hex_forest_wood_03.html', 'hex_forest_wood_04.html', 'hex_forest_wood_05.html',
+                    'hex_forest_food_01.html', 'hex_forest_food_02.html', 'hex_forest_food_03.html', 'hex_forest_food_04.html',
+                    'hex_forest_insight_01.html', 'hex_forest_insight_02.html', 'hex_forest_insight_03.html',
+                    'hex_mountain_stone_01.html', 'hex_mountain_stone_02.html', 'hex_mountain_stone_03.html', 'hex_mountain_stone_04.html',
+                    'hex_mountain_ore_01.html', 'hex_mountain_ore_02.html', 'hex_mountain_ore_03.html',
+                    'hex_mountain_knowledge_01.html',
+                    'hex_river_food_01.html', 'hex_river_food_02.html', 'hex_river_food_03.html',
+                    'hex_river_insight_01.html', 'hex_river_insight_02.html',
+                    'hex_river_fort_01.html', 'hex_river_fort_02.html'
+                ];
+                
+                tiles.forEach((tile, index) => {
+                    setTimeout(() => {
+                        window.open(tile, '_blank');
+                    }, index * 200); // Stagger the opening to avoid browser blocking
+                });
+            }
+        }
+    </script>
+</body>
+</html>
