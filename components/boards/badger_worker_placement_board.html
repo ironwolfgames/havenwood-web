@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Badger Worker Placement Board - Houses of Havenwood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +15,7 @@
         }
         
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Raleway', sans-serif;
             background: #1a1a1a;
             display: flex;
             justify-content: center;
@@ -33,7 +36,7 @@
         
         /* Header Section */
         .header {
-            height: 140px;
+            min-height: 160px;
             background: linear-gradient(135deg, #2F4F4F 0%, #1a1a1a 100%);
             border: 4px solid #FFD700;
             border-radius: 15px;
@@ -41,6 +44,9 @@
             margin-bottom: 20px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .title {
@@ -78,7 +84,7 @@
             border: 4px solid #FFD700;
             border-radius: 12px;
             padding: 20px;
-            height: 160px;
+            min-height: 180px;
         }
         
         .track-title {
@@ -100,6 +106,7 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
+            min-height: 90px;
         }
         
         .track-circle {
@@ -114,17 +121,16 @@
             font-size: 32px;
             font-weight: bold;
             color: #FFD700;
-            transition: all 0.3s ease;
         }
         
         .track-space:first-child .track-circle {
             background: rgba(255, 215, 0, 0.4);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
         }
         
         .track-label {
             font-size: 18px;
             color: #F0E68C;
+            margin-top: auto;
         }
         
         /* Worker Placement Spaces */
@@ -139,17 +145,8 @@
             background: rgba(47, 79, 79, 0.7);
             border: 3px solid #8B7355;
             border-radius: 12px;
-            padding: 18px;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            padding: 20px;
             position: relative;
-        }
-        
-        .worker-space:hover {
-            background: rgba(47, 79, 79, 0.9);
-            border-color: #FFD700;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(255, 215, 0, 0.3);
         }
         
         .worker-space.double-slot {
@@ -160,7 +157,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         
         .space-icon {
@@ -186,47 +183,27 @@
             border: 3px solid #FFD700;
             border-radius: 50%;
             background: rgba(47, 79, 79, 0.4);
-            transition: all 0.3s ease;
-        }
-        
-        .worker-space:hover .worker-slot {
-            background: rgba(255, 215, 0, 0.3);
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
         
         .space-cost {
             font-size: 22px;
             color: #F0E68C;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: bold;
+            padding: 0 5px;
         }
         
         .space-effect {
             font-size: 20px;
             color: #FFFACD;
-            line-height: 1.4;
+            line-height: 1.5;
+            padding: 0 5px;
         }
         
         /* Commission Space - Special Styling */
         .worker-space.commission {
             background: linear-gradient(135deg, rgba(47, 79, 79, 0.8) 0%, rgba(85, 107, 47, 0.8) 100%);
             border: 4px solid #FFD700;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-            }
-        }
-        
-        .worker-space.commission:hover {
-            animation: none;
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
         }
         
         /* Right Side - Component Storage Areas */
@@ -254,7 +231,7 @@
             margin-bottom: 15px;
             text-align: center;
             border-bottom: 3px solid #FFD700;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
         }
         
         .storage-content {
@@ -269,6 +246,7 @@
             color: #8B7355;
             font-style: italic;
             min-height: 200px;
+            padding: 15px;
         }
         
         .storage-area.under-construction {
