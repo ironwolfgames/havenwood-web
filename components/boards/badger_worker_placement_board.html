@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badger Worker Placement Board - Houses of Havenwood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .board-container {
+            width: 1100px;
+            height: 1700px;
+            background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+            border: 8px solid #8B7355;
+            position: relative;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        
+        /* Header Section */
+        .header {
+            height: 140px;
+            background: linear-gradient(135deg, #2F4F4F 0%, #1a1a1a 100%);
+            border: 4px solid #FFD700;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .title {
+            font-size: 64px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            font-size: 32px;
+            color: #F0E68C;
+            font-style: italic;
+        }
+        
+        /* Main Layout */
+        .main-layout {
+            display: flex;
+            gap: 20px;
+            height: 1440px;
+        }
+        
+        /* Left Side - Expertise Track and Worker Spaces */
+        .left-side {
+            flex: 0 0 680px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* Expertise Track */
+        .expertise-track {
+            background: rgba(47, 79, 79, 0.6);
+            border: 4px solid #FFD700;
+            border-radius: 12px;
+            padding: 20px;
+            height: 160px;
+        }
+        
+        .track-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .track-spaces {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .track-space {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .track-circle {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #FFD700;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #FFD700;
+            transition: all 0.3s ease;
+        }
+        
+        .track-space:first-child .track-circle {
+            background: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+        
+        .track-label {
+            font-size: 18px;
+            color: #F0E68C;
+        }
+        
+        /* Worker Placement Spaces */
+        .worker-spaces {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .worker-space {
+            background: rgba(47, 79, 79, 0.7);
+            border: 3px solid #8B7355;
+            border-radius: 12px;
+            padding: 18px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .worker-space:hover {
+            background: rgba(47, 79, 79, 0.9);
+            border-color: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 215, 0, 0.3);
+        }
+        
+        .worker-space.double-slot {
+            border-width: 4px;
+        }
+        
+        .space-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+        
+        .space-icon {
+            font-size: 48px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+        }
+        
+        .space-name {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FFD700;
+            flex: 1;
+        }
+        
+        .worker-slots {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .worker-slot {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #FFD700;
+            border-radius: 50%;
+            background: rgba(47, 79, 79, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .worker-space:hover .worker-slot {
+            background: rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .space-cost {
+            font-size: 22px;
+            color: #F0E68C;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .space-effect {
+            font-size: 20px;
+            color: #FFFACD;
+            line-height: 1.4;
+        }
+        
+        /* Commission Space - Special Styling */
+        .worker-space.commission {
+            background: linear-gradient(135deg, rgba(47, 79, 79, 0.8) 0%, rgba(85, 107, 47, 0.8) 100%);
+            border: 4px solid #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+            }
+        }
+        
+        .worker-space.commission:hover {
+            animation: none;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+        }
+        
+        /* Right Side - Component Storage Areas */
+        .right-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .storage-area {
+            background: rgba(47, 79, 79, 0.6);
+            border: 4px solid #8B7355;
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .storage-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 10px;
+        }
+        
+        .storage-content {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px dashed #8B7355;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #8B7355;
+            font-style: italic;
+            min-height: 200px;
+        }
+        
+        .storage-area.under-construction {
+            border-color: #FFD700;
+        }
+        
+        .storage-area.completed {
+            border-color: #90EE90;
+        }
+        
+        .storage-area.completed .storage-title {
+            color: #90EE90;
+            border-bottom-color: #90EE90;
+        }
+        
+        .storage-area.installed {
+            border-color: #87CEEB;
+        }
+        
+        .storage-area.installed .storage-title {
+            color: #87CEEB;
+            border-bottom-color: #87CEEB;
+        }
+        
+        .installed-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .structure-icon {
+            font-size: 80px;
+            opacity: 0.5;
+        }
+        
+        .structure-text {
+            font-size: 20px;
+            color: #87CEEB;
+        }
+        
+        /* Print Media Queries */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .board-container {
+                width: 5100px;
+                height: 3300px;
+                page-break-inside: avoid;
+            }
+            
+            .title {
+                font-size: 220px;
+            }
+            
+            .subtitle {
+                font-size: 110px;
+            }
+            
+            /* Scale all other elements proportionally for print */
+            .track-title {
+                font-size: 110px;
+            }
+            
+            .track-circle {
+                width: 200px;
+                height: 200px;
+                font-size: 100px;
+            }
+            
+            .space-icon {
+                font-size: 160px;
+            }
+            
+            .space-name {
+                font-size: 120px;
+            }
+            
+            .worker-slot {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .space-cost {
+                font-size: 75px;
+            }
+            
+            .space-effect {
+                font-size: 65px;
+            }
+            
+            .storage-title {
+                font-size: 120px;
+            }
+            
+            .storage-content {
+                font-size: 80px;
+            }
+        }
+        
+        /* Responsive Design for Smaller Screens */
+        @media screen and (max-width: 1200px) {
+            .board-container {
+                width: 800px;
+                height: 1236px;
+                padding: 20px;
+            }
+            
+            .header {
+                height: 100px;
+                padding: 15px;
+            }
+            
+            .title {
+                font-size: 46px;
+            }
+            
+            .subtitle {
+                font-size: 23px;
+            }
+            
+            .main-layout {
+                height: 1050px;
+            }
+            
+            .left-side {
+                flex: 0 0 490px;
+            }
+            
+            .expertise-track {
+                height: 120px;
+                padding: 15px;
+            }
+            
+            .track-title {
+                font-size: 24px;
+            }
+            
+            .track-circle {
+                width: 45px;
+                height: 45px;
+                font-size: 24px;
+            }
+            
+            .space-icon {
+                font-size: 36px;
+            }
+            
+            .space-name {
+                font-size: 26px;
+            }
+            
+            .worker-slot {
+                width: 38px;
+                height: 38px;
+            }
+            
+            .space-cost {
+                font-size: 16px;
+            }
+            
+            .space-effect {
+                font-size: 15px;
+            }
+            
+            .storage-title {
+                font-size: 26px;
+            }
+            
+            .storage-content {
+                font-size: 18px;
+            }
+            
+            .structure-icon {
+                font-size: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="board-container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="title">Great Work Progress Board</div>
+            <div class="subtitle">Place workers to advance the Great Work</div>
+        </div>
+        
+        <div class="main-layout">
+            <!-- Left Side: Expertise Track and Worker Spaces -->
+            <div class="left-side">
+                <!-- Expertise Track -->
+                <div class="expertise-track">
+                    <div class="track-title">Expertise Level</div>
+                    <div class="track-spaces">
+                        <div class="track-space">
+                            <div class="track-circle">0</div>
+                            <div class="track-label">Start</div>
+                        </div>
+                        <div class="track-space">
+                            <div class="track-circle">1</div>
+                        </div>
+                        <div class="track-space">
+                            <div class="track-circle">2</div>
+                        </div>
+                        <div class="track-space">
+                            <div class="track-circle">3</div>
+                        </div>
+                        <div class="track-space">
+                            <div class="track-circle">4</div>
+                        </div>
+                        <div class="track-space">
+                            <div class="track-circle">5</div>
+                            <div class="track-label">Max</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Worker Placement Spaces -->
+                <div class="worker-spaces">
+                    <!-- Space 1: Construct Component -->
+                    <div class="worker-space">
+                        <div class="space-header">
+                            <div class="space-icon">🔨</div>
+                            <div class="space-name">Construct Component</div>
+                            <div class="worker-slots">
+                                <div class="worker-slot"></div>
+                            </div>
+                        </div>
+                        <div class="space-cost">Cost: Resources shown on component card</div>
+                        <div class="space-effect">Pay the cost shown on a Great Work component card. Add that card to the 'Under Construction' area.</div>
+                    </div>
+                    
+                    <!-- Space 2: Train -->
+                    <div class="worker-space">
+                        <div class="space-header">
+                            <div class="space-icon">📚</div>
+                            <div class="space-name">Train</div>
+                            <div class="worker-slots">
+                                <div class="worker-slot"></div>
+                            </div>
+                        </div>
+                        <div class="space-cost">Cost: 2 Knowledge OR 2 Insight</div>
+                        <div class="space-effect">+1 Expertise Level (max 5). Move expertise marker up one space.</div>
+                    </div>
+                    
+                    <!-- Space 3: Ensure Quality -->
+                    <div class="worker-space">
+                        <div class="space-header">
+                            <div class="space-icon">🔍</div>
+                            <div class="space-name">Ensure Quality</div>
+                            <div class="worker-slots">
+                                <div class="worker-slot"></div>
+                            </div>
+                        </div>
+                        <div class="space-cost">Cost: None</div>
+                        <div class="space-effect">Roll X dice where X = Expertise Level. If total ≥ Quality Requirement on component card, move card to 'Completed' area.</div>
+                    </div>
+                    
+                    <!-- Space 4: Install Component -->
+                    <div class="worker-space double-slot">
+                        <div class="space-header">
+                            <div class="space-icon">⚙️</div>
+                            <div class="space-name">Install Component</div>
+                            <div class="worker-slots">
+                                <div class="worker-slot"></div>
+                                <div class="worker-slot"></div>
+                            </div>
+                        </div>
+                        <div class="space-cost">Cost: 2 Workers</div>
+                        <div class="space-effect">Move one completed component from 'Completed' area to the Great Work structure. Permanently installed.</div>
+                    </div>
+                    
+                    <!-- Space 5: Commission -->
+                    <div class="worker-space double-slot commission">
+                        <div class="space-header">
+                            <div class="space-icon">🏆</div>
+                            <div class="space-name">Commission</div>
+                            <div class="worker-slots">
+                                <div class="worker-slot"></div>
+                                <div class="worker-slot"></div>
+                            </div>
+                        </div>
+                        <div class="space-cost">Cost: 2 Workers + 2 Main Action cards from hand</div>
+                        <div class="space-effect">If all components are installed, WIN THE GAME! Otherwise, lose the 2 Main Action cards.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side: Component Storage Areas -->
+            <div class="right-side">
+                <!-- Under Construction -->
+                <div class="storage-area under-construction">
+                    <div class="storage-title">Under Construction</div>
+                    <div class="storage-content">
+                        Place component cards being built here
+                    </div>
+                </div>
+                
+                <!-- Completed -->
+                <div class="storage-area completed">
+                    <div class="storage-title">Completed</div>
+                    <div class="storage-content">
+                        Place finished components awaiting installation here
+                    </div>
+                </div>
+                
+                <!-- Installed -->
+                <div class="storage-area installed">
+                    <div class="storage-title">Installed</div>
+                    <div class="storage-content">
+                        <div class="installed-visual">
+                            <div class="structure-icon">🏛️</div>
+                            <div class="structure-text">Great Work Structure</div>
+                            <div class="structure-text">Components installed permanently here</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
