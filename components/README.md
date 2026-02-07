@@ -1,6 +1,6 @@
-# Card Generation Guide
+# Card and Component Generation Guide
 
-This folder contains CSV data files and JSON configuration files for generating printable cards using the cardigan tool.
+This folder contains CSV data files and JSON configuration files for generating printable cards using the cardigan tool, as well as HTML-based player mats and boards that can be exported as high-resolution images.
 
 ## Files
 
@@ -152,3 +152,60 @@ Add an `imageExport` section to generate images:
 - **Page Size**: US Letter (215.9mm × 279.4mm, 8.5" × 11")
 - **Cards Per Page**: 9 (3×3 grid)
 - **Units**: millimeters (mm)
+
+## HTML Component Export (Player Mats & Boards)
+
+In addition to cards, this folder contains HTML-based components (player mats and boards) that can be exported as high-resolution PNG images.
+
+### Prerequisites
+
+Install Node.js dependencies for export functionality:
+
+```powershell
+cd components
+npm install
+```
+
+This will install Puppeteer (~350MB download - includes Chromium browser).
+
+### Export Commands
+
+#### Export All Components
+```powershell
+npm run export-all
+```
+
+#### Export Only Player Mats
+```powershell
+npm run export-mats
+```
+
+#### Export Only Boards
+```powershell
+npm run export-boards
+```
+
+#### Export Single Component
+```powershell
+node export.js squirrel_mat
+node export.js badger_worker_placement_board
+```
+
+### Available Components
+
+**Player Mats** (in `player_mats/`):
+- `squirrel_mat` - 3000×2100px (10"×7" at 300 DPI)
+- `fox_mat` - 3000×2100px (10"×7" at 300 DPI)
+- `owl_mat` - 3000×2100px (10"×7" at 300 DPI)
+- `badger_mat` - 3000×2100px (10"×7" at 300 DPI)
+
+**Boards** (in `boards/`):
+- `badger_worker_placement_board` - 1100×1700px
+
+### Output Locations
+
+Exported PNG files are saved to:
+- Player mats: `output/player_mats/`
+- Boards: `output/boards/`
+
+See `player_mats/README.md` for detailed information about player mat designs and customization.

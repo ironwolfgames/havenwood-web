@@ -13,10 +13,12 @@ This folder contains HTML designs for the four player mats and a Node.js script 
 
 ## Setup
 
+The export functionality has been moved to the parent `components/` folder to support exporting both player mats and boards.
+
 1. Install Node.js dependencies:
 
 ```powershell
-cd components/player_mats
+cd components
 npm install
 ```
 
@@ -29,13 +31,15 @@ This will install Puppeteer (~350MB download - includes Chromium browser).
 To export all four player mats at once:
 
 ```powershell
-npm run script export-all
+cd components
+npm run export-mats
 ```
 
-Or:
+Or to export all components (mats + boards):
 
 ```powershell
-node export.js --all
+cd components
+npm run export-all
 ```
 
 ### Export Single Mat
@@ -43,6 +47,7 @@ node export.js --all
 To export a specific player mat:
 
 ```powershell
+cd components
 node export.js squirrel_mat
 node export.js fox_mat
 node export.js owl_mat
@@ -51,7 +56,7 @@ node export.js badger_mat
 
 ### Output
 
-PNG files are exported to: `../../output/player_mats/`
+PNG files are exported to: `../output/player_mats/`
 
 - `squirrel_mat.png`
 - `fox_mat.png`
@@ -165,7 +170,7 @@ The designs use common system fonts (Georgia, Arial). They should render consist
 
 ### Image appears cropped
 
-Check that the viewport size in `export.js` matches the `width` and `height` in the HTML file's `.player-mat` class.
+Check that the viewport size in `../export.js` matches the `width` and `height` in the HTML file's `.player-mat` class.
 
 ### File size too large
 
