@@ -1,5 +1,5 @@
 {
-  "csvFilePath": "../../components/great_works.csv",
+  "csvFilePath": "../../components/cards/action_deck.csv",
   "units": "mm",
   "cardWidth": 63.5,
   "cardHeight": 88.9,
@@ -26,21 +26,34 @@
     "imageFormat": "png",
     "quality": 100,
     "namingScheme": "index",
-    "filenamePrefix": "greatwork_card"
+    "filenamePrefix": "action_card"
   },
   "attributes": [
     {
-      "name": "project_name",
+      "name": "tier",
       "posX": 4,
       "posY": 3,
-      "width": 55.5,
+      "width": 25,
       "height": "auto",
       "fontSize": 3,
-      "fontWeight": "normal",
-      "horizontalAlign": "center"
+      "fontWeight": "normal"
     },
     {
-      "name": "component_name",
+      "name": "cost_amount",
+      "posX": 48,
+      "posY": 3,
+      "width": 12,
+      "height": 8,
+      "fontSize": 8,
+      "fontWeight": "bold",
+      "horizontalAlign": "center",
+      "icon": "icons/food.svg",
+      "iconPosition": "left",
+      "iconWidth": 10,
+      "iconHeight": 10
+    },
+    {
+      "name": "title",
       "posX": 4,
       "posY": 10,
       "width": 55.5,
@@ -50,39 +63,23 @@
       "horizontalAlign": "center"
     },
     {
-      "name": "dice_icon",
-      "posX": 28.75,
-      "posY": 20,
-      "width": 6,
-      "height": 6,
-      "icon": "icons/dice.svg",
-      "iconWidth": 10,
-      "iconHeight": 10,
-      "iconOnly": true
-    },
-    {
-      "name": "quality_req",
-      "posX": 26.75,
-      "posY": 31,
-      "width": 10,
-      "height": 6,
-      "fontSize": 8,
+      "name": "tags",
+      "posX": 4,
+      "posY": 17,
+      "width": 55.5,
+      "height": "auto",
+      "fontSize": 3.5,
       "fontWeight": "bold",
       "horizontalAlign": "center"
     },
     {
-      "name": "cost_text",
+      "name": "effect_text",
       "posX": 4,
       "posY": 60,
       "width": 55.5,
       "height": "auto",
-      "fontSize": 6.5,
-      "fontWeight": "bold",
-      "horizontalAlign": "center",
-      "resourceParsing": true,
-      "resourceIconPath": "icons/{resource}.svg",
-      "iconWidth": 10,
-      "iconHeight": 10
+      "fontSize": 3.5,
+      "fontWeight": "normal"
     }
   ]
 }

@@ -18,7 +18,7 @@ $decks = @(
 
 foreach ($deck in $decks) {
     Write-Host "`nGenerating $deck..." -ForegroundColor Yellow
-    $configPath = "../../components/${deck}_config.json"
+    $configPath = "../../components/cards/${deck}_config.json"
     $htmlPath = "../../output/${deck}.html"
     $imagesPath = "../../output/${deck}_images/"
     

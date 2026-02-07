@@ -1,5 +1,5 @@
 {
-  "csvFilePath": "../../components/research_deck.csv",
+  "csvFilePath": "../../components/cards/research_deck.csv",
   "units": "mm",
   "cardWidth": 63.5,
   "cardHeight": 88.9,

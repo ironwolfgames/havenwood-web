@@ -1,5 +1,5 @@
 {
-  "csvFilePath": "../../components/reference_cards.csv",
+  "csvFilePath": "../../components/cards/reference_cards.csv",
   "units": "mm",
   "cardWidth": 127,
   "cardHeight": 177.8,

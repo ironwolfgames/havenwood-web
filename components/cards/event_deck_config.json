@@ -1,5 +1,5 @@
 {
-  "csvFilePath": "../../components/action_deck.csv",
+  "csvFilePath": "../../components/cards/event_deck.csv",
   "units": "mm",
   "cardWidth": 63.5,
   "cardHeight": 88.9,
@@ -26,31 +26,35 @@
     "imageFormat": "png",
     "quality": 100,
     "namingScheme": "index",
-    "filenamePrefix": "action_card"
+    "filenamePrefix": "event_card"
   },
   "attributes": [
     {
-      "name": "tier",
+      "name": "type",
       "posX": 4,
       "posY": 3,
-      "width": 25,
+      "width": 30,
       "height": "auto",
-      "fontSize": 3,
-      "fontWeight": "normal"
+      "fontSize": 3.5,
+      "fontWeight": "bold"
     },
     {
-      "name": "cost_amount",
+      "name": "value",
       "posX": 48,
       "posY": 3,
-      "width": 12,
+      "width": 9,
       "height": 8,
-      "fontSize": 8,
+      "fontSize": 6.5,
       "fontWeight": "bold",
       "horizontalAlign": "center",
-      "icon": "icons/food.svg",
-      "iconPosition": "left",
+      "iconPosition": "right",
       "iconWidth": 10,
-      "iconHeight": 10
+      "iconHeight": 10,
+      "valueToIcon": {
+        "+1": "icons/storm.svg",
+        "+2": "icons/storm.svg",
+        "+3": "icons/storm.svg"
+      }
     },
     {
       "name": "title",
@@ -63,13 +67,13 @@
       "horizontalAlign": "center"
     },
     {
-      "name": "tags",
+      "name": "target",
       "posX": 4,
-      "posY": 17,
+      "posY": 18,
       "width": 55.5,
       "height": "auto",
       "fontSize": 3.5,
-      "fontWeight": "bold",
+      "fontWeight": "normal",
       "horizontalAlign": "center"
     },
     {

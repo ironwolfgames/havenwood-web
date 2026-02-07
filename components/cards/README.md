@@ -35,25 +35,19 @@ From the project root directory (`havenwood-web`), you can generate cards in thr
 #### 1. HTML Preview (for visual development)
 ```bash
 cd lib/cardigan
-yarn cardigan html ../../components/action_deck_config.json ../../output/action_deck.html
+yarn cardigan html ../../components/cards/action_deck_config.json ../../output/action_deck.html
 ```
 
 #### 2. PDF Export (for printing)
 ```bash
 cd lib/cardigan
-yarn cardigan pdf ../../components/action_deck_config.json ../../output/action_deck.pdf ../../output/action_deck.html
+yarn cardigan pdf ../../components/cards/action_deck_config.json ../../output/action_deck.pdf ../../output/action_deck.html
 ```
 
 #### 3. Image Export (for Tabletop Simulator)
 ```bash
 cd lib/cardigan
-yarn cardigan images ../../components/action_deck_config.json ../../output/action_deck_images/
-```
-
-#### 3. Image Export (for Tabletop Simulator)
-```bash
-cd lib/cardigan
-yarn cardigan images ../../components/action_deck_config.json ../../output/action_deck_images/
+yarn cardigan images ../../components/cards/action_deck_config.json ../../output/action_deck_images/
 ```
 
 ### Generate All Decks
@@ -64,9 +58,9 @@ You can use these commands to generate all decks at once:
 # From lib/cardigan directory
 $decks = @('action_deck', 'event_deck', 'great_works', 'production_deck', 'research_deck')
 foreach ($deck in $decks) {
-    yarn cardigan html "../../components/${deck}_config.json" "../../output/${deck}.html"
-    yarn cardigan pdf "../../components/${deck}_config.json" "../../output/${deck}.pdf" "../../output/${deck}.html"
-    yarn cardigan images "../../components/${deck}_config.json" "../../output/${deck}_images/"
+    yarn cardigan html "../../components/cards/${deck}_config.json" "../../output/${deck}.html"
+    yarn cardigan pdf "../../components/cards/${deck}_config.json" "../../output/${deck}.pdf" "../../output/${deck}.html"
+    yarn cardigan images "../../components/cards/${deck}_config.json" "../../output/${deck}_images/"
 }
 ```
 

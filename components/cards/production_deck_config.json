@@ -1,5 +1,5 @@
 {
-  "csvFilePath": "../../components/deck_backs.csv",
+  "csvFilePath": "../../components/cards/production_deck.csv",
   "units": "mm",
   "cardWidth": 63.5,
   "cardHeight": 88.9,
@@ -20,23 +20,43 @@
     }
   ],
   "imageExport": {
-    "format": "individual",
-    "sheetColumns": 10,
-    "sheetRows": 7,
+    "format": "sheet",
+    "sheetColumns": 5,
+    "sheetRows": 4,
     "imageFormat": "png",
     "quality": 100,
-    "namingScheme": "index",
-    "filenamePrefix": "deck_back"
+    "namingScheme": "title",
+    "filenamePrefix": "production"
   },
   "attributes": [
     {
-      "name": "deck_name",
+      "name": "title",
       "posX": 4,
-      "posY": 38,
+      "posY": 8,
       "width": 55.5,
       "height": "auto",
-      "fontSize": 8,
+      "fontSize": 5,
       "fontWeight": "bold",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "output_value",
+      "posX": 4,
+      "posY": 30,
+      "width": 55.5,
+      "height": "auto",
+      "fontSize": 20,
+      "fontWeight": "bold",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "effect_text",
+      "posX": 4,
+      "posY": 65,
+      "width": 55.5,
+      "height": "auto",
+      "fontSize": 3.5,
+      "fontWeight": "normal",
       "horizontalAlign": "center"
     }
   ]
