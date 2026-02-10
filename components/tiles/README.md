@@ -55,6 +55,89 @@ Open `index.html` in a web browser to see a gallery of all 40 tiles with organiz
 ### Viewing Individual Tiles
 Open any `hex_*.html` file directly in a web browser to view a single tile.
 
+## Exporting to PNG
+
+### Prerequisites
+
+1. Install Node.js (v18 or higher recommended)
+2. Navigate to the components directory and install dependencies:
+
+```bash
+cd components
+npm install
+```
+
+Or if using Yarn:
+
+```bash
+cd components
+yarn install
+```
+
+This will install Puppeteer (~350MB download - includes Chromium browser) which is used for exporting HTML to PNG images.
+
+### Export All Tiles
+
+To export all 40 hex tiles at once:
+
+```bash
+cd components
+npm run export-tiles
+```
+
+Or:
+
+```bash
+cd components
+yarn export-tiles
+```
+
+Or:
+
+```bash
+cd components
+node export.js --tiles
+```
+
+### Export Individual Tiles
+
+To export a specific tile:
+
+```bash
+cd components
+node export.js hex_central
+node export.js hex_forest_food_01
+node export.js hex_mountain_stone_03
+# etc.
+```
+
+### Export All Components
+
+To export all game components including tiles, dice, tokens, mats, and boards:
+
+```bash
+cd components
+npm run export-all
+```
+
+### Output Location
+
+PNG files are exported to: `../output/tiles/`
+
+Individual tile files will be named:
+- `hex_central.png` (400×462px)
+- `hex_forest_food_01.png` (400×462px)
+- `hex_mountain_ore_02.png` (400×462px)
+- etc.
+
+### Using Exported PNGs
+
+The exported PNG files can be used for:
+- **Tabletop Simulator**: Upload to Steam Workshop or use as custom board pieces
+- **Print and Play**: Import into print layout software for physical prototypes
+- **Digital Playtesting**: Share via online platforms like Tabletopia
+- **Marketing Materials**: Use in rulebooks, promotional graphics, and crowdfunding pages
+
 ### Printing Tiles
 
 1. Open the tile(s) you want to print in a web browser

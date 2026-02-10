@@ -1,13 +1,16 @@
 {
   "name": "havenwood-components",
   "version": "1.0.0",
-  "description": "Export player mats and boards for Houses of Havenwood",
+  "description": "Export all game components for Houses of Havenwood",
   "type": "module",
   "scripts": {
     "export": "node export.js",
     "export-all": "node export.js --all",
     "export-mats": "node export.js --mats",
-    "export-boards": "node export.js --boards"
+    "export-boards": "node export.js --boards",
+    "export-dice": "node export.js --dice",
+    "export-tiles": "node export.js --tiles",
+    "export-tokens": "node export.js --tokens"
   },
   "dependencies": {
     "puppeteer": "^24.37.1"

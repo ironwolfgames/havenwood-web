@@ -12,10 +12,6 @@ This folder contains HTML designs for custom dice faces used in Houses of Havenw
 - `harvest_face_blank.html` - Blank face with small distinguishing dot
 - `harvest_dice.html` - All 6 faces displayed in a grid for easy visualization
 
-### Export Tools
-- `export.js` - Node.js export script using Puppeteer
-- `package.json` - Node.js dependencies
-
 ## Dice Overview
 
 ### Harvest Dice (Custom d6)
@@ -61,42 +57,45 @@ Roll X dice where X equals the Badger player's Expertise Level. If the total mee
 ### Prerequisites
 
 1. Install Node.js (v18 or higher recommended)
-2. Install dependencies:
+2. Navigate to the components directory and install dependencies:
 
 ```bash
-cd components/dice
+cd components
 npm install
 ```
 
 Or if using Yarn:
 
 ```bash
-cd components/dice
+cd components
 yarn install
 ```
 
-This will install Puppeteer (~350MB download - includes Chromium browser).
+This will install Puppeteer (~350MB download - includes Chromium browser) which is used for exporting HTML to PNG images.
 
 ## Exporting to PNG
 
-### Export All Faces
+### Export All Dice Faces
 
 To export all dice faces at once:
 
 ```bash
-npm run export-all
+cd components
+npm run export-dice
 ```
 
 Or:
 
 ```bash
-yarn export-all
+cd components
+yarn export-dice
 ```
 
 Or:
 
 ```bash
-node export.js --all
+cd components
+node export.js --dice
 ```
 
 ### Export Individual Faces
@@ -104,6 +103,7 @@ node export.js --all
 To export a specific dice face:
 
 ```bash
+cd components
 node export.js harvest_face_1
 node export.js harvest_face_2
 node export.js harvest_face_3
@@ -112,9 +112,18 @@ node export.js harvest_face_blank
 node export.js harvest_dice
 ```
 
+### Export All Components
+
+To export all game components including dice, tiles, tokens, mats, and boards:
+
+```bash
+cd components
+npm run export-all
+```
+
 ### Output Location
 
-PNG files are exported to: `../../output/dice/`
+PNG files are exported to: `../output/dice/`
 
 Individual face files:
 - `harvest_face_1.png` (256×256px)
@@ -229,7 +238,8 @@ Provide the PNG exports and specify the wood brown/golden yellow color scheme.
 
 1. **Export all faces:**
    ```bash
-   node export.js --all
+   cd components
+   npm run export-dice
    ```
 
 2. **Upload PNGs to image hosting:**
