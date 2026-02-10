@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Storm Marker - Houses of Havenwood</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +13,7 @@
         }
         
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Raleway', sans-serif;
             background: transparent;
             display: flex;
             justify-content: center;
@@ -23,7 +24,7 @@
         .marker {
             width: 450px;
             height: 450px;
-            background: linear-gradient(135deg, #2F4F4F 0%, #000000 100%);
+            background: #2F4F4F;
             border: 8px solid #1C1C1C;
             border-radius: 50%;
             display: flex;
@@ -31,7 +32,6 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.5), inset 0 -6px 12px rgba(0,0,0,0.3);
         }
         
         .storm-cloud {
@@ -44,7 +44,7 @@
         /* Cloud puffs */
         .cloud-puff {
             position: absolute;
-            background: linear-gradient(135deg, #696969 0%, #4F4F4F 100%);
+            background: #696969;
             border-radius: 50%;
         }
         
@@ -95,9 +95,8 @@
         
         .text {
             font-size: 56px;
-            font-weight: bold;
+            font-weight: 800;
             color: #FFD700;
-            text-shadow: 0 0 10px #FFFF00, 3px 3px 6px rgba(0,0,0,0.9);
         }
         
         @media print {

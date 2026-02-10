@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fox Wall Level 1 - Houses of Havenwood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +15,7 @@
         }
         
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Raleway', sans-serif;
             background: transparent;
             display: flex;
             justify-content: center;
@@ -23,15 +26,14 @@
         .token {
             width: 225px;
             height: 225px;
-            background: linear-gradient(135deg, #A9A9A9 0%, #C0C0C0 100%);
-            border: 5px solid #696969;
+            background: #90A4AE;
+            border: 5px solid #546E7A;
             border-radius: 8px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 0 -3px 6px rgba(0,0,0,0.2);
         }
         
         .wall {
@@ -50,16 +52,16 @@
         .stone {
             width: 30px;
             height: 18px;
-            background: linear-gradient(135deg, #B0B0B0 0%, #909090 100%);
-            border: 1px solid #606060;
+            background: #CFD8DC;
+            border: 1px solid #546E7A;
             border-radius: 2px;
         }
         
         .level {
             font-size: 64px;
-            font-weight: bold;
-            color: #2F4F4F;
-            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+            font-weight: 800;
+            color: #263238;
+            letter-spacing: -2px;
         }
         
         @media print {

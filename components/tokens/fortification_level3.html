@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fortification Level 3 - Houses of Havenwood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +15,7 @@
         }
         
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Raleway', sans-serif;
             background: transparent;
             display: flex;
             justify-content: center;
@@ -23,15 +26,14 @@
         .token {
             width: 225px;
             height: 225px;
-            background: linear-gradient(135deg, #B0C4DE 0%, #4682B4 100%);
-            border: 5px solid #4169E1;
+            background: #4A90E2;
+            border: 5px solid #2E5C8A;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3), 0 0 20px rgba(65,105,225,0.3);
         }
         
         .shield {
@@ -46,20 +48,19 @@
             position: absolute;
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #C0C0C0 0%, #708090 100%);
+            background: #ECEFF1;
             clip-path: polygon(50% 0%, 100% 20%, 100% 70%, 50% 100%, 0% 70%, 0% 20%);
-            border: 3px solid #2F4F4F;
+            border: 3px solid #37474F;
             left: 10px;
             top: 10px;
-            box-shadow: inset 0 2px 4px rgba(255,255,255,0.5), inset 0 -2px 4px rgba(0,0,0,0.3);
         }
         
         .metal-rivet {
             position: absolute;
             width: 8px;
             height: 8px;
-            background: radial-gradient(circle, #E0E0E0 0%, #606060 100%);
-            border: 1px solid #2F2F2F;
+            background: #78909C;
+            border: 1px solid #37474F;
             border-radius: 50%;
         }
         
@@ -74,9 +75,9 @@
         
         .level {
             font-size: 56px;
-            font-weight: bold;
-            color: #F0F8FF;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -2px;
         }
         
         @media print {
