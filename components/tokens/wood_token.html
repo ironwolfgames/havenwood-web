@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wood Token - Houses of Havenwood</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .token {
+            width: 300px;
+            height: 300px;
+            background: #8B4513;
+            border: 6px solid #654321;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .log {
+            width: 100px;
+            height: 60px;
+            background: #654321;
+            border-radius: 30px / 15px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .log::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #A0522D;
+            border-radius: 50%;
+            right: -10px;
+            top: 5px;
+            border: 3px solid #4A2511;
+        }
+        
+        .log::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #D2691E;
+            border-radius: 50%;
+            right: 7px;
+            top: 22px;
+        }
+        
+        .text {
+            font-size: 48px;
+            font-weight: 800;
+            color: #FFF8DC;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .token {
+                width: 1in;
+                height: 1in;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="token">
+        <div class="log"></div>
+        <div class="text">Wood</div>
+    </div>
+</body>
+</html>
