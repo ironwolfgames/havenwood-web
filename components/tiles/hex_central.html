@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Central Havenwood - Hex Tile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +15,7 @@
         }
         
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Raleway', sans-serif;
             background: #f5f5f5;
             display: flex;
             justify-content: center;
@@ -34,7 +37,7 @@
             width: 100%;
             height: 100%;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            background: linear-gradient(135deg, #90EE90 0%, #228B22 50%, #006400 100%);
+            background: #228B22;
             position: relative;
             border: 3px solid #000;
             display: flex;
@@ -58,35 +61,35 @@
         .tree-icon {
             font-size: 120px;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.3));
         }
         
         .title {
             font-size: 28px;
-            font-weight: bold;
+            font-weight: 800;
             color: #FFF;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
             margin-bottom: 10px;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.3);
             padding: 10px 20px;
-            border-radius: 10px;
+            border-radius: 6px;
         }
         
         .subtitle {
             font-size: 20px;
             color: #FFD700;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            background: rgba(0,0,0,0.4);
+            font-weight: 700;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.3);
             padding: 8px 16px;
-            border-radius: 8px;
+            border-radius: 6px;
         }
         
         .crown-icon {
             position: absolute;
             top: 15%;
             font-size: 60px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.3));
         }
         
         /* Print styles */
