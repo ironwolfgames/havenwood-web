@@ -2,7 +2,7 @@
   "csvFilePath": "../../components/cards/reference_cards.csv",
   "units": "mm",
   "cardWidth": 127,
-  "cardHeight": 177.8,
+  "cardHeight": 203,
   "cardPadding": 2,
   "cardBackgroundColor": "#eddab9",
   "fontFamily": "Raleway",
@@ -55,7 +55,7 @@
       "posY": 36,
       "width": 12,
       "height": 12,
-      "icon": "icons/wood.svg",
+      "icon": "../components/icons/wood.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -76,7 +76,7 @@
       "posY": 36,
       "width": 12,
       "height": 12,
-      "icon": "icons/stone.svg",
+      "icon": "../components/icons/stone.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -97,7 +97,7 @@
       "posY": 36,
       "width": 12,
       "height": 12,
-      "icon": "icons/food.svg",
+      "icon": "../components/icons/food.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -118,7 +118,7 @@
       "posY": 36,
       "width": 12,
       "height": 12,
-      "icon": "icons/ore.svg",
+      "icon": "../components/icons/ore.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -149,7 +149,7 @@
       "posY": 72,
       "width": 12,
       "height": 12,
-      "icon": "icons/lumber.svg",
+      "icon": "../components/icons/lumber.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -170,7 +170,7 @@
       "posY": 72,
       "width": 12,
       "height": 12,
-      "icon": "icons/steel.svg",
+      "icon": "../components/icons/steel.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -191,7 +191,7 @@
       "posY": 72,
       "width": 12,
       "height": 12,
-      "icon": "icons/brick.svg",
+      "icon": "../components/icons/brick.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -212,7 +212,7 @@
       "posY": 72,
       "width": 12,
       "height": 12,
-      "icon": "icons/insight.svg",
+      "icon": "../components/icons/insight.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -233,7 +233,7 @@
       "posY": 72,
       "width": 12,
       "height": 12,
-      "icon": "icons/knowledge.svg",
+      "icon": "../components/icons/knowledge.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -264,7 +264,7 @@
       "posY": 112,
       "width": 12,
       "height": 12,
-      "icon": "icons/storm.svg",
+      "icon": "../components/icons/storm.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -285,7 +285,7 @@
       "posY": 112,
       "width": 12,
       "height": 12,
-      "icon": "icons/dice.svg",
+      "icon": "../components/icons/dice.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -305,9 +305,99 @@
       "posX": 8,
       "posY": 133,
       "width": 111,
-      "height": 40,
+      "height": 25,
       "fontSize": 4.5,
       "fontWeight": "normal"
+    },
+    {
+      "name": "section4_title",
+      "posX": 8,
+      "posY": 162,
+      "width": 111,
+      "height": "auto",
+      "fontSize": 8,
+      "fontWeight": "bold",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "farm_icon",
+      "posX": 12,
+      "posY": 174,
+      "width": 12,
+      "height": 12,
+      "fontSize": 10,
+      "horizontalAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "name": "farm_label",
+      "posX": 10,
+      "posY": 187,
+      "width": 16,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "mine_icon",
+      "posX": 36,
+      "posY": 174,
+      "width": 12,
+      "height": 12,
+      "fontSize": 10,
+      "horizontalAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "name": "mine_label",
+      "posX": 34,
+      "posY": 187,
+      "width": 16,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "quarry_icon",
+      "posX": 60,
+      "posY": 174,
+      "width": 12,
+      "height": 12,
+      "fontSize": 10,
+      "horizontalAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "name": "quarry_label",
+      "posX": 58,
+      "posY": 187,
+      "width": 16,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
+    },
+    {
+      "name": "forester_icon",
+      "posX": 84,
+      "posY": 174,
+      "width": 12,
+      "height": 12,
+      "fontSize": 10,
+      "horizontalAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "name": "forester_label",
+      "posX": 79,
+      "posY": 187,
+      "width": 23,
+      "height": "auto",
+      "fontSize": 5,
+      "fontWeight": "normal",
+      "horizontalAlign": "center"
     }
   ]
 }
