@@ -80,21 +80,90 @@ Files follow this naming pattern:
 1. Open any HTML file in a web browser to view the token
 2. Open `index.html` to see all tokens at once in a grid layout
 
-### Exporting as PNG
-Option 1 - Browser Screenshot:
-1. Open the token HTML file in a browser
-2. Use browser screenshot tools or extensions to capture the token
-3. Crop to exact dimensions if needed
+## Exporting to PNG
 
-Option 2 - Print to PDF:
-1. Open the token HTML file
-2. Use Print (Ctrl+P / Cmd+P)
-3. Select "Save as PDF"
-4. Choose portrait orientation
-5. Convert PDF to PNG if needed using image editing software
+### Prerequisites
 
-Option 3 - Automated Export:
-Use the `export.js` script in the parent `player_mats` directory (if available) or similar headless browser tools like Puppeteer to batch export all tokens.
+1. Install Node.js (v18 or higher recommended)
+2. Navigate to the components directory and install dependencies:
+
+```bash
+cd components
+npm install
+```
+
+Or if using Yarn:
+
+```bash
+cd components
+yarn install
+```
+
+This will install Puppeteer (~350MB download - includes Chromium browser) which is used for exporting HTML to PNG images.
+
+### Export All Tokens
+
+To export all tokens and markers at once:
+
+```bash
+cd components
+npm run export-tokens
+```
+
+Or:
+
+```bash
+cd components
+yarn export-tokens
+```
+
+Or:
+
+```bash
+cd components
+node export.js --tokens
+```
+
+### Export Individual Tokens
+
+To export a specific token:
+
+```bash
+cd components
+node export.js food_token
+node export.js squirrel_marker
+node export.js fortification_level2
+# etc.
+```
+
+### Export All Components
+
+To export all game components including tokens, dice, tiles, mats, and boards:
+
+```bash
+cd components
+npm run export-all
+```
+
+### Output Location
+
+PNG files are exported to: `../output/tokens/`
+
+Individual token files will be named:
+- `food_token.png` (300×300px)
+- `squirrel_marker.png` (450×450px)
+- `fox_wall_level1.png` (225×225px)
+- `fortification_level2.png` (225×225px)
+- etc.
+
+### Using Exported PNGs
+
+The exported PNG files can be used for:
+- **Tabletop Simulator**: Upload as custom tokens and pieces
+- **Print and Play**: Import into print layout software
+- **Physical Prototypes**: Print on cardstock or sticker paper
+- **Digital Playtesting**: Share via online platforms
+- **Rulebooks**: Use in documentation and tutorials
 
 ### Printing
 

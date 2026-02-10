@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harvest Dice - All Faces</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 20px;
+      padding: 20px;
+      font-family: 'Arial', sans-serif;
+      background: #f5f5f5;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2F4F4F;
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
+    .dice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 256px);
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .dice-face {
+      width: 256px;
+      height: 256px;
+      background: linear-gradient(135deg, #8B4513 0%, #FFD700 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #5d2f0a;
+      border-radius: 8px;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .number {
+      font-size: 180px;
+      font-weight: 900;
+      color: white;
+      text-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.6),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+      line-height: 1;
+      font-family: 'Arial Black', 'Arial Bold', sans-serif;
+    }
+
+    .face-label {
+      text-align: center;
+      margin-top: 8px;
+      font-size: 14px;
+      color: #555;
+      font-weight: 600;
+    }
+
+    /* Bust face styles */
+    .dice-face.bust {
+      flex-direction: column;
+    }
+
+    .acorn {
+      position: relative;
+      width: 120px;
+      height: 140px;
+      margin-bottom: 10px;
+    }
+
+    .acorn-cap {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 40px;
+      background: #6B4423;
+      border-radius: 45px 45px 0 0;
+      border: 3px solid #4a2f18;
+    }
+
+    .acorn-cap::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 5px;
+      right: 5px;
+      height: 3px;
+      background: repeating-linear-gradient(
+        90deg,
+        #4a2f18 0px,
+        #4a2f18 6px,
+        transparent 6px,
+        transparent 12px
+      );
+    }
+
+    .acorn-body {
+      position: absolute;
+      top: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 100px;
+      background: #D2691E;
+      border-radius: 40px 40px 50px 50px;
+      border: 3px solid #A0522D;
+    }
+
+    .crack {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 95px;
+      background: #2F1810;
+      z-index: 10;
+    }
+
+    .crack::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: -6px;
+      width: 16px;
+      height: 4px;
+      background: #2F1810;
+      transform: rotate(-15deg);
+    }
+
+    .crack::after {
+      content: '';
+      position: absolute;
+      top: 55px;
+      left: -8px;
+      width: 20px;
+      height: 4px;
+      background: #2F1810;
+      transform: rotate(20deg);
+    }
+
+    .bust-text {
+      font-size: 42px;
+      font-weight: 900;
+      color: white;
+      text-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.7),
+        -1px -1px 3px rgba(255, 255, 255, 0.2);
+      letter-spacing: 2px;
+      font-family: 'Arial Black', 'Arial Bold', sans-serif;
+    }
+
+    /* Blank face dot */
+    .dot {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .info-box {
+      background: #f9f9f9;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .info-box h2 {
+      color: #2F4F4F;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .info-box p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .info-box ul {
+      margin-left: 20px;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    @media print {
+      body {
+        background: white;
+        margin: 0;
+        padding: 10mm;
+      }
+      
+      .container {
+        box-shadow: none;
+        padding: 0;
+      }
+
+      .dice-grid {
+        page-break-inside: avoid;
+      }
+
+      .info-box {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Harvest Dice</h1>
+    <p class="subtitle">Houses of Havenwood - Custom d6 for Squirrel Faction</p>
+    
+    <div class="dice-grid">
+      <!-- Face 1 -->
+      <div>
+        <div class="dice-face">
+          <div class="number">1</div>
+        </div>
+        <div class="face-label">Face 1</div>
+      </div>
+
+      <!-- Face 2 -->
+      <div>
+        <div class="dice-face">
+          <div class="number">2</div>
+        </div>
+        <div class="face-label">Face 2</div>
+      </div>
+
+      <!-- Face 3 -->
+      <div>
+        <div class="dice-face">
+          <div class="number">3</div>
+        </div>
+        <div class="face-label">Face 3</div>
+      </div>
+
+      <!-- Face 4 - Bust -->
+      <div>
+        <div class="dice-face bust">
+          <div class="acorn">
+            <div class="acorn-cap"></div>
+            <div class="acorn-body"></div>
+            <div class="crack"></div>
+          </div>
+          <div class="bust-text">BUST</div>
+        </div>
+        <div class="face-label">Face 4 - Bust</div>
+      </div>
+
+      <!-- Face 5 - Bust -->
+      <div>
+        <div class="dice-face bust">
+          <div class="acorn">
+            <div class="acorn-cap"></div>
+            <div class="acorn-body"></div>
+            <div class="crack"></div>
+          </div>
+          <div class="bust-text">BUST</div>
+        </div>
+        <div class="face-label">Face 5 - Bust</div>
+      </div>
+
+      <!-- Face 6 - Blank -->
+      <div>
+        <div class="dice-face">
+          <div class="dot"></div>
+        </div>
+        <div class="face-label">Face 6 - Blank</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h2>About Harvest Dice</h2>
+      <p><strong>Quantity Required:</strong> 10 dice</p>
+      <p><strong>Purpose:</strong> Used by the Squirrel faction for their Harvest action, allowing push-your-luck resource gathering.</p>
+      
+      <h2>Face Distribution</h2>
+      <ul>
+        <li><strong>1 (one face):</strong> Gain 1 resource</li>
+        <li><strong>2 (one face):</strong> Gain 2 resources</li>
+        <li><strong>3 (one face):</strong> Gain 3 resources</li>
+        <li><strong>BUST (two faces):</strong> Dice cannot be locked, reroll ends the harvest</li>
+        <li><strong>Blank (one face):</strong> Worth 0 but can be locked</li>
+      </ul>
+
+      <h2>Gameplay</h2>
+      <p>Players roll N dice (N = building level), lock non-bust dice, then choose to stop or reroll unlocked dice. If a bust is rolled, all unlocked dice are lost. The total value of all locked dice is gained as resources.</p>
+    </div>
+  </div>
+</body>
+</html>
