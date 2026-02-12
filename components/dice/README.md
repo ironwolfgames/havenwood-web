@@ -11,6 +11,7 @@ This folder contains HTML designs for custom dice faces used in Houses of Havenw
 - `harvest_face_bust.html` - Bust face with cracked acorn icon and "BUST" text
 - `harvest_face_blank.html` - Blank face with small distinguishing dot
 - `harvest_dice.html` - All 6 faces displayed in a grid for easy visualization
+- `harvest_dice_tts.html` - **TTS template** with all 6 faces in 3×2 grid (768×512px)
 
 ## Dice Overview
 
@@ -132,6 +133,7 @@ Individual face files:
 - `harvest_face_bust.png` (256×256px)
 - `harvest_face_blank.png` (256×256px)
 - `harvest_dice.png` (900×1200px - all faces sheet)
+- `harvest_dice_tts.png` (768×512px - **TTS template** - all 6 faces in 3×2 grid)
 
 ## Physical Prototype - Printing on Sticker Paper
 
@@ -234,7 +236,44 @@ Provide the PNG exports and specify the wood brown/golden yellow color scheme.
 
 ## Tabletop Simulator (TTS)
 
-### Setup for TTS
+### TTS Custom Dice Template (Recommended Method)
+
+The easiest way to use these dice in TTS is with the custom dice template that combines all 6 faces into a single image.
+
+1. **Export the TTS template:**
+   ```bash
+   cd components
+   node export.js harvest_dice_tts
+   ```
+   
+   This creates `harvest_dice_tts.png` (768×512px) with all 6 faces in a 3×2 grid:
+   ```
+   Face 1  Face 2  Face 3
+   Face 4  Face 5  Face 6
+   (Bust)  (Bust)  (Blank)
+   ```
+
+2. **Upload to image hosting:**
+   - Upload `output/dice/harvest_dice_tts.png` to Imgur, Steam Cloud, or your own hosting
+   - Copy the direct image URL (must end in `.png`)
+   - Example: `https://i.imgur.com/example.png`
+
+3. **Create custom dice in TTS:**
+   - In-game: Objects → Components → Custom → Dice → Custom Dice
+   - **Dice Type:** D6
+   - **Texture:** Paste your image URL
+   - **Material:** Plastic or Wood
+   - **Size:** Standard (1.0 scale)
+
+4. **Import and spawn:**
+   - Click "Import" to load the dice
+   - The faces will automatically map to positions 1-6
+   - Right-click → Save Object as "Harvest Die"
+   - Spawn 10 copies for your game
+
+### Alternative: Individual Face Method
+
+If you prefer to map individual faces:
 
 1. **Export all faces:**
    ```bash
@@ -344,6 +383,7 @@ Update the `linear-gradient` in `.dice-face` background.
 components/dice/
 ├── README.md                    # This file
 ├── harvest_dice.html            # All 6 faces visualization
+├── harvest_dice_tts.html        # TTS template - 3×2 grid (768×512px)
 ├── harvest_face_1.html          # Face 1: numeral "1"
 ├── harvest_face_2.html          # Face 2: numeral "2"
 ├── harvest_face_3.html          # Face 3: numeral "3"

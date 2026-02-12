@@ -23,7 +23,9 @@ The players lose immediately if **any** of the following occur:
 ### A. Global Setup
 
 1. **Map**: Place the **Central Havenwood** tile in the center of the table. Shuffle the **Hex Tile Deck** and place it face down.
-1. **Market**: Shuffle the **Shared Action Deck** (Market Cards). Deal the top **5 cards** face-up to form the Market Row. Place the rest face down as a draw pile.
+1. **Shared Action Deck**: Gather all **Starter Cards** (10 per player) and shuffle them together to form the single **Shared Action Deck**. Place it face down.
+1. **Market**: Shuffle the **Market Deck** (Market Cards). Deal the top **5 cards** face-up to form the Market Row. Place the rest face down as a draw pile.
+1. **Resources**: Create a **Shared Resource Pool**. The team begins with **4 Food** and **2 Wood** per player/House in the pool.
 1. **Events**: Construct the **Event Deck** by shuffling Standard Events and Storm Cards together (adjust difficulty by adding/removing Storm Cards). Place it face down.
 1. **Tracks**:
   a. Place the **Threat/Storm Track Board**. Set the Storm Marker to the start (0).
@@ -34,15 +36,7 @@ The players lose immediately if **any** of the following occur:
 
 1. Each player chooses a **House** and takes the corresponding **Player Mat** and **House Marker**.
 1. Place your House Marker on the **Central Havenwood** tile.
-1. Take a set of **Starter Cards** (10 cards total):
-  a. 2x Build
-  a. 1x Move (Level 1)
-  a. 1x Move (Level 2)
-  a. 2x Buy Card
-  a. 2x Main Action
-  a. 2x Auxiliary Action
-1. Shuffle your Starter Cards to form your personal **Draw Deck**.
-1. **Starting Resources**: Each player gains **4 Food** and **2 Wood**.
+1. *Note: Players do not have personal decks. All players draw from the Shared Action Deck.*
 
 ## 4. Gameplay Overview
 
@@ -57,8 +51,8 @@ The game is played in a series of **Rounds**. Each round consists of 4 phases:
 
 ## 5. Phase 1: Strategy
 
-1. **Draw**: All players draw cards from their personal deck up to their current **Hand Limit** (Default: 5).
-  a. *If your deck runs out, shuffle your discard pile to form a new deck.*
+1. **Draw**: All players draw cards from the **Shared Action Deck** up to their current **Hand Limit** (Default: 5).
+  a. *If the deck runs out, shuffle the Shared Discard Pile to form a new deck.*
 1. **Pass**: Each player may pass **one card** from their hand to a neighbor (players decide direction: left or right). This allows you to give critical actions (like "Build" or "Main Action") to the player who needs them most.
 
 ---
@@ -67,18 +61,20 @@ The game is played in a series of **Rounds**. Each round consists of 4 phases:
 
 Players take their turns simultaneously or in any order they choose. Cooperation is key! You play cards from your hand to perform actions.
 
+*Note: All Resource costs are paid from the Shared Resource Pool.*
+
 ### Basic Actions (Available to All)
 
 - **Build**: Construct or upgrade a building on the **Hex Tile** occupied by your House Marker.
-  - Pay the resource cost listed on your Player Mat.
+  - Pay the resource cost (from the shared pool) listed on your Player Mat.
   - Max **one building** per hex.
 - **Move**: Move your House Marker to an adjacent hex.
   - **Level 1 Move**: Move up to 1 space.
   - **Level 2 Move**: Move up to 2 spaces.
   - *Note: You cannot move onto empty space; tiles must be explored first.*
 - **Buy Card**: Purchase a card from the **Market Row**.
-  - Pay the **Food** cost listed on the card.
-  - Place the bought card into your **Discard Pile**.
+  - Pay the **Food** cost (from the shared pool).
+  - Place the bought card into the **Shared Discard Pile**.
   - Immediately refill the Market Row to 5 cards.
 
 ### House-Specific Actions
@@ -92,7 +88,7 @@ Players take their turns simultaneously or in any order they choose. Cooperation
 
 ## 7. Phase 3: Cleanup
 
-1. **Discard**: All played cards go to your personal discard pile. Unplayed cards remain in your hand.
+1. **Discard**: All played cards go to the **Shared Discard Pile**. Unplayed cards remain in your hand.
 1. **House Cleanup**:
   a. **Foxes**: Discard unused tiles/events.
   a. **Owls**: Discard remaining research cards and refill the row to **N** (Base: 3).
@@ -152,8 +148,9 @@ The Aether Storm intensifies.
   - **Construct**: Pay resources to add a component.
   - **Ensure Quality**: Roll dice to meet quality requirements.
   - **Install**: Install a completed component into the Great Work.
-- **Aux Action (Lead)**: Manage your deck.
-  - Spend Food to **Trash** weak cards or **Upgrade** cards (swap a card in hand for a better one from the market).
+- **Aux Action (Lead)**: Manage the team's resources and efficiency.
+  - Spend Food to **Trash** a card from hand (5 Food), **Upgrade** a card (8 Food: Trash 1 from hand, gain 1 from Market), or **Increase Hand Limit** (10 Food).
+  - Spend 10 Food to gain a **New Worker** for the Progress action (Max 3).
 
 ---
 

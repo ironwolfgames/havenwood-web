@@ -55,7 +55,6 @@ Various game state and tracking tokens:
 - `bandit_token.html` - Black/dark red circle with skull (6 tokens)
 - `knowledge_tracker.html` - Blue circle with book icon (1 token)
 - `insight_tracker.html` - Purple circle with crystal ball icon (1 token)
-- `round_marker.html` - White/neutral circle with clock icon (1 token)
 
 #### Large Markers (450×450px / 1.5")
 Special game state markers:

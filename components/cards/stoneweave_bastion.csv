@@ -1,0 +1,5 @@
+project_name,component_name,cost_text,dice_icon,quality_req
+Stoneweave Bastion,Foundation,4 Stone,x,10
+Stoneweave Bastion,Ramparts,3 Stone 1 Brick,x,12
+Stoneweave Bastion,Inner Keep,2 Brick 1 Steel,x,14
+Stoneweave Bastion,Guardian Sigils,2 Insight 2 Steel,x,16

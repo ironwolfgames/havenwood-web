@@ -8,6 +8,7 @@
     "export-all": "node export.js --all",
     "export-mats": "node export.js --mats",
     "export-boards": "node export.js --boards",
+    "export-buildings": "node export.js --buildings",
     "export-dice": "node export.js --dice",
     "export-tiles": "node export.js --tiles",
     "export-tokens": "node export.js --tokens"

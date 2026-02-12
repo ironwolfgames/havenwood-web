@@ -1,5 +1,5 @@
 {
-  "csvFilePath": "../../components/cards/reference_cards.csv",
+  "csvFilePath": "reference_cards.csv",
   "units": "mm",
   "cardWidth": 127,
   "cardHeight": 203,
@@ -55,7 +55,7 @@
       "posY": 36,
       "width": 12,
       "height": 12,
-      "icon": "../components/icons/wood.svg",
+      "icon": "../icons/wood.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -76,7 +76,7 @@
       "posY": 36,
       "width": 12,
       "height": 12,
-      "icon": "../components/icons/stone.svg",
+      "icon": "../icons/stone.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -97,7 +97,7 @@
       "posY": 36,
       "width": 12,
       "height": 12,
-      "icon": "../components/icons/food.svg",
+      "icon": "../icons/food.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -118,7 +118,7 @@
       "posY": 36,
       "width": 12,
       "height": 12,
-      "icon": "../components/icons/ore.svg",
+      "icon": "../icons/ore.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -149,7 +149,7 @@
       "posY": 72,
       "width": 12,
       "height": 12,
-      "icon": "../components/icons/lumber.svg",
+      "icon": "../icons/lumber.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -170,7 +170,7 @@
       "posY": 72,
       "width": 12,
       "height": 12,
-      "icon": "../components/icons/steel.svg",
+      "icon": "../icons/steel.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -191,7 +191,7 @@
       "posY": 72,
       "width": 12,
       "height": 12,
-      "icon": "../components/icons/brick.svg",
+      "icon": "../icons/brick.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -212,7 +212,7 @@
       "posY": 72,
       "width": 12,
       "height": 12,
-      "icon": "../components/icons/insight.svg",
+      "icon": "../icons/insight.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -233,7 +233,7 @@
       "posY": 72,
       "width": 12,
       "height": 12,
-      "icon": "../components/icons/knowledge.svg",
+      "icon": "../icons/knowledge.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -264,7 +264,7 @@
       "posY": 112,
       "width": 12,
       "height": 12,
-      "icon": "../components/icons/storm.svg",
+      "icon": "../icons/storm.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true
@@ -285,7 +285,7 @@
       "posY": 112,
       "width": 12,
       "height": 12,
-      "icon": "../components/icons/dice.svg",
+      "icon": "../icons/dice.svg",
       "iconWidth": 10,
       "iconHeight": 10,
       "iconOnly": true

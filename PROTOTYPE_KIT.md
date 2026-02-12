@@ -234,7 +234,6 @@ This document contains all the necessary information to create a physical protot
 *   Knowledge Tracker Cube.
 *   Insight Tracker Cube.
 *   Storm/Threat Level Marker.
-*   Round/Turn Marker.
 
 ## 5. Dice
 

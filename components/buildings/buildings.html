@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Havenwood Buildings</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+
+    body {
+      margin: 20px;
+      font-family: 'Raleway', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .sheet {
+      background: white;
+      width: 215.9mm; /* Letter size */
+      min-height: 279.4mm;
+      padding: 10mm;
+      margin: 0 auto 10mm auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 5mm;
+    }
+
+    .token {
+      width: 60mm;
+      height: 60mm;
+      border-radius: 4mm;
+      background-color: white;
+      border: 2px solid #333;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      font-size: 10pt;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      padding-bottom: 5mm;
+    }
+
+    /* Print optimizations */
+    @media print {
+      body { margin: 0; background: none; }
+      .sheet { box-shadow: none; margin: 0; page-break-after: always; width: 100%; }
+    }
+
+    /* House Styles */
+    .house-squirrel { background-color: #e6d8c3; border-color: #8B4513; color: #3e1e05; }
+    .house-fox { background-color: #ffdab9; border-color: #D2691E; color: #5a2d0c; }
+    .house-owl { background-color: #e6e6fa; border-color: #483D8B; color: #1a1636; }
+
+    .header {
+      width: 100%;
+      padding: 4mm 0;
+      background: rgba(255,255,255,0.4);
+      font-weight: 700;
+      font-size: 14pt;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .main-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0 4mm;
+    }
+
+    .level-indicator {
+        font-size: 10pt;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 2mm;
+        opacity: 0.8;
+    }
+
+    .description {
+      font-size: 11pt;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .cost-box {
+        background: rgba(255,255,255,0.5);
+        border-radius: 4px;
+        padding: 2mm 5mm;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+    }
+
+    .cost-label {
+        font-size: 7pt;
+        text-transform: uppercase;
+        margin-bottom: 1mm;
+        font-weight: bold;
+    }
+
+    .cost-container { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        gap: 3mm; 
+    }
+    
+    .cost-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .res-icon {
+      width: 6mm;
+      height: 6mm;
+      vertical-align: middle;
+    }
+    
+    .res-count {
+      font-weight: bold;
+      font-size: 12pt;
+      margin-right: 1mm;
+    }
+
+  </style>
+</head>
+<body>
+
+<div id="container"></div>
+
+<script>
+  const buildings = [
+    // Squirrels
+    {
+      house: 'squirrel',
+      name: 'Farm',
+      desc: 'Harvests Food',
+      levels: [
+        { l: 1, cost: [{n:2, r:'wood'}] },
+        { l: 2, cost: [{n:2, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 3, cost: [{n:2, r:'wood'}, {n:2, r:'stone'}] }
+      ]
+    },
+    {
+      house: 'squirrel',
+      name: 'Forester Station',
+      desc: 'Harvests Wood',
+      levels: [
+        { l: 1, cost: [{n:2, r:'wood'}] },
+        { l: 2, cost: [{n:3, r:'wood'}] },
+        { l: 3, cost: [{n:3, r:'wood'}, {n:1, r:'lumber'}] }
+      ]
+    },
+    {
+      house: 'squirrel',
+      name: 'Mine',
+      desc: 'Harvests Ore',
+      levels: [
+        { l: 1, cost: [{n:2, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 2, cost: [{n:2, r:'wood'}, {n:2, r:'stone'}] },
+        { l: 3, cost: [{n:2, r:'wood'}, {n:2, r:'stone'}, {n:1, r:'steel'}] }
+      ]
+    },
+    {
+      house: 'squirrel',
+      name: 'Quarry',
+      desc: 'Harvests Stone',
+      levels: [
+        { l: 1, cost: [{n:2, r:'stone'}] },
+        { l: 2, cost: [{n:3, r:'stone'}] },
+        { l: 3, cost: [{n:4, r:'stone'}] }
+      ]
+    },
+    {
+      house: 'squirrel',
+      name: 'Mill',
+      desc: 'Produces Lumber',
+      levels: [
+        { l: 1, cost: [{n:1, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 2, cost: [{n:2, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 3, cost: [{n:2, r:'wood'}, {n:2, r:'stone'}] }
+      ]
+    },
+    {
+      house: 'squirrel',
+      name: 'Furnace',
+      desc: 'Produces Steel',
+      levels: [
+        { l: 1, cost: [{n:2, r:'ore'}, {n:1, r:'wood'}] },
+        { l: 2, cost: [{n:2, r:'ore'}, {n:2, r:'wood'}] },
+        { l: 3, cost: [{n:2, r:'ore'}, {n:2, r:'wood'}, {n:1, r:'brick'}] }
+      ]
+    },
+    // Foxes
+    {
+      house: 'fox',
+      name: 'Walls',
+      desc: 'Protection vs events (Area)',
+      levels: [
+        { l: 1, cost: [{n:2, r:'stone'}] },
+        { l: 2, cost: [{n:3, r:'stone'}] },
+        { l: 3, cost: [{n:4, r:'stone'}, {n:1, r:'brick'}] }
+      ]
+    },
+    {
+      house: 'fox',
+      name: 'Scouting Camp',
+      desc: 'Increases Exploration Distance',
+      levels: [
+        { l: 1, cost: [{n:2, r:'wood'}] },
+        { l: 2, cost: [{n:3, r:'wood'}] },
+        { l: 3, cost: [{n:3, r:'wood'}, {n:1, r:'lumber'}] }
+      ]
+    },
+    {
+      house: 'fox',
+      name: 'Fortifications',
+      desc: 'Protection vs events (Single)',
+      levels: [
+        { l: 1, cost: [{n:1, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 2, cost: [{n:2, r:'wood'}, {n:2, r:'stone'}] },
+        { l: 3, cost: [{n:2, r:'lumber'}, {n:2, r:'brick'}] }
+      ]
+    },
+    {
+      house: 'fox',
+      name: 'Magic Shield',
+      desc: 'Immunity to Magic/Aether',
+      levels: [
+        { l: 1, cost: [{n:2, r:'ore'}] },
+        { l: 2, cost: [{n:2, r:'ore'}, {n:1, r:'steel'}] },
+        { l: 3, cost: [{n:2, r:'ore'}, {n:2, r:'steel'}] }
+      ]
+    },
+    {
+      house: 'fox',
+      name: 'Watchtower',
+      desc: 'Event interaction bonuses',
+      levels: [
+        { l: 1, cost: [{n:2, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 2, cost: [{n:2, r:'lumber'}, {n:1, r:'stone'}] },
+        { l: 3, cost: [{n:3, r:'lumber'}, {n:2, r:'brick'}] }
+      ]
+    },
+    // Owls
+    {
+      house: 'owl',
+      name: 'University',
+      desc: 'Increases Displayed Research',
+      levels: [
+        { l: 1, cost: [{n:2, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 2, cost: [{n:3, r:'wood'}, {n:2, r:'stone'}] },
+        { l: 3, cost: [{n:2, r:'lumber'}, {n:2, r:'brick'}] }
+      ]
+    },
+    {
+      house: 'owl',
+      name: 'Library',
+      desc: 'Increases Research Limit',
+      levels: [
+        { l: 1, cost: [{n:3, r:'wood'}] },
+        { l: 2, cost: [{n:4, r:'wood'}] },
+        { l: 3, cost: [{n:3, r:'lumber'}, {n:1, r:'steel'}] }
+      ]
+    },
+    {
+      house: 'owl',
+      name: 'Laboratory',
+      desc: 'Discount on Technology (Kn)',
+      levels: [
+        { l: 1, cost: [{n:1, r:'stone'}, {n:1, r:'ore'}] },
+        { l: 2, cost: [{n:2, r:'stone'}, {n:1, r:'steel'}] },
+        { l: 3, cost: [{n:2, r:'brick'}, {n:2, r:'steel'}] }
+      ]
+    },
+    {
+      house: 'owl',
+      name: 'Maginarium',
+      desc: 'Discount on Magic (In)',
+      levels: [
+        { l: 1, cost: [{n:1, r:'wood'}, {n:1, r:'ore'}] },
+        { l: 2, cost: [{n:2, r:'wood'}, {n:1, r:'steel'}] },
+        { l: 3, cost: [{n:2, r:'lumber'}, {n:2, r:'steel'}] }
+      ]
+    }
+  ];
+
+  function renderToken(b, lvl) {
+    let costs = lvl.cost.map(c => 
+      `<span class="cost-item"><span class="res-count">${c.n}</span><img class="res-icon" src="../icons/${c.r}.svg"></span>`
+    ).join('');
+
+    return `
+      <div class="token house-${b.house}">
+        <div class="header">${b.name}</div>
+        <div class="main-content">
+            <div class="level-indicator">Level ${lvl.l}</div>
+            <div class="description">${b.desc}</div>
+        </div>
+        <div class="cost-box">
+             <div class="cost-container">${costs}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  const container = document.getElementById('container');
+  
+  let currentSheet = document.createElement('div');
+  currentSheet.className = 'sheet';
+  container.appendChild(currentSheet);
+  
+  let count = 0;
+  buildings.forEach(b => {
+      b.levels.forEach(lvl => {
+          let div = document.createElement('div');
+          div.innerHTML = renderToken(b, lvl);
+          currentSheet.appendChild(div.firstElementChild);
+          count++;
+          
+          if (count % 12 === 0) {
+              currentSheet = document.createElement('div');
+              currentSheet.className = 'sheet';
+              container.appendChild(currentSheet);
+          }
+      });
+  });
+
+</script>
+
+</body>
+</html>

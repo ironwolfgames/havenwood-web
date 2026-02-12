@@ -1,5 +1,5 @@
 {
-  "csvFilePath": "../../components/cards/event_deck.csv",
+  "csvFilePath": "event_deck.csv",
   "units": "mm",
   "cardWidth": 63.5,
   "cardHeight": 88.9,
@@ -51,9 +51,9 @@
       "iconWidth": 10,
       "iconHeight": 10,
       "valueToIcon": {
-        "+1": "../components/icons/storm.svg",
-        "+2": "../components/icons/storm.svg",
-        "+3": "../components/icons/storm.svg"
+        "+1": "../icons/storm.svg",
+        "+2": "../icons/storm.svg",
+        "+3": "../icons/storm.svg"
       }
     },
     {

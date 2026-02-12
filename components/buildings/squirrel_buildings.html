@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Squirrel Buildings</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Raleway', sans-serif;
+      background-color: transparent;
+    }
+
+    #container {
+      display: grid;
+      grid-template-columns: repeat(6, 300px);
+      width: 1800px;
+      height: 900px;
+    }
+
+    .token {
+      width: 300px;
+      height: 300px;
+      background-color: white;
+      border: 2px solid #333;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      font-size: 14pt;
+      padding-bottom: 20px;
+    }
+
+    /* House Styles */
+    .house-squirrel { background-color: #e6d8c3; border-color: #8B4513; color: #3e1e05; }
+
+    .header {
+      width: 100%;
+      padding: 15px 0;
+      background: rgba(255,255,255,0.4);
+      font-weight: 700;
+      font-size: 18pt;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .main-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .level-indicator {
+        font-size: 14pt;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        opacity: 0.8;
+    }
+
+    .description {
+      font-size: 16pt;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .cost-box {
+        background: rgba(255,255,255,0.5);
+        border-radius: 4px;
+        padding: 8px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+    }
+
+    .cost-container { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        gap: 10px; 
+    }
+    
+    .cost-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .res-icon {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+    
+    .res-count {
+      font-weight: bold;
+      font-size: 18pt;
+      margin-right: 4px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div id="container"></div>
+
+<script>
+  const buildings = [
+    {
+      house: 'squirrel',
+      name: 'Farm',
+      desc: 'Harvests Food',
+      levels: [
+        { l: 1, cost: [{n:2, r:'wood'}] },
+        { l: 2, cost: [{n:2, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 3, cost: [{n:2, r:'wood'}, {n:2, r:'stone'}] }
+      ]
+    },
+    {
+      house: 'squirrel',
+      name: 'Forester Station',
+      desc: 'Harvests Wood',
+      levels: [
+        { l: 1, cost: [{n:2, r:'wood'}] },
+        { l: 2, cost: [{n:3, r:'wood'}] },
+        { l: 3, cost: [{n:3, r:'wood'}, {n:1, r:'lumber'}] }
+      ]
+    },
+    {
+      house: 'squirrel',
+      name: 'Mine',
+      desc: 'Harvests Ore',
+      levels: [
+        { l: 1, cost: [{n:2, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 2, cost: [{n:2, r:'wood'}, {n:2, r:'stone'}] },
+        { l: 3, cost: [{n:2, r:'wood'}, {n:2, r:'stone'}, {n:1, r:'steel'}] }
+      ]
+    },
+    {
+      house: 'squirrel',
+      name: 'Quarry',
+      desc: 'Harvests Stone',
+      levels: [
+        { l: 1, cost: [{n:2, r:'stone'}] },
+        { l: 2, cost: [{n:3, r:'stone'}] },
+        { l: 3, cost: [{n:4, r:'stone'}] }
+      ]
+    },
+    {
+      house: 'squirrel',
+      name: 'Mill',
+      desc: 'Produces Lumber',
+      levels: [
+        { l: 1, cost: [{n:1, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 2, cost: [{n:2, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 3, cost: [{n:2, r:'wood'}, {n:2, r:'stone'}] }
+      ]
+    },
+    {
+      house: 'squirrel',
+      name: 'Furnace',
+      desc: 'Produces Steel',
+      levels: [
+        { l: 1, cost: [{n:2, r:'ore'}, {n:1, r:'wood'}] },
+        { l: 2, cost: [{n:2, r:'ore'}, {n:2, r:'wood'}] },
+        { l: 3, cost: [{n:2, r:'ore'}, {n:2, r:'wood'}, {n:1, r:'brick'}] }
+      ]
+    }
+  ];
+
+  function renderToken(b, lvl) {
+    let costs = lvl.cost.map(c => 
+      `<span class="cost-item"><span class="res-count">${c.n}</span><img class="res-icon" src="../icons/${c.r}.svg"></span>`
+    ).join('');
+
+    return `
+      <div class="token house-${b.house}">
+        <div class="header">${b.name}</div>
+        <div class="main-content">
+            <div class="level-indicator">Level ${lvl.l}</div>
+            <div class="description">${b.desc}</div>
+        </div>
+        <div class="cost-box">
+             <div class="cost-container">${costs}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  const container = document.getElementById('container');
+  
+  // Arrange by columns (Level 1, then Level 2, then Level 3 for each building, or Building 1 L1, L2, L3)
+  // For TTS, usually you want rows or columns to align. 
+  // Let's do: Row 1 = Levels 1, Row 2 = Levels 2, Row 3 = Levels 3?
+  // Or: Column 1 = Building 1 (L1, L2, L3).
+  // The user didn't specify, but grouping by building seems logical.
+  // Wait, if I do 6 buildings (columns) x 3 levels (rows), it fits nicely.
+  
+  // Transpose the data so we iterate levels first then buildings?
+  // No, if I want [B1L1, B1L2, B1L3] in a column, then css grid flow is row default "1 2 3 4 5 6".
+  // If I want columns to be buildings:
+  // Grid 6 cols:
+  // Row 1: B1L1, B2L1, B3L1, B4L1, B5L1, B6L1
+  // Row 2: B1L2, B2L2, B3L2, B4L2, B5L2, B6L2
+  // Row 3: B1L3, B3L2... 
+  
+  // This seems like a better layout for TTS if you are picking "Level 1" buildings from a deck?
+  // Actually, in TTS, a deck is a sequence of images. Front ID 0, 1, 2...
+  // If we stack them, it matters.
+  // If we treat them as individual tiles, it doesn't matter too much.
+  
+  // I will just iterate them in order (B1L1, B1L2, B1L3, B2L1...)
+  // This means Row 1: B1L1, B1L2, B1L3, B2L1, B2L2, B2L3
+  // This seems fine.
+  
+  buildings.forEach(b => {
+      b.levels.forEach(lvl => {
+          let div = document.createElement('div');
+          div.innerHTML = renderToken(b, lvl);
+          container.appendChild(div.firstElementChild);
+      });
+  });
+
+</script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 {
-  "csvFilePath": "../../components/cards/deck_backs.csv",
+  "csvFilePath": "deck_backs.csv",
   "units": "mm",
   "cardWidth": 63.5,
   "cardHeight": 88.9,

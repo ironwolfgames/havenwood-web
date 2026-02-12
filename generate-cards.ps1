@@ -10,10 +10,16 @@ $decks = @(
     "action_deck",
     "deck_backs",
     "event_deck",
-    "great_works",
     "production_deck",
     "research_deck",
-    "reference_cards"
+    "reference_cards",
+
+    # great works
+    "heart_of_the_wood",
+    "the_aether_siphon",
+    "stoneweave_bastion",
+    "the_harmonic_resonator",
+    "the_genesis_vault"
 )
 
 foreach ($deck in $decks) {

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fox Buildings</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Raleway', sans-serif;
+      background-color: transparent;
+    }
+
+    #container {
+      display: grid;
+      grid-template-columns: repeat(5, 300px);
+      width: 1500px;
+      height: 900px;
+    }
+
+    .token {
+      width: 300px;
+      height: 300px;
+      border-radius: 4mm;
+      background-color: white;
+      border: 2px solid #333;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      font-size: 14pt;
+      padding-bottom: 20px;
+    }
+
+    /* House Styles */
+    .house-fox { background-color: #ffdab9; border-color: #D2691E; color: #5a2d0c; }
+
+    .header {
+      width: 100%;
+      padding: 15px 0;
+      background: rgba(255,255,255,0.4);
+      font-weight: 700;
+      font-size: 18pt;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .main-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .level-indicator {
+        font-size: 14pt;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        opacity: 0.8;
+    }
+
+    .description {
+      font-size: 16pt;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .cost-box {
+        background: rgba(255,255,255,0.5);
+        border-radius: 4px;
+        padding: 8px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+    }
+
+    .cost-container { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        gap: 10px; 
+    }
+    
+    .cost-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .res-icon {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+    
+    .res-count {
+      font-weight: bold;
+      font-size: 18pt;
+      margin-right: 4px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div id="container"></div>
+
+<script>
+  const buildings = [
+    {
+      house: 'fox',
+      name: 'Walls',
+      desc: 'Protection vs events (Area)',
+      levels: [
+        { l: 1, cost: [{n:2, r:'stone'}] },
+        { l: 2, cost: [{n:3, r:'stone'}] },
+        { l: 3, cost: [{n:4, r:'stone'}, {n:1, r:'brick'}] }
+      ]
+    },
+    {
+      house: 'fox',
+      name: 'Scouting Camp',
+      desc: 'Increases Exploration Distance',
+      levels: [
+        { l: 1, cost: [{n:2, r:'wood'}] },
+        { l: 2, cost: [{n:3, r:'wood'}] },
+        { l: 3, cost: [{n:3, r:'wood'}, {n:1, r:'lumber'}] }
+      ]
+    },
+    {
+      house: 'fox',
+      name: 'Fortifications',
+      desc: 'Protection vs events (Single)',
+      levels: [
+        { l: 1, cost: [{n:1, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 2, cost: [{n:2, r:'wood'}, {n:2, r:'stone'}] },
+        { l: 3, cost: [{n:2, r:'lumber'}, {n:2, r:'brick'}] }
+      ]
+    },
+    {
+      house: 'fox',
+      name: 'Magic Shield',
+      desc: 'Immunity to Magic/Aether',
+      levels: [
+        { l: 1, cost: [{n:2, r:'ore'}] },
+        { l: 2, cost: [{n:2, r:'ore'}, {n:1, r:'steel'}] },
+        { l: 3, cost: [{n:2, r:'ore'}, {n:2, r:'steel'}] }
+      ]
+    },
+    {
+      house: 'fox',
+      name: 'Watchtower',
+      desc: 'Event interaction bonuses',
+      levels: [
+        { l: 1, cost: [{n:2, r:'wood'}, {n:1, r:'stone'}] },
+        { l: 2, cost: [{n:2, r:'lumber'}, {n:1, r:'stone'}] },
+        { l: 3, cost: [{n:3, r:'lumber'}, {n:2, r:'brick'}] }
+      ]
+    }
+  ];
+
+  function renderToken(b, lvl) {
+    let costs = lvl.cost.map(c => 
+      `<span class="cost-item"><span class="res-count">${c.n}</span><img class="res-icon" src="../icons/${c.r}.svg"></span>`
+    ).join('');
+
+    return `
+      <div class="token house-${b.house}">
+        <div class="header">${b.name}</div>
+        <div class="main-content">
+            <div class="level-indicator">Level ${lvl.l}</div>
+            <div class="description">${b.desc}</div>
+        </div>
+        <div class="cost-box">
+             <div class="cost-container">${costs}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  const container = document.getElementById('container');
+  
+  buildings.forEach(b => {
+      b.levels.forEach(lvl => {
+          let div = document.createElement('div');
+          div.innerHTML = renderToken(b, lvl);
+          container.appendChild(div.firstElementChild);
+      });
+  });
+
+</script>
+
+</body>
+</html>

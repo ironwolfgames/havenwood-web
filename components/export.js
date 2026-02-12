@@ -14,59 +14,17 @@ const PLAYER_MAT_CONFIGS = [
 ];
 
 const BOARD_CONFIGS = [
-  { name: 'badger_worker_placement_board', width: 1100, height: 1700, folder: 'boards', output: 'boards' }
+  { name: 'badger_worker_placement_board', width: 1500, height: 2320, folder: 'boards', output: 'boards' },
+  { name: 'tech_magic_tree', width: 4800, height: 2400, folder: 'boards', output: 'boards' },
+  { name: 'threat_storm_track', width: 3232, height: 800, folder: 'boards', output: 'boards' }
 ];
 
 const DICE_CONFIGS = [
-  { name: 'harvest_face_1', width: 256, height: 256, folder: 'dice', output: 'dice' },
-  { name: 'harvest_face_2', width: 256, height: 256, folder: 'dice', output: 'dice' },
-  { name: 'harvest_face_3', width: 256, height: 256, folder: 'dice', output: 'dice' },
-  { name: 'harvest_face_bust', width: 256, height: 256, folder: 'dice', output: 'dice' },
-  { name: 'harvest_face_blank', width: 256, height: 256, folder: 'dice', output: 'dice' },
-  { name: 'harvest_dice', width: 900, height: 1200, folder: 'dice', output: 'dice' }
+  { name: 'harvest_dice_tts', width: 768, height: 512, folder: 'dice', output: 'dice' }
 ];
 
 const TILE_CONFIGS = [
-  { name: 'hex_central', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_food_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_food_02', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_food_03', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_food_04', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_insight_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_insight_02', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_insight_03', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_wood_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_wood_02', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_wood_03', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_wood_04', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_forest_wood_05', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_mountain_knowledge_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_mountain_ore_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_mountain_ore_02', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_mountain_ore_03', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_mountain_stone_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_mountain_stone_02', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_mountain_stone_03', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_mountain_stone_04', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_food_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_food_02', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_food_03', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_food_04', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_food_05', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_move_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_move_02', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_move_03', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_wood_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_wood_02', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_wood_03', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_plains_wood_04', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_river_food_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_river_food_02', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_river_food_03', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_river_fort_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_river_fort_02', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_river_insight_01', width: 400, height: 462, folder: 'tiles', output: 'tiles' },
-  { name: 'hex_river_insight_02', width: 400, height: 462, folder: 'tiles', output: 'tiles' }
+  { name: 'hex_tiles_deck', width: 3234, height: 2400, folder: 'tiles', output: 'tiles' },
 ];
 
 const TOKEN_CONFIGS = [
@@ -97,12 +55,25 @@ const TOKEN_CONFIGS = [
   { name: 'bandit_token', width: 300, height: 300, folder: 'tokens', output: 'tokens' },
   { name: 'knowledge_tracker', width: 300, height: 300, folder: 'tokens', output: 'tokens' },
   { name: 'insight_tracker', width: 300, height: 300, folder: 'tokens', output: 'tokens' },
-  { name: 'round_marker', width: 300, height: 300, folder: 'tokens', output: 'tokens' },
   // Large markers (450x450px / 1.5")
   { name: 'storm_marker', width: 450, height: 450, folder: 'tokens', output: 'tokens' }
 ];
 
-const ALL_CONFIGS = [...PLAYER_MAT_CONFIGS, ...BOARD_CONFIGS, ...DICE_CONFIGS, ...TILE_CONFIGS, ...TOKEN_CONFIGS];
+const BUILDING_CONFIGS = [
+  // Squirrel Buildings (6 cols x 3 rows)
+  { name: 'squirrel_buildings', width: 1800, height: 900, folder: 'buildings', output: 'buildings' },
+  { name: 'squirrel_building_back', width: 300, height: 300, folder: 'buildings', output: 'buildings' },
+
+  // Fox Buildings (5 cols x 3 rows)
+  { name: 'fox_buildings', width: 1500, height: 900, folder: 'buildings', output: 'buildings' },
+  { name: 'fox_building_back', width: 300, height: 300, folder: 'buildings', output: 'buildings' },
+
+  // Owl Buildings (4 cols x 3 rows)
+  { name: 'owl_buildings', width: 1200, height: 900, folder: 'buildings', output: 'buildings' },
+  { name: 'owl_building_back', width: 300, height: 300, folder: 'buildings', output: 'buildings' }
+];
+
+const ALL_CONFIGS = [...PLAYER_MAT_CONFIGS, ...BOARD_CONFIGS, ...DICE_CONFIGS, ...TILE_CONFIGS, ...TOKEN_CONFIGS, ...BUILDING_CONFIGS];
 
 async function exportHTML(htmlFile, outputFile, width, height) {
   console.log(`\nExporting ${htmlFile}...`);
@@ -182,6 +153,7 @@ async function main() {
   const exportDice = args.includes('--dice');
   const exportTiles = args.includes('--tiles');
   const exportTokens = args.includes('--tokens');
+  const exportBuildings = args.includes('--buildings');
 
   console.log('========================================');
   console.log('Houses of Havenwood - Component Export');
@@ -194,6 +166,7 @@ async function main() {
     await exportConfigs(DICE_CONFIGS, 'dice');
     await exportConfigs(TILE_CONFIGS, 'tiles');
     await exportConfigs(TOKEN_CONFIGS, 'tokens');
+    await exportConfigs(BUILDING_CONFIGS, 'buildings');
   } else if (exportMats) {
     await exportConfigs(PLAYER_MAT_CONFIGS, 'player mats');
   } else if (exportBoards) {
@@ -204,6 +177,8 @@ async function main() {
     await exportConfigs(TILE_CONFIGS, 'tiles');
   } else if (exportTokens) {
     await exportConfigs(TOKEN_CONFIGS, 'tokens');
+  } else if (exportBuildings) {
+    await exportConfigs(BUILDING_CONFIGS, 'buildings');
   } else {
     // Interactive mode or single file
     if (args.length === 0) {
@@ -214,6 +189,7 @@ async function main() {
       console.log('  node export.js --dice             Export all dice faces');
       console.log('  node export.js --tiles            Export all hex tiles');
       console.log('  node export.js --tokens           Export all tokens');
+      console.log('  node export.js --buildings        Export all buildings');
       console.log('  node export.js <component_name>   Export specific component');
       console.log('\nAvailable components:');
       console.log('\nPlayer Mats:');
@@ -228,14 +204,17 @@ async function main() {
       DICE_CONFIGS.forEach(config => {
         console.log(`  - ${config.name}`);
       });
-      console.log(`\nTiles: (${TILE_CONFIGS.length} hex tiles)`);
+      console.log(`\nTiles: (${TILE_CONFIGS.length} available)`);
+      console.log('  - hex_tiles_deck (Combined TTS deck - 7x6 grid)');
       console.log('  Use --tiles to export all tiles');
       console.log(`\nTokens: (${TOKEN_CONFIGS.length} tokens and markers)`);
       console.log('  Use --tokens to export all tokens');
+      console.log(`\nBuildings: (${BUILDING_CONFIGS.length} sheets)`);
+      console.log('  Use --buildings to export all buildings');
       console.log('\nExamples:');
       console.log('  node export.js squirrel_mat');
-      console.log('  node export.js harvest_face_1');
-      console.log('  node export.js hex_central');
+      console.log('  node export.js harvest_dice_tts');
+      console.log('  node export.js hex_tiles_deck');
       console.log('  node export.js food_token');
       console.log('  npm run export-all');
       return;

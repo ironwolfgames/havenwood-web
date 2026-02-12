@@ -1,5 +1,5 @@
 {
-  "csvFilePath": "../../components/cards/action_deck.csv",
+  "csvFilePath": "action_deck.csv",
   "units": "mm",
   "cardWidth": 63.5,
   "cardHeight": 88.9,
@@ -47,7 +47,7 @@
       "fontSize": 8,
       "fontWeight": "bold",
       "horizontalAlign": "center",
-      "icon": "../components/icons/food.svg",
+      "icon": "../icons/food.svg",
       "iconPosition": "left",
       "iconWidth": 10,
       "iconHeight": 10

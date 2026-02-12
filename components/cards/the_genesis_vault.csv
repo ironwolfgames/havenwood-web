@@ -1,0 +1,6 @@
+project_name,component_name,cost_text,dice_icon,quality_req
+The Genesis Vault,Intake Vents,3 Wood 1 Lumber,x,9
+The Genesis Vault,Stasis Chambers,2 Brick 1 Stone,x,12
+The Genesis Vault,Mutation Catalyst,2 Steel 1 Lumber,x,14
+The Genesis Vault,Life Support,1 Steel 1 Brick,x,16
+The Genesis Vault,Evolution Interface,1 Steel 1 Insight,x,18

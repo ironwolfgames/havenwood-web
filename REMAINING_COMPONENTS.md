@@ -715,11 +715,6 @@ Design as colored circles or house-shaped tokens:
    - Color: Black/grey with lightning
    - Icon: Storm cloud with lightning bolt
 
-9. **Round/Turn Marker**
-   - Shape: Circle (1")
-   - Color: White/neutral
-   - Text: "Round [number]" or just numbers 1-20
-
 **File Format:** PNG files with transparency, sized appropriately (300-450px)
 
 ---
@@ -815,7 +810,6 @@ No custom assets needed.
 
 ### Low Priority (Nice to Have)
 
-- [ ] Round/Turn Marker
 - [ ] Quality Dice (use standard d6)
 - [ ] Decorative elements for boards
 - [ ] Alternative art variants
